@@ -2,7 +2,7 @@ name: RunReport
   
 on:
   schedule:
-    - cron: '25 * * * *'
+    - cron: '31 * * * *'
   workflow_dispatch: 
   push:
     branches: [master]
