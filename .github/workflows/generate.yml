@@ -3,6 +3,7 @@ name: RunReport
 on:
   schedule:
     - cron: '15 * * * *'
+  workflow_dispatch: 
     
 jobs:
   run-report:
