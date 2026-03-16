@@ -30,7 +30,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: Run GenerateReport
-      run: python GenerateReport/GenerateReport.py
+      run: python main.py
 
     - name: Commit index.html
       run: |
