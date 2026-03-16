@@ -1,0 +1,10 @@
+name: generate  
+on:
+  schedule:
+    - cron: '55 * * * *'
+
+jobs:
+  build:
+    steps:
+      - name: Log time
+        run: date -u
