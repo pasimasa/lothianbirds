@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 # This file must be configured in Actions workflow for commit
 OUTPUT_FILE = "html/index.html" 
 TIMEZONE = "Europe/London"
+EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -23,12 +24,18 @@ def get_timestamp() -> str:
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
 
-def build_html(timestamp: str) -> str:
+def check_api_key() -> bool:
+    """Return True if eBird API key is set and not empty."""
+    return bool(os.environ.get(EBIRD_API_KEY_NAME))
+
+
+def build_html(timestamp: str, msg: str) -> str:
     """
     Build and return the HTML report as a string.
 
     Args:
         timestamp: The timestamp to embed in the report.
+        msg: Message to include on the page
 
     Returns:
         A complete HTML document as a string.
@@ -77,7 +84,7 @@ def build_html(timestamp: str) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp}</p>
+        <p>Generated {timestamp} - API test {msg}</p>
     </header>
 
     <div class="card">
@@ -112,10 +119,11 @@ def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
 
+    msg = 'success' if check_api_key() else 'failed'
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
-    html = build_html(timestamp)
+    html = build_html(timestamp, msg)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
