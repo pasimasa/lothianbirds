@@ -120,7 +120,7 @@ def main() -> None:
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
-    html = build_html(timestamp,  msg)
+    html = build_html(timestamp, msg)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
