@@ -7,8 +7,8 @@ Intended to be run on a schedule via GitHub Actions.
 
 # ── Standard library imports ───────────────────────────────────────────────
 import os
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
 # ── Constants ─────────────────────────────────────────────────────────────
