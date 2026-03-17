@@ -33,6 +33,7 @@ def build_html(timestamp: str, msg: str) -> str:
 
     Args:
         timestamp: The timestamp to embed in the report.
+        msg: Message to include on the page
 
     Returns:
         A complete HTML document as a string.
