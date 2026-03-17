@@ -7,6 +7,8 @@ Intended to be run on a schedule via GitHub Actions.
 
 # ── Standard library imports ───────────────────────────────────────────────
 import os
+import pandas as pd
+import requests
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -126,7 +128,7 @@ def get_recent_checklists():
     """ Query eBird API to get list of recent checklists """
     dates = get_last_n_days(6)
     checklist_list = []
-    for region in regions:
+    for region in REGIONS:
         for date in dates:
             url = f'https://api.ebird.org/v2/product/lists/' + region + '/' + date + '?maxResults=200'
             checklists = requests.get(url, headers=HEADERS).json()
