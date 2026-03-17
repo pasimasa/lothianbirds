@@ -22,7 +22,7 @@ def get_timestamp() -> str:
     """Return the current local time as a formatted string."""
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
-def check_api_key():
+def check_api_key() -> bool:
     """Return True if eBird API key is set and not empty."""
     api_key = os.environ.get('EBIRD_API_KEY')
     return bool(api_key)
