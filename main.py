@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 # This file must be configured in Actions workflow for commit
 OUTPUT_FILE = "html/index.html" 
 TIMEZONE = "Europe/London"
-EBIRD_API_KEY = "EBIRD_API_KEY"
+EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -25,7 +25,7 @@ def get_timestamp() -> str:
 
 def check_api_key() -> bool:
     """Return True if eBird API key is set and not empty."""
-    api_key = os.environ.get('EBIRD_API_KEY')
+    api_key = os.environ.get(EBIRD_API_KEY_NAME)
     return bool(api_key)
     
 def build_html(timestamp: str, msg: str) -> str:
