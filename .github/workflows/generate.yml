@@ -1,4 +1,6 @@
 name: RunReport
+env:
+  EBIRD_API_KEY: ${{ secrets.EBIRD_API_KEY }}
   
 on:
   schedule:
