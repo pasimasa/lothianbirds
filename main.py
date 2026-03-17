@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 # ── Constants ─────────────────────────────────────────────────────────────
 # This file must be configured in Actions workflow for commit
-OUTPUT_FILE = "index.html" 
+OUTPUT_FILE = "html/index.html" 
 TIMEZONE = "Europe/London"
 
 # ── Functions ─────────────────────────────────────────────────────────────
