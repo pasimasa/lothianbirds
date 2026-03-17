@@ -84,12 +84,12 @@ def build_html(timestamp: str, msg: str) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp} - API test {msg}</p>
+        <p>Generated {timestamp}</p>
     </header>
 
     <div class="card">
         <h2>Report Status</h2>
-        <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
+        <p class="timestamp">Last updated: <strong>{timestamp} -- API test {msg}</strong></p>
     </div>
 
     <footer>
