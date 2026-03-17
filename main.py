@@ -117,7 +117,6 @@ def main() -> None:
     print("Starting report generation...")
 
     msg = 'success' if check_api_key() else 'failed'
-        
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
