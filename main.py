@@ -22,8 +22,15 @@ def get_timestamp() -> str:
     """Return the current local time as a formatted string."""
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
-
-def build_html(timestamp: str) -> str:
+def check_api_key():
+    """Return true if eBird API key found"""
+    api_key = os.environ['EBIRD_API_KEY']
+    if len(api_key) > 0:
+        return true
+    else:
+        return false
+    
+def build_html(timestamp: str, msg) -> str:
     """
     Build and return the HTML report as a string.
 
@@ -77,7 +84,7 @@ def build_html(timestamp: str) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp}</p>
+        <p>Generated {timestamp} - API test {msg}</p>
     </header>
 
     <div class="card">
@@ -112,10 +119,16 @@ def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
 
+    msg = ''
+    if check_api_key():
+        msg =  'success'
+    else:
+        msg  =  'failed'
+        
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
-    html = build_html(timestamp)
+    html = build_html(timestamp,  msg)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
