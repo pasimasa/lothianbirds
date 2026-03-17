@@ -6,6 +6,7 @@ Intended to be run on a schedule via GitHub Actions.
 """
 
 # ── Standard library imports ───────────────────────────────────────────────
+import os
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
@@ -98,6 +99,10 @@ def write_report(html: str, output_file: str) -> None:
         html:        The HTML content to write.
         output_file: The path of the file to write to.
     """
+    output_dir = os.path.dirname(output_file)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
