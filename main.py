@@ -25,8 +25,7 @@ def get_timestamp() -> str:
 
 def check_api_key() -> bool:
     """Return True if eBird API key is set and not empty."""
-    api_key = os.environ.get(EBIRD_API_KEY_NAME)
-    return bool(api_key)
+    return bool(os.environ.get(EBIRD_API_KEY_NAME))
     
 def build_html(timestamp: str, msg: str) -> str:
     """
