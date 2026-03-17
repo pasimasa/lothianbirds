@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 
 # ── Constants ─────────────────────────────────────────────────────────────
 # This file must be configured in Actions workflow for commit
-OUTPUT_FILE = "html/index.html" 
+OUTPUT_FILE = "docs/index.html"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 
