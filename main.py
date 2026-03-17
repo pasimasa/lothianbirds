@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 # This file must be configured in Actions workflow for commit
 OUTPUT_FILE = "html/index.html" 
 TIMEZONE = "Europe/London"
+EBIRD_API_KEY = "EBIRD_API_KEY"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
