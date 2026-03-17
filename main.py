@@ -23,14 +23,11 @@ def get_timestamp() -> str:
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
 def check_api_key():
-    """Return true if eBird API key found"""
-    api_key = os.environ['EBIRD_API_KEY']
-    if len(api_key) > 0:
-        return true
-    else:
-        return false
+    """Return True if eBird API key is set and not empty."""
+    api_key = os.environ.get('EBIRD_API_KEY')
+    return bool(api_key)
     
-def build_html(timestamp: str, msg) -> str:
+def build_html(timestamp: str, msg: str) -> str:
     """
     Build and return the HTML report as a string.
 
@@ -119,11 +116,7 @@ def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
 
-    msg = ''
-    if check_api_key():
-        msg =  'success'
-    else:
-        msg  =  'failed'
+    msg = 'success' if check_api_key() else 'failed'
         
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
