@@ -30,11 +30,6 @@ def get_timestamp() -> str:
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
 
-def check_api_key() -> bool:
-    """Return True if eBird API key is set and not empty."""
-    return bool(os.environ.get(EBIRD_API_KEY_NAME))
-
-
 def build_html(timestamp: str, checklists) -> str:
     # Build checklist bullet points
     checklist_items = "\n".join(
@@ -131,7 +126,11 @@ def get_recent_checklists():
     for region in REGIONS:
         for date in dates:
             url = f'https://api.ebird.org/v2/product/lists/' + region + '/' + date + '?maxResults=200'
-            checklists = requests.get(url, headers=HEADERS).json()
+            try:
+                checklists = requests.get(url, headers=HEADERS).json()
+            except requests.RequestException as e:
+                print(f"Error fetching data for {region} on {date}: {e}")
+                continue
             df = pd.DataFrame.from_records(checklists) 
             checklist_list.append(df)
 
@@ -177,6 +176,11 @@ def write_report(html: str, output_file: str) -> None:
 def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
+    
+    # Validate API key is available
+    if not EBIRD_API_KEY:
+        print(f"Error: {EBIRD_API_KEY_NAME} environment variable not set")
+        return
 
     start_time = time.time() # Record start time
     
