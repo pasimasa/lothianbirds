@@ -1,4 +1,4 @@
-def build_html(timestamp: str, checklists: list) -> str:
+def build_html(timestamp: str, checklists: list, duration: float) -> str:
     # Build checklist bullet points
     checklist_items = "\n".join(
         f"<li><strong>{loc_name}</strong> — {user} — {obs_date}</li>"
@@ -72,7 +72,8 @@ def build_html(timestamp: str, checklists: list) -> str:
         {checklist_html}
     </div>
     <footer>
-        Generated automatically by GitHub Actions
+        Generated automatically by GitHub Actions<br>
+        Data fetching took {duration:.2f} seconds
     </footer>
 </body>
 </html>"""

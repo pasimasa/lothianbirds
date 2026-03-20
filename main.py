@@ -65,11 +65,11 @@ def get_recent_checklists():
     
     df = pd.concat(checklist_list, ignore_index=True)
 
-    # Convert isoObsDate to datetime
-    df['isoObsDate'] = pd.to_datetime(df['isoObsDate'])
+    # Convert isoObsDate to timezone-aware UTC datetime
+    df['isoObsDate'] = pd.to_datetime(df['isoObsDate'], utc=True)
 
-    # Remove checklist olders than 5 days (using time, not just date)
-    cutoff_time = datetime.now(timezone.utc) - timedelta(days=5)
+    # Remove checklists older than 5 days (UTC)
+    cutoff_time = pd.Timestamp.now(tz='UTC') - pd.Timedelta(days=5)
     df = df[df['isoObsDate'] >= cutoff_time]
 
     if df.empty:
@@ -81,7 +81,7 @@ def get_recent_checklists():
     df['obsDate'] = df['isoObsDate'].dt.strftime('%d/%m/%Y %H:%M')
     
     locations = df[['locName', 'userDisplayName', 'obsDate']].values.tolist()
-    
+
     return locations
 
 
@@ -115,9 +115,12 @@ def main() -> None:
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
+    checklists_start = time.time()
     checklists = get_recent_checklists()
+    duration = time.time() - checklists_start
+    print(f"  Checklists fetched in: {duration:.2f} seconds")
     
-    html = build_html(timestamp, checklists)
+    html = build_html(timestamp, checklists, duration)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
