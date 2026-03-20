@@ -48,7 +48,7 @@ def get_recent_checklists():
     checklist_list = []
     for region in REGIONS:
         for date in dates:
-            url = f'https://api.ebird.org/v2/product/lists/' + region + '/' + date + '?maxResults=200'
+            url = f'https://api.ebird.org/v2/product/lists/{region}/{date}?maxResults=200'
             try:
                 response = requests.get(url, headers=HEADERS)
                 response.raise_for_status()  # Will raise an HTTPError for bad responses
