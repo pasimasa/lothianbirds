@@ -1,8 +1,8 @@
-def build_html(timestamp: str, checklists) -> str:
+def build_html(timestamp: str, checklists: list) -> str:
     # Build checklist bullet points
     checklist_items = "\n".join(
-        f"<li><strong>{item[0]}</strong> — {item[1]} — {item[2]}</li>"
-        for item in checklists
+        f"<li><strong>{loc_name}</strong> — {user} — {obs_date}</li>"
+        for loc_name, user, obs_date in checklists
     )
     checklist_html = f"<ul class='checklist'>{checklist_items}</ul>"
 

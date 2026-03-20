@@ -60,8 +60,10 @@ def get_recent_checklists():
             checklist_list.append(df)
 
     # Combine all checklists to one data frame
-    if checklist_list:
-        df = pd.concat(checklist_list, ignore_index=True)
+    if not checklist_list:
+        return []
+    
+    df = pd.concat(checklist_list, ignore_index=True)
 
     # Convert isoObsDate to datetime
     df['isoObsDate'] = pd.to_datetime(df['isoObsDate'])
@@ -70,16 +72,16 @@ def get_recent_checklists():
     cutoff_time = datetime.now(timezone.utc) - timedelta(days=5)
     df = df[df['isoObsDate'] >= cutoff_time]
 
-    checklists = df['subId'].unique()
-    df.sort_values('isoObsDate', ascending=True, inplace=True)
+    if df.empty:
+        return []
+
+    df = df.sort_values('isoObsDate', ascending=True)
     
-    locations = []
-    for index, row in df.iterrows():
-        locName = row['loc']['locName']
-        user = row['userDisplayName']
-        obsDate = row['isoObsDate'].strftime('%d/%m/%Y %H:%M')
-        locations.append([locName, user, obsDate])
-        
+    df['locName'] = df['loc'].apply(lambda x: x['locName'])
+    df['obsDate'] = df['isoObsDate'].dt.strftime('%d/%m/%Y %H:%M')
+    
+    locations = df[['locName', 'userDisplayName', 'obsDate']].values.tolist()
+    
     return locations
 
 
