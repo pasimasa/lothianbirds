@@ -25,6 +25,7 @@ EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
 #URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
+DAYS_TO_SHOW = 5
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -44,7 +45,7 @@ def get_last_n_days(n=6):
 
 def get_recent_checklists():
     """ Query eBird API to get list of recent checklists """
-    dates = get_last_n_days(6)
+    dates = get_last_n_days(DAYS_TO_SHOW + 1) 
     checklist_list = []
     for region in REGIONS:
         for date in dates:
@@ -69,7 +70,7 @@ def get_recent_checklists():
     df['isoObsDate'] = pd.to_datetime(df['isoObsDate'], utc=True)
 
     # Remove checklists older than 5 days (UTC)
-    cutoff_time = pd.Timestamp.now(tz='UTC') - pd.Timedelta(days=5)
+    cutoff_time = pd.Timestamp.now(tz='UTC') - pd.Timedelta(days=DAYS_TO_SHOW)
     df = df[df['isoObsDate'] >= cutoff_time]
 
     if df.empty:
