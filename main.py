@@ -7,15 +7,25 @@ Intended to be run on a schedule via GitHub Actions.
 
 # ── Standard library imports ───────────────────────────────────────────────
 import os
-from datetime import datetime, timezone
+import pandas as pd
+import requests
+import time
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+# ── Local imports ──────────────────────────────────────────────────────────
+from html_generator import build_html
+
 # ── Constants ─────────────────────────────────────────────────────────────
-# This file must be configured in Actions workflow for commit
 OUTPUT_FILE = "docs/index.html"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
+EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
+HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
+#URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
+REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
+DAYS_TO_SHOW = 5
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -24,79 +34,56 @@ def get_timestamp() -> str:
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
 
 
-def check_api_key() -> bool:
-    """Return True if eBird API key is set and not empty."""
-    return bool(os.environ.get(EBIRD_API_KEY_NAME))
+def get_last_n_days(n=6):
+    """Generate list of dates for the last n days (including today) to use in API query"""
+    today = datetime.now()
+    dates = []
+    for i in range(n):
+        date = today - timedelta(days=i)
+        dates.append(date.strftime("%Y/%m/%d"))
+    return dates
 
+def get_recent_checklists():
+    """ Query eBird API to get list of recent checklists """
+    dates = get_last_n_days(DAYS_TO_SHOW + 1) 
+    checklist_list = []
+    for region in REGIONS:
+        for date in dates:
+            url = f'https://api.ebird.org/v2/product/lists/{region}/{date}?maxResults=200'
+            try:
+                response = requests.get(url, headers=HEADERS)
+                response.raise_for_status()  # Will raise an HTTPError for bad responses
+                checklists = response.json()
+            except (requests.RequestException, ValueError) as e:
+                print(f"Error fetching data for {region} on {date}: {e}")
+                continue
+            df = pd.DataFrame.from_records(checklists) 
+            checklist_list.append(df)
 
-def build_html(timestamp: str, msg: str) -> str:
-    """
-    Build and return the HTML report as a string.
+    # Combine all checklists to one data frame
+    if not checklist_list:
+        return []
+    
+    df = pd.concat(checklist_list, ignore_index=True)
 
-    Args:
-        timestamp: The timestamp to embed in the report.
-        msg: Message to include on the page
+    # Convert isoObsDate to timezone-aware UTC datetime
+    df['isoObsDate'] = pd.to_datetime(df['isoObsDate'], utc=True)
 
-    Returns:
-        A complete HTML document as a string.
-    """
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lothian Bird Report</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background: #f5f5f5;
-            color: #333;
-        }}
-        header {{
-            background: #2c6e49;
-            color: white;
-            padding: 24px 32px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-        }}
-        header h1 {{ margin: 0 0 4px; font-size: 28px; }}
-        header p  {{ margin: 0; opacity: 0.8; font-size: 14px; }}
-        .card {{
-            background: white;
-            border-radius: 8px;
-            padding: 24px 32px;
-            margin-bottom: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }}
-        .card h2 {{ margin: 0 0 12px; font-size: 18px; color: #2c6e49; }}
-        .timestamp {{ font-size: 14px; color: #666; }}
-        footer {{
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-            margin-top: 32px;
-        }}
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp}</p>
-    </header>
+    # Remove checklists older than 5 days (UTC)
+    cutoff_time = pd.Timestamp.now(tz='UTC') - pd.Timedelta(days=DAYS_TO_SHOW)
+    df = df[df['isoObsDate'] >= cutoff_time]
 
-    <div class="card">
-        <h2>Report Status</h2>
-        <p class="timestamp">Last updated: <strong>{timestamp} -- API test {msg}</strong></p>
-    </div>
+    if df.empty:
+        return []
 
-    <footer>
-        Generated automatically by GitHub Actions
-    </footer>
-</body>
-</html>"""
+    df = df.sort_values('isoObsDate', ascending=True)
+    
+    df['locName'] = df['loc'].apply(lambda x: x['locName'])
+    df['obsDate'] = df['isoObsDate'].dt.strftime('%d/%m/%Y %H:%M')
+    
+    locations = df[['locName', 'userDisplayName', 'obsDate']].values.tolist()
+
+    return locations
 
 
 def write_report(html: str, output_file: str) -> None:
@@ -118,12 +105,23 @@ def write_report(html: str, output_file: str) -> None:
 def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
+    
+    # Validate API key is available
+    if not EBIRD_API_KEY:
+        print(f"Error: {EBIRD_API_KEY_NAME} environment variable not set")
+        return
 
-    msg = 'success' if check_api_key() else 'failed'
+    start_time = time.time() # Record start time
+    
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
-    html = build_html(timestamp, msg)
+    checklists_start = time.time()
+    checklists = get_recent_checklists()
+    duration = time.time() - checklists_start
+    print(f"  Checklists fetched in: {duration:.2f} seconds")
+    
+    html = build_html(timestamp, checklists, duration)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
