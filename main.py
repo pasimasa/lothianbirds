@@ -14,13 +14,16 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+# ── Local imports ──────────────────────────────────────────────────────────
+from html_generator import build_html
+
 # ── Constants ─────────────────────────────────────────────────────────────
 OUTPUT_FILE = "docs/index.html"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
-URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
+#URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
 
 # ── Functions ─────────────────────────────────────────────────────────────
@@ -28,86 +31,6 @@ REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
 def get_timestamp() -> str:
     """Return the current local time as a formatted string."""
     return datetime.now(ZoneInfo(TIMEZONE)).strftime("%d/%m/%Y %H:%M")
-
-
-def build_html(timestamp: str, checklists) -> str:
-    # Build checklist bullet points
-    checklist_items = "\n".join(
-        f"<li><strong>{item[0]}</strong> — {item[1]} — {item[2]}</li>"
-        for item in checklists
-    )
-    checklist_html = f"<ul class='checklist'>{checklist_items}</ul>"
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lothian Bird Report</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background: #f5f5f5;
-            color: #333;
-        }}
-        header {{
-            background: #2c6e49;
-            color: white;
-            padding: 24px 32px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-        }}
-        header h1 {{ margin: 0 0 4px; font-size: 28px; }}
-        header p  {{ margin: 0; opacity: 0.8; font-size: 14px; }}
-        .card {{
-            background: white;
-            border-radius: 8px;
-            padding: 24px 32px;
-            margin-bottom: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }}
-        .card h2 {{ margin: 0 0 12px; font-size: 18px; color: #2c6e49; }}
-        .timestamp {{ font-size: 14px; color: #666; }}
-        .checklist {{
-            list-style: disc;
-            padding-left: 20px;
-            margin: 0;
-        }}
-        .checklist li {{
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }}
-        .checklist li:last-child {{ border-bottom: none; }}
-        footer {{
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-            margin-top: 32px;
-        }}
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp}</p>
-    </header>
-    <div class="card">
-        <h2>Report Status</h2>
-        <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
-    </div>
-    <div class="card">
-        <h2>Recent Checklists</h2>
-        {checklist_html}
-    </div>
-    <footer>
-        Generated automatically by GitHub Actions
-    </footer>
-</body>
-</html>"""
 
 
 def get_last_n_days(n=6):
@@ -127,21 +50,24 @@ def get_recent_checklists():
         for date in dates:
             url = f'https://api.ebird.org/v2/product/lists/' + region + '/' + date + '?maxResults=200'
             try:
-                checklists = requests.get(url, headers=HEADERS).json()
-            except requests.RequestException as e:
+                response = requests.get(url, headers=HEADERS)
+                response.raise_for_status()  # Will raise an HTTPError for bad responses
+                checklists = response.json()
+            except (requests.RequestException, ValueError) as e:
                 print(f"Error fetching data for {region} on {date}: {e}")
                 continue
             df = pd.DataFrame.from_records(checklists) 
             checklist_list.append(df)
 
     # Combine all checklists to one data frame
-    df = pd.concat(checklist_list)
+    if checklist_list:
+        df = pd.concat(checklist_list, ignore_index=True)
 
     # Convert isoObsDate to datetime
     df['isoObsDate'] = pd.to_datetime(df['isoObsDate'])
 
     # Remove checklist olders than 5 days (using time, not just date)
-    cutoff_time = datetime.now() - timedelta(days=5)
+    cutoff_time = datetime.now(timezone.utc) - timedelta(days=5)
     df = df[df['isoObsDate'] >= cutoff_time]
 
     checklists = df['subId'].unique()
