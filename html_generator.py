@@ -7,6 +7,24 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         for loc_name, user, obs_date in checklists
     )
     checklist_html = f"<ul class='checklist'>{checklist_items}</ul>"
+    
+    # Calculate summary statistics
+    num_checklists = len(checklists)
+    unique_birders = len(set(user for _, user, _ in checklists))
+    
+    # Build summary stats HTML
+    summary_html = f"""
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">{num_checklists}</div>
+            <div class="stat-label">Checklists</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">{unique_birders}</div>
+            <div class="stat-label">Number of birders</div>
+        </div>
+    </div>
+    """
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -24,7 +42,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
             color: #333;
         }}
         header {{
-            background: #2c6e49;
+            background: #4FA8D8;
             color: white;
             padding: 24px 32px;
             border-radius: 8px;
@@ -39,7 +57,29 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
             margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }}
-        .card h2 {{ margin: 0 0 12px; font-size: 18px; color: #2c6e49; }}
+        .card h2 {{ margin: 0 0 12px; font-size: 18px; color: #4FA8D8; }}
+        .stats-container {{
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+        }}
+        .stat-box {{
+            flex: 1;
+            background: #E8F4F8;
+            border-left: 4px solid #4FA8D8;
+            padding: 16px;
+            border-radius: 4px;
+        }}
+        .stat-number {{
+            font-size: 28px;
+            font-weight: bold;
+            color: #4FA8D8;
+            margin-bottom: 8px;
+        }}
+        .stat-label {{
+            font-size: 14px;
+            color: #666;
+        }}
         .timestamp {{ font-size: 14px; color: #666; }}
         .checklist {{
             list-style: disc;
@@ -63,10 +103,10 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
-        <p>Generated {timestamp}</p>
     </header>
     <div class="card">
-        <h2>Report Status</h2>
+        <h2>Report Summary</h2>
+        {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
     <div class="card">
@@ -75,7 +115,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
     </div>
     <footer>
         Generated automatically by GitHub Actions<br>
-        Data fetching took {duration:.2f} seconds
+        Data fetching took {duration:.0f} seconds
     </footer>
 </body>
 </html>"""
