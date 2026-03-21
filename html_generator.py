@@ -1,6 +1,5 @@
 import html
 
-
 def build_html(timestamp: str, checklists: list, duration: float) -> str:
     # Build checklist bullet points
     checklist_items = "\n".join(
