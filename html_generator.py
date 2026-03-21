@@ -103,6 +103,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
+        <p>Edinburgh, East Lothian, Midlothian, West Lothian</p>
     </header>
     <div class="card">
         <h2>Report Summary</h2>
