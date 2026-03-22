@@ -76,15 +76,24 @@ def get_recent_checklists():
     if df.empty:
         return []
 
+    # Get locations from checklists
+    checklist_ids = df['subId'].unique()
+    locations = {}
+    for index,  row in df.iterrows():
+        locName = row['loc']['locName']
+        locId = row['loc']['locId']
+        locations[locId] = locName
+
+
     df = df.sort_values('isoObsDate', ascending=True)
     
     df['locName'] = df['loc'].apply(lambda x: x['locName'])
+    df['locID'] = df['loc'].apply(lambda x: x['locId'])
     df['obsDate'] = df['isoObsDate'].dt.strftime('%d/%m/%Y %H:%M')
     
-    locations = df[['locName', 'userDisplayName', 'obsDate']].values.tolist()
+    checklists = df[['subId', 'locID', 'locName', 'userDisplayName', 'obsDate']].values.tolist()
 
-    return locations
-
+    return checklists
 
 def write_report(html: str, output_file: str) -> None:
     """
@@ -117,7 +126,9 @@ def main() -> None:
     print(f"  Timestamp : {timestamp}")
 
     checklists_start = time.time()
+
     checklists = get_recent_checklists()
+
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
     
