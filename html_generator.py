@@ -106,7 +106,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         <p>Edinburgh, East Lothian, Midlothian, West Lothian</p>
     </header>
     <div class="card">
-        <p>Notable bird sightings from eBird for last 5 days. Includes unverified records.</p>
+        <p>Last 5 days notable bird sightings from eBird. Includes unverified records.</p>
         <h2>Report Summary</h2>
         {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
