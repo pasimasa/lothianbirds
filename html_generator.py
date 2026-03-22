@@ -103,7 +103,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
 <body>
     <header>
         <h1>Lothian recent bird sightings</h1>
-        <p>Edinburgh, East Lothian, Midlothian, West Lothian</p>
+        <p>Past 5 days data from eBird covering Edinburgh, East Lothian, Midlothian and West Lothian. Includes unverified and provisional records</p>
     </header>
     <div class="card">
         <h2>Report Summary</h2>
