@@ -41,7 +41,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
     <style>
         body {{
             font-family: Arial, sans-serif;
-            max-width: 900px;
+            max-width: 1400px;
             margin: 40px auto;
             padding: 0 20px;
             background: #f5f5f5;
@@ -73,11 +73,11 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
             flex: 1;
             background: #E8F4F8;
             border-left: 4px solid #4FA8D8;
-            padding: 16px;
+            padding: 10px 14px;
             border-radius: 4px;
         }}
         .stat-number {{
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
             color: #4FA8D8;
             margin-bottom: 8px;
