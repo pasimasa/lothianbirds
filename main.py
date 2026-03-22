@@ -76,15 +76,6 @@ def get_recent_checklists():
     if df.empty:
         return []
 
-    # Get locations from checklists
-    checklist_ids = df['subId'].unique()
-    locations = {}
-    for index,  row in df.iterrows():
-        locName = row['loc']['locName']
-        locId = row['loc']['locId']
-        locations[locId] = locName
-
-
     df = df.sort_values('isoObsDate', ascending=True)
     
     df['locName'] = df['loc'].apply(lambda x: x['locName'])
