@@ -1,16 +1,19 @@
+# ── Standard library imports ───────────────────────────────────────────────
 import html
+
 
 def build_html(timestamp: str, checklists: list, duration: float) -> str:
     # Build checklist bullet points
     checklist_items = "\n".join(
         f"<li><strong>{html.escape(loc_name)}</strong> — {html.escape(user)} — {obs_date}</li>"
-        for loc_name, user, obs_date in checklists
+        for _, _, loc_name, user, obs_date in checklists # ignore first two values
     )
     checklist_html = f"<ul class='checklist'>{checklist_items}</ul>"
     
     # Calculate summary statistics
     num_checklists = len(checklists)
-    unique_birders = len(set(user for _, user, _ in checklists))
+    unique_birders = len(set(user for _, _, _, user, _ in checklists))
+    unique_locations = len(set(loc_id for _, loc_id, _, _, _ in checklists))
     
     # Build summary stats HTML
     summary_html = f"""
@@ -20,12 +23,15 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
             <div class="stat-label">Checklists</div>
         </div>
         <div class="stat-box">
+            <div class="stat-number">{unique_locations}</div>
+            <div class="stat-label">Locations</div>
+        </div>
+        <div class="stat-box">
             <div class="stat-number">{unique_birders}</div>
-            <div class="stat-label">Number of birders</div>
+            <div class="stat-label">Birders</div>
         </div>
     </div>
     """
-
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +112,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         <p>Edinburgh, East Lothian, Midlothian, West Lothian</p>
     </header>
     <div class="card">
-        <p>Last 5 days notable bird sightings from eBird. Includes unverified records.</p>
+        <p>Notable eBird sightings from the past 5 days, including unverified records.</p>
         <h2>Report Summary</h2>
         {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
