@@ -1,4 +1,5 @@
 # ── Standard library imports ───────────────────────────────────────────────
+import datetime
 import html
 
 
@@ -32,6 +33,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         </div>
     </div>
     """
+    accessed_date = datetime.date.today().strftime("%B %d, %Y")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
     <style>
         body {{
             font-family: Arial, sans-serif;
-            max-width: 900px;
+            max-width: 1400px;
             margin: 40px auto;
             padding: 0 20px;
             background: #f5f5f5;
@@ -127,6 +129,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         {checklist_html}
     </div>
     <footer>
+        eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: {accessed_date}).<br><br>
         Generated automatically by GitHub Actions<br>
         Data fetching took {duration:.0f} seconds
     </footer>

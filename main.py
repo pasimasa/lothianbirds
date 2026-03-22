@@ -25,7 +25,7 @@ EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
 #URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
-DAYS_TO_SHOW = 5
+DAYS_TO_SHOW = 1 # using 1 for debugging, revert to 5 for production
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
