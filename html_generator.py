@@ -99,7 +99,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         }}
         .report-summary-subtitle {{
             margin: -8px 0 16px;
-            font-size: 13px;
+            font-size: 14px;
             color: #888;
         }}
         .checklist li:last-child {{ border-bottom: none; }}
