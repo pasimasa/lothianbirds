@@ -1,4 +1,6 @@
+# ── Standard library imports ───────────────────────────────────────────────
 import html
+
 
 def build_html(timestamp: str, checklists: list, duration: float) -> str:
     # Build checklist bullet points
@@ -110,7 +112,7 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         <p>Edinburgh, East Lothian, Midlothian, West Lothian</p>
     </header>
     <div class="card">
-        <p>Last 5 days notable bird sightings from eBird. Includes unverified records.</p>
+        <p>Notable eBird sightings from the past 5 days, including unverified records.</p>
         <h2>Report Summary</h2>
         {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
