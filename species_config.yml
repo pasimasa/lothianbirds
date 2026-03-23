@@ -1,0 +1,803 @@
+"Snow Goose":
+  rarity: high
+
+"Graylag Goose":
+  local_name: Greylag Goose
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 200, oct: 200, nov: 200, dec: 100}
+
+"Lesser White-fronted Goose":
+  rarity: high
+
+"Greater White-fronted Goose":
+  local_name: White-fronted Goose
+  rarity: high
+
+"Tundra Bean-Goose":
+  local_name: Tundra Bean Goose
+  rarity: high
+
+"Pink-footed Goose":
+  min_count: {jan: 200, feb: 200, mar: 150, apr: 100, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 250, nov: 300, dec: 200}
+
+"Brant":
+  local_name: Brent Goose
+  rarity: medium
+
+"Barnacle Goose":
+  rarity: medium
+
+"Canada Goose":
+  min_count: {jan: 50, feb: 50, mar: 40, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 75, dec: 50}
+
+"Graylag x Canada Goose (hybrid)":
+  local_name: Greylag x Canada Goose (hybrid)
+  min_count: 5
+
+"Mute Swan":
+  min_count: {jan: 25, feb: 25, mar: 20, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 50, oct: 50, nov: 30, dec: 25}
+
+"Whooper Swan":
+  min_count: 1
+
+"Ruddy Shelduck":
+  rarity: high
+
+"Common Shelduck":
+  local_name: Shelduck
+  min_count: 10
+
+"Mandarin Duck":
+  rarity: medium
+
+"Garganey":
+  rarity: high
+
+"Northern Shoveler":
+  local_name: Shoveler
+
+"Gadwall":
+  min_count: {jan: 5, feb: 5, mar: 5, apr: 1, may: 1, jun: 1, jul: 1, aug: 1, sep: 5, oct: 5, nov: 5, dec: 5}
+
+"Eurasian Wigeon":
+  local_name: Wigeon
+  min_count: {jan: 75, feb: 75, mar: 50, apr: 10, may: 1, jun: 1, jul: 1, aug: 1, sep: 10, oct: 50, nov: 75, dec: 75}
+
+"Mallard":
+  min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 40, jul: 40, aug: 40, sep: 50, oct: 75, nov: 75, dec: 75}
+
+"Northern Pintail":
+  local_name: Pintail
+  rarity: medium
+
+"Green-winged Teal":
+  local_name: Teal
+  min_count: {jan: 40, feb: 30, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 75, oct: 75, nov: 50, dec: 50}
+
+"Common Pochard":
+  local_name: Pochard
+  rarity: medium
+
+"Tufted Duck":
+  min_count: {jan: 15, feb: 15, mar: 15, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 10, dec: 15}
+
+"Greater Scaup":
+  local_name: Scaup
+  rarity: medium
+
+"King Eider":
+  rarity: high
+
+"Common Eider":
+  local_name: Eider
+  min_count: {jan: 250, feb: 200, mar: 200, apr: 250, may: 250, jun: 250, jul: 250, aug: 250, sep: 250, oct: 250, nov: 250, dec: 250}
+
+"Surf Scoter":
+  rarity: high
+
+"Velvet Scoter":
+  min_count: {jan: 10, feb: 10, mar: 25, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 100, oct: 50, nov: 25, dec: 25}
+
+"Common Scoter":
+  min_count: {jan: 10, feb: 10, mar: 15, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 10, oct: 10, nov: 20, dec: 20}
+
+"White-winged Scoter":
+  rarity: high
+
+"Stejneger's Scoter":
+  rarity: high
+
+"Long-tailed Duck":
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 5, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 10, dec: 10}
+
+"Common Goldeneye":
+  local_name: Goldeneye
+  min_count: {jan: 20, feb: 15, mar: 10, apr: 5, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 10, dec: 20}
+
+"Smew":
+  rarity: high
+
+"Common Merganser":
+  local_name: Goosander
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 10, may: 10, jun: 20, jul: 50, aug: 50, sep: 25, oct: 20, nov: 20, dec: 20}
+
+"Red-breasted Merganser":
+  min_count: {jan: 20, feb: 15, mar: 10, apr: 10, may: 5, jun: 1, jul: 10, aug: 10, sep: 10, oct: 20, nov: 25, dec: 20}
+
+"Willow Ptarmigan":
+  local_name: Red Grouse
+  min_count: 20
+
+"Gray Partridge":
+  local_name: Grey Partridge
+  min_count: {jan: 1, feb: 1, mar: 2, apr: 2, may: 2, jun: 2, jul: 2, aug: 2, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Ring-necked Pheasant":
+  local_name: Pheasant
+  min_count: 25
+
+"Common Quail":
+  local_name: Quail
+  rarity: high
+
+"Rock Pigeon":
+  local_name: Feral Pigeon
+  min_count: 200
+
+"Stock Dove":
+  min_count: 10
+
+"Common Wood-Pigeon":
+  local_name: Wood Pigeon
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 75, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 100, dec: 100}
+
+"Eurasian Collared-Dove":
+  local_name: Collared Dove
+  min_count: 5
+
+"European Turtle-Dove":
+  local_name: Turtle Dove
+  rarity: high
+
+"Common Cuckoo":
+  local_name: Cuckoo
+  rarity: medium
+
+"Common Swift":
+  local_name: Swift
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 1, jun: 20, jul: 20, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Pallid Swift":
+  rarity: high
+
+"Water Rail":
+  rarity: medium
+
+"Eurasian Moorhen":
+  local_name: Moorhen
+  min_count: {jan: 12, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 12, oct: 12, nov: 12, dec: 12}
+
+"Eurasian Coot":
+  local_name: Coot
+  min_count: 15
+
+"Pied Avocet":
+  local_name: Avocet
+  rarity: high
+
+"Common Crane":
+  local_name: Crane
+  rarity: high
+
+"Eurasian Oystercatcher":
+  local_name: Oystercatcher
+  min_count: {jan: 150, feb: 150, mar: 200, apr: 200, may: 200, jun: 200, jul: 200, aug: 200, sep: 250, oct: 250, nov: 200, dec: 200}
+
+"Black-bellied Plover":
+  local_name: Grey Plover
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 10, dec: 10}
+
+"European Golden-Plover":
+  local_name: Golden Plover
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 20, dec: 10}
+
+"Common Ringed Plover":
+  local_name: Ringed Plover
+  min_count: {jan: 15, feb: 15, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 25, sep: 25, oct: 20, nov: 20, dec: 20}
+
+"Northern Lapwing":
+  local_name: Lapwing
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 100, dec: 100}
+
+"Whimbrel":
+
+"Eurasian Curlew":
+  local_name: Curlew
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 75, oct: 75, nov: 50, dec: 50}
+
+"Bar-tailed Godwit":
+  min_count: {jan: 50, feb: 50, mar: 40, apr: 40, may: 25, jun: 25, jul: 25, aug: 25, sep: 100, oct: 100, nov: 50, dec: 50}
+
+"Black-tailed Godwit":
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 1, jun: 1, jul: 1, aug: 1, sep: 2, oct: 1, nov: 1, dec: 1}
+
+"Jack Snipe":
+  rarity: medium
+
+"Eurasian Woodcock":
+  local_name: Woodcock
+  rarity: medium
+
+"Common Snipe":
+  local_name: Snipe
+  min_count: {jan: 3, feb: 3, mar: 5, apr: 5, may: 5, jun: 5, jul: 5, aug: 5, sep: 5, oct: 6, nov: 5, dec: 5}
+
+"Red Phalarope":
+  local_name: Grey Phalarope
+  rarity: high
+
+"Common Sandpiper":
+
+"Green Sandpiper":
+  rarity: medium
+
+"Marsh Sandpiper":
+  rarity: high
+
+"Wood Sandpiper":
+  rarity: medium
+
+"Common Redshank":
+  local_name: Redshank
+  min_count: {jan: 50, feb: 50, mar: 75, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 125, oct: 100, nov: 100, dec: 100}
+
+"Spotted Redshank":
+  rarity: high
+
+"Common Greenshank":
+  local_name: Greenshank
+  min_count: 1
+
+"Ruddy Turnstone":
+  local_name: Turnstone
+  min_count: {jan: 20, feb: 20, mar: 25, apr: 30, may: 30, jun: 30, jul: 30, aug: 30, sep: 25, oct: 25, nov: 25, dec: 30}
+
+"Red Knot":
+  local_name: Knot
+  min_count: {jan: 25, feb: 10, mar: 10, apr: 10, may: 1, jun: 1, jul: 5, aug: 5, sep: 15, oct: 25, nov: 25, dec: 25}
+
+"Ruff":
+  rarity: medium
+
+"Curlew Sandpiper":
+  rarity: medium
+
+"Sanderling":
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 1, may: 1, jun: 1, jul: 1, aug: 10, sep: 10, oct: 10, nov: 10, dec: 10}
+
+"Dunlin":
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 20, may: 20, jun: 10, jul: 10, aug: 20, sep: 50, oct: 50, nov: 50, dec: 50}
+
+"Baird's Sandpiper":
+  rarity: high
+
+"Little Stint":
+  rarity: medium
+
+"White-rumped Sandpiper":
+  rarity: high
+
+"Pectoral Sandpiper":
+  rarity: high
+
+"Long-tailed Jaeger":
+  local_name: Long-tailed Skua
+  rarity: high
+
+"Parasitic Jaeger":
+  local_name: Arctic Skua
+  rarity: medium
+
+"Pomarine Jaeger":
+  local_name: Pomarine Skua
+  rarity: high
+
+"Great Skua":
+  rarity: high
+
+"Atlantic Puffin":
+  local_name: Puffin
+
+"Black Guillemot":
+  rarity: high
+
+"Razorbill":
+  min_count: {jan: 1, feb: 1, mar: 10, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 50, oct: 50, nov: 20, dec: 20}
+
+"Dovekie":
+  local_name: Little Auk
+  rarity: high
+
+"Common Murre":
+  local_name: Guillemot
+  min_count: {jan: 1, feb: 1, mar: 5, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 5, dec: 5}
+
+"Little Gull":
+
+"Black-legged Kittiwake":
+  local_name: Kittiwake
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Black-headed Gull":
+  min_count: {jan: 250, feb: 200, mar: 200, apr: 200, may: 200, jun: 200, jul: 200, aug: 250, sep: 250, oct: 250, nov: 250, dec: 250}
+
+"Mediterranean Gull":
+  rarity: medium
+
+"Common Gull":
+  min_count: {jan: 100, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 75, oct: 100, nov: 200, dec: 150}
+
+"Ring-billed Gull":
+  rarity: high
+
+"Sabine's Gull":
+  rarity: high
+
+"Caspian Gull":
+  rarity: high
+
+"European Herring Gull":
+  local_name: Herring Gull
+  min_count: {jan: 200, feb: 150, mar: 150, apr: 150, may: 150, jun: 150, jul: 150, aug: 150, sep: 175, oct: 200, nov: 250, dec: 250}
+
+"Great Black-backed Gull":
+  min_count: {jan: 20, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 25, oct: 25, nov: 25, dec: 25}
+
+"Glaucous Gull":
+  rarity: high
+
+"Lesser Black-backed Gull":
+  min_count: {jan: 1, feb: 2, mar: 25, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 50, oct: 25, nov: 5, dec: 2}
+
+"Yellow-legged Gull":
+  rarity: high
+
+"Iceland Gull":
+  rarity: high
+
+"Black Tern":
+  rarity: high
+
+"Common Tern":
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 5, jul: 10, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Roseate Tern":
+  rarity: high
+
+"Little Tern":
+  rarity: medium
+
+"Sandwich Tern":
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 10, jun: 10, jul: 10, aug: 10, sep: 5, oct: 1, nov: 1, dec: 1}
+
+"Bridled Tern":
+  rarity: high
+
+"Little Grebe":
+  min_count: {jan: 5, feb: 5, mar: 5, apr: 5, may: 5, jun: 5, jul: 5, aug: 5, sep: 5, oct: 6, nov: 5, dec: 5}
+
+"Horned Grebe":
+  local_name: Slavonian Grebe
+  min_count: {jan: 3, feb: 2, mar: 1, apr: 1, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 3, dec: 3}
+
+"Red-necked Grebe":
+  rarity: medium
+
+"Great Crested Grebe":
+  min_count: {jan: 3, feb: 3, mar: 3, apr: 3, may: 1, jun: 1, jul: 1, aug: 1, sep: 2, oct: 3, nov: 3, dec: 3}
+
+"Eared Grebe":
+  local_name: Black-necked Grebe
+  rarity: high
+
+"Red-throated Loon":
+  local_name: Red-throated Diver
+  min_count: {jan: 5, feb: 3, mar: 3, apr: 3, may: 1, jun: 1, jul: 1, aug: 1, sep: 3, oct: 5, nov: 5, dec: 5}
+
+"Arctic Loon":
+  local_name: Black-throated Diver
+  rarity: medium
+
+"Common Loon":
+  local_name: Great Northern Diver
+  rarity: high
+
+"Yellow-billed Loon":
+  local_name: White-billed Diver
+  rarity: high
+
+"Northern Fulmar":
+  local_name: Fulmar
+  min_count: {jan: 1, feb: 2, mar: 5, apr: 5, may: 5, jun: 5, jul: 5, aug: 5, sep: 2, oct: 1, nov: 1, dec: 1}
+
+"Sooty Shearwater":
+  rarity: high
+
+"Manx Shearwater":
+  rarity: medium
+
+"Northern Gannet":
+  local_name: Gannet
+  min_count: {jan: 1, feb: 2, mar: 10, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 50, oct: 20, nov: 5, dec: 1}
+
+"Great Cormorant":
+  local_name: Cormorant
+  min_count: {jan: 15, feb: 15, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 25, oct: 25, nov: 20, dec: 20}
+
+"European Shag":
+  local_name: Shag
+  min_count: {jan: 15, feb: 15, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 20, oct: 30, nov: 20, dec: 20}
+
+"Eurasian Spoonbill":
+  local_name: Spoonbill
+  rarity: high
+
+"Eurasian Bittern":
+  local_name: Bittern
+  rarity: high
+
+"Little Egret":
+  min_count: 1
+
+"Great Egret":
+  local_name: Great White Egret
+  rarity: high
+
+"Gray Heron":
+  local_name: Grey Heron
+  min_count: 10
+
+"Glossy Ibis":
+  rarity: high
+
+"Osprey":
+  rarity: medium
+
+"Eurasian Sparrowhawk":
+  local_name: Sparrowhawk
+  min_count: 3
+
+"Eurasian Goshawk":
+  local_name: Goshawk
+  rarity: medium
+
+"Western Marsh Harrier":
+  local_name: Marsh Harrier
+  rarity: high
+
+"Hen Harrier":
+  rarity: high
+
+"Red Kite":
+  rarity: medium
+
+"Common Buzzard":
+  local_name: Buzzard
+  min_count: 4
+
+"Western Barn Owl":
+  local_name: Barn Owl
+  min_count: 2
+
+"Tawny Owl":
+  min_count: 2
+
+"Short-eared Owl":
+  rarity: medium
+
+"Common Kingfisher":
+  local_name: Kingfisher
+  min_count: {jan: 2, feb: 2, mar: 2, apr: 2, may: 2, jun: 2, jul: 2, aug: 2, sep: 2, oct: 3, nov: 2, dec: 2}
+
+"Eurasian Wryneck":
+  local_name: Wryneck
+  rarity: high
+
+"Great Spotted Woodpecker":
+  min_count: 5
+
+"Eurasian Green Woodpecker":
+  local_name: Green Woodpecker
+  rarity: medium
+
+"Eurasian Kestrel":
+  local_name: Kestrel
+  min_count: 3
+
+"Merlin":
+  rarity: medium
+
+"Eurasian Hobby":
+  local_name: Hobby
+  rarity: high
+
+"Rose-ringed Parakeet":
+  local_name: Ring-necked Parakeet
+  rarity: medium
+
+"Red-backed Shrike":
+  rarity: high
+
+"Great Gray Shrike":
+  local_name: Great Grey Shrike
+  rarity: high
+
+"Eurasian Jay":
+  local_name: Jay
+  min_count: 3
+
+"Eurasian Magpie":
+  local_name: Magpie
+  min_count: {jan: 30, feb: 25, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 25, oct: 30, nov: 30, dec: 30}
+
+"Eurasian Jackdaw":
+  local_name: Jackdaw
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 100, oct: 150, nov: 150, dec: 100}
+
+"Rook":
+  min_count: {jan: 50, feb: 25, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 50, oct: 75, nov: 50, dec: 50}
+
+"Carrion Crow":
+  min_count: {jan: 150, feb: 100, mar: 75, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 75, oct: 100, nov: 150, dec: 150}
+
+"Hooded Crow":
+  rarity: medium
+
+"Common Raven":
+  local_name: Raven
+  min_count: 5
+
+"Carrion x Hooded Crow (hybrid)":
+  min_count: 10
+
+"Coal Tit":
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 6, may: 6, jun: 6, jul: 6, aug: 6, sep: 10, oct: 15, nov: 15, dec: 15}
+
+"Eurasian Blue Tit":
+  local_name: Blue Tit
+  min_count: {jan: 25, feb: 20, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 20, oct: 25, nov: 20, dec: 25}
+
+"Great Tit":
+  min_count: {jan: 15, feb: 15, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 15, oct: 20, nov: 20, dec: 15}
+
+"Eurasian Skylark":
+  local_name: Skylark
+  min_count: {jan: 10, feb: 10, mar: 20, apr: 20, may: 20, jun: 20, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 15}
+
+"Wood Lark":
+  local_name: Woodlark
+  rarity: high
+
+"Horned Lark":
+  local_name: Shore Lark
+  rarity: high
+
+"Sedge Warbler":
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 2, jul: 2, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Common Reed Warbler":
+  local_name: Reed Warbler
+  rarity: high
+
+"Common Grasshopper Warbler":
+  local_name: Grasshopper Warbler
+
+"Bank Swallow":
+  local_name: Sand Martin
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 25, may: 50, jun: 50, jul: 50, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Barn Swallow":
+  local_name: Swallow
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 30, jun: 30, jul: 30, aug: 25, sep: 5, oct: 1, nov: 1, dec: 1}
+
+"Western House-Martin":
+  local_name: House Martin
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 20, jun: 20, jul: 20, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Wood Warbler":
+  rarity: high
+
+"Yellow-browed Warbler":
+  rarity: high
+
+"Willow Warbler":
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 15, jun: 15, jul: 15, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Common Chiffchaff":
+  local_name: Chiffchaff
+  min_count: {jan: 1, feb: 1, mar: 5, apr: 10, may: 20, jun: 20, jul: 20, aug: 10, sep: 3, oct: 1, nov: 1, dec: 1}
+
+"Greenish Warbler":
+  rarity: high
+
+"Long-tailed Tit":
+  min_count: {jan: 25, feb: 15, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 20, oct: 20, nov: 20, dec: 25}
+
+"Eurasian Blackcap":
+  local_name: Blackcap
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 3, may: 10, jun: 10, jul: 10, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Garden Warbler":
+  rarity: medium
+
+"Lesser Whitethroat":
+  rarity: medium
+
+"Barred Warbler":
+  rarity: high
+
+"Icterine Warbler":
+  rarity: high
+
+"Greater Whitethroat":
+  local_name: Whitethroat
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 7, jul: 7, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+
+"Goldcrest":
+  min_count: {jan: 10, feb: 6, mar: 6, apr: 6, may: 6, jun: 6, jul: 6, aug: 6, sep: 6, oct: 10, nov: 10, dec: 10}
+
+"Common Firecrest":
+  local_name: Firecrest
+  rarity: high
+
+"Eurasian Nuthatch":
+  local_name: Nuthatch
+  min_count: 4
+
+"Eurasian Treecreeper":
+  local_name: Treecreeper
+  min_count: 4
+
+"Eurasian Wren":
+  local_name: Wren
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 20, oct: 20, nov: 20, dec: 20}
+
+"White-throated Dipper":
+  local_name: Dipper
+  min_count: 3
+
+"European Starling":
+  local_name: Starling
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 200, nov: 100, dec: 50}
+
+"Rosy Starling":
+  rarity: high
+
+"Mistle Thrush":
+  min_count: {jan: 5, feb: 5, mar: 5, apr: 5, may: 5, jun: 5, jul: 5, aug: 5, sep: 5, oct: 10, nov: 5, dec: 5}
+
+"Song Thrush":
+  min_count: {jan: 10, feb: 7, mar: 7, apr: 7, may: 7, jun: 7, jul: 7, aug: 7, sep: 10, oct: 10, nov: 10, dec: 10}
+
+"Redwing":
+  min_count: {jan: 50, feb: 40, mar: 30, apr: 10, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 50, dec: 50}
+
+"Eurasian Blackbird":
+  local_name: Blackbird
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 15, oct: 15, nov: 15, dec: 20}
+
+"Fieldfare":
+  min_count: {jan: 50, feb: 50, mar: 40, apr: 40, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 50, dec: 50}
+
+"Ring Ouzel":
+  rarity: medium
+
+"Common Redstart":
+  local_name: Redstart
+  rarity: medium
+
+"Black Redstart":
+  rarity: high
+
+"Whinchat":
+  rarity: medium
+
+"European Robin":
+  local_name: Robin
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 20, oct: 25, nov: 25, dec: 20}
+
+"Red-breasted Flycatcher":
+  rarity: high
+
+"European Pied Flycatcher":
+  local_name: Pied Flycatcher
+  rarity: medium
+
+"European Stonechat":
+  local_name: Stonechat
+  min_count: {jan: 5, feb: 5, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 8, nov: 8, dec: 8}
+
+"Northern Wheatear":
+  local_name: Wheatear
+
+"Bohemian Waxwing":
+  local_name: Waxwing
+  rarity: medium
+
+"Dunnock":
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 15, dec: 15}
+
+"House Sparrow":
+  min_count: {jan: 30, feb: 25, mar: 25, apr: 30, may: 30, jun: 30, jul: 30, aug: 30, sep: 30, oct: 30, nov: 30, dec: 30}
+
+"Eurasian Tree Sparrow":
+  local_name: Tree Sparrow
+  min_count: 10
+
+"Gray Wagtail":
+  local_name: Grey Wagtail
+  min_count: 3
+
+"White Wagtail":
+  local_name: Pied/White Wagtail
+  min_count: {jan: 20, feb: 20, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 30, oct: 20, nov: 20, dec: 20}
+
+"Western Yellow Wagtail":
+  local_name: Yellow Wagtail
+  rarity: medium
+
+"Meadow Pipit":
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 30, oct: 30, nov: 20, dec: 20}
+
+"Tree Pipit":
+  rarity: medium
+
+"Water Pipit":
+  rarity: high
+
+"Rock Pipit":
+  min_count: {jan: 3, feb: 3, mar: 3, apr: 3, may: 3, jun: 3, jul: 3, aug: 3, sep: 3, oct: 5, nov: 5, dec: 3}
+
+"Common Chaffinch":
+  local_name: Chaffinch
+  min_count: {jan: 50, feb: 40, mar: 30, apr: 30, may: 30, jun: 30, jul: 30, aug: 30, sep: 30, oct: 50, nov: 50, dec: 50}
+
+"Brambling":
+  rarity: medium
+
+"Hawfinch":
+  rarity: high
+
+"Eurasian Bullfinch":
+  local_name: Bullfinch
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 15, dec: 15}
+
+"European Greenfinch":
+  local_name: Greenfinch
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 15}
+
+"Eurasian Linnet":
+  local_name: Linnet
+  min_count: {jan: 20, feb: 20, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 25, oct: 25, nov: 50, dec: 50}
+
+"Redpoll":
+  min_count: {jan: 10, feb: 5, mar: 5, apr: 2, may: 2, jun: 2, jul: 2, aug: 2, sep: 5, oct: 10, nov: 15, dec: 15}
+
+"Red Crossbill":
+  local_name: Common Crossbill
+
+"European Goldfinch":
+  local_name: Goldfinch
+  min_count: {jan: 50, feb: 40, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 35, oct: 50, nov: 50, dec: 50}
+
+"Eurasian Siskin":
+  local_name: Siskin
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 15, may: 15, jun: 15, jul: 15, aug: 15, sep: 35, oct: 25, nov: 25, dec: 20}
+
+"Snow Bunting":
+  rarity: medium
+
+"Yellowhammer":
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 10, dec: 10}
+
+"Reed Bunting":
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 10}
