@@ -193,7 +193,7 @@ def main() -> None:
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
     
-    html = build_html(timestamp, checklists, duration)
+    html = build_html(timestamp, obs, duration)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
