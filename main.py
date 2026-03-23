@@ -14,6 +14,8 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import yaml
+
 # ── Local imports ──────────────────────────────────────────────────────────
 from html_generator import build_html
 
@@ -23,9 +25,10 @@ TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
-#URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
 DAYS_TO_SHOW = 1 # using 1 for debugging, revert to 5 for production
+CONFIG_YAML_FILE_NAME = "species_config.yml"
+TAXON_FILE_NAME = "ebird_taxon.csv"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -99,6 +102,68 @@ def write_report(html: str, output_file: str) -> None:
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
+def get_species_config(yaml_file: str) -> dict:
+    """
+    Read species configuration details from yaml config file, return that as dictionary
+    """
+    with open(yaml_file, 'r', encoding='utf-8') as file:
+        bird_config = yaml.safe_load(file) 
+
+    return bird_config
+
+
+def get_taxon_config(taxon_file: str) -> pd.DataFrame:
+    """
+    Read eBird taxon file and return as dataframe
+    """
+    return pd.read_csv(taxon_file)
+
+
+def get_checklists_obs(checklist_list):
+    """
+    Query eBird API to get bird records for each checklist.
+    Returns observations dataframe
+    """
+    obs = []
+    i = 0
+    for checklist_item in checklist_list:
+        i += 1
+        if i > 10: # limit to 10 for testing, remove for production
+            break
+        try:
+            checklist_id = checklist_item[0]
+            url = f'https://api.ebird.org/v2/product/checklist/view/{checklist_id}'
+            response = requests.get(url, headers=HEADERS)
+            response.raise_for_status()
+            sub = response.json()
+            
+            obsDate = sub.get('obsDt')
+            
+            obs_df = pd.DataFrame.from_records(sub.get('obs'))
+            
+            if not obs_df.empty: # ignore checklists with no species
+                obs_df['subId'] = checklist_id
+                obs_df['locName'] = checklist_item[2]
+                obs_df['obsDt'] = obsDate
+                obs_df['userDisplayName'] = checklist_item[3]
+                obs.append(obs_df)
+        except (requests.RequestException, ValueError) as e:
+            print(f"Error with checklist {checklist_id}")
+
+    if len(obs) > 0:
+        observations = pd.concat(obs)
+        return observations
+    else:
+        return pd.DataFrame()
+
+
+def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add taxon order, common and scientific names, convert sub-species to species
+    """
+    # TODO
+    return observations
+    
 
 # ── Main ──────────────────────────────────────────────────────────────────
 
@@ -118,12 +183,20 @@ def main() -> None:
 
     checklists_start = time.time()
 
+    # Read configs
+    # TODO - loading species config and taxon to be used later
+    species_config = get_species_config(CONFIG_YAML_FILE_NAME)
+    taxon = get_taxon_config(TAXON_FILE_NAME)
+    
     checklists = get_recent_checklists()
+    obs = get_checklists_obs(checklists)
 
+    obs = update_obs_taxon(obs, taxon)
+    
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
     
-    html = build_html(timestamp, checklists, duration)
+    html = build_html(timestamp, obs, duration)
     write_report(html, OUTPUT_FILE)
     print(f"  Output    : {OUTPUT_FILE}")
 
