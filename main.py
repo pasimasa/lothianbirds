@@ -112,7 +112,7 @@ def get_species_config(yaml_file: str) -> dict:
     return bird_config
 
 
-def get_taxon_config(taxon_file):
+def get_taxon_config(taxon_file: str) -> pd.DataFrame:
     """
     Read eBird taxon file and return as dataframe
     """
