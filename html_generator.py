@@ -95,11 +95,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             flex: 1;
             background: #E8F4F8;
             border-left: 4px solid #4FA8D8;
-            padding: 16px;
+            padding: 10px 14px;
             border-radius: 4px;
         }}
         .stat-number {{
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
             color: #4FA8D8;
             margin-bottom: 8px;
