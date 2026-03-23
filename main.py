@@ -27,6 +27,7 @@ HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
 DAYS_TO_SHOW = 1 # using 1 for debugging, revert to 5 for production
 CONFIG_YAML_FILE_NAME = "species_config.yaml"
+TAXON_FILE_NAME = "ebird_taxon.csv"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -109,6 +110,14 @@ def get_species_config(yaml_file):
 
     return bird_config
 
+
+def get_taxon_config(taxon_file):
+    """
+    Read eBird taxon file and return as dataframe
+    """
+    return pd.read_csv(taxon_file)
+
+
 def get_checklist_obs(checlists_list):
     """
     Query eBird API to get bird records for each checklist.
@@ -142,6 +151,14 @@ def get_checklist_obs(checlists_list):
         return []
 
 
+def update_obs_taxon(obsservations, taxon):
+    """
+    Add taxon order, common and scientific names, convert sub-species to species
+    """
+    # TODO
+    return 0
+    
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -160,12 +177,14 @@ def main() -> None:
 
     checklists_start = time.time()
 
-    # Read species config
+    # Read configs
     species_config = get_species_config(CONFIG_YAML_FILE_NAME)
+    taxon = get_taxon_config(TAXON_FILE_NAME)
     
     checklists = get_recent_checklists()
-
     obs = get_cheklists_obs(checklists)
+
+    obs = update_obs_taxon(obs, taxon)
     
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
