@@ -12,6 +12,7 @@ import requests
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+import yaml
 from zoneinfo import ZoneInfo
 
 # ── Local imports ──────────────────────────────────────────────────────────
@@ -23,9 +24,9 @@ TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
-#URL_BASE = 'https://ebird.org/ws2.0/data/obs/GB-SCT-ELN,GB-SCT-EDH,GB-SCT-MLN,GB-SCT-WLN/'
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
 DAYS_TO_SHOW = 1 # using 1 for debugging, revert to 5 for production
+CONFIG_YAML_FILE_NAME = "species_config.yaml"
 
 # ── Functions ─────────────────────────────────────────────────────────────
 
@@ -99,6 +100,47 @@ def write_report(html: str, output_file: str) -> None:
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
+def get_species_config(yaml_file):
+    """
+    Read species configuration details from yaml config file, return that as dictionary
+    """
+    with open(os.path.join(yaml_file), 'r', encoding='utf-8') as file:
+        bird_config = yaml.safe_load(file) 
+
+    return bird_config
+
+def get_checklist_obs(checlists_list):
+    """
+    Query eBird API to get bird records for each checklist.
+    Returns observations dataframe
+    """
+    for checklist_item in checklists_list:
+        try:
+            checklist = checklist_item[0]
+            url = f'https://api.ebird.org/v2/product/checklist/view/{checklist}'
+            sub = requests.get(url, headers=HEADERS).json()
+            locId = sub.get('locId')
+            
+            userName = sub.get('userDisplayName')
+            obsDate = sub.get('obsDt')
+            
+            obs_df = pd.DataFrame.from_records(sub.get('obs'))
+            
+            if not obs_df.empty: # ignore checklists with no species
+                obs_df['subId'] = checklist
+                obs_df['locName'] = checklist_item[2]
+                obs_df['obsDt'] = obsDate
+                obs_df['userName'] = userName
+                obs.append(obs_df)
+        except:
+            print(f"Error with checklist {checklist}")
+
+    if len(obs) > 0:
+        observations = pd.concat(obs)
+        return observations
+    else:
+        return []
+
 
 # ── Main ──────────────────────────────────────────────────────────────────
 
@@ -118,8 +160,13 @@ def main() -> None:
 
     checklists_start = time.time()
 
+    # Read species config
+    species_config = get_species_config(CONFIG_YAML_FILE_NAME)
+    
     checklists = get_recent_checklists()
 
+    obs = get_cheklists_obs(checklists)
+    
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
     
