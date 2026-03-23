@@ -208,8 +208,6 @@
   local_name: Lapwing
   min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 100, dec: 100}
 
-"Whimbrel":
-
 "Eurasian Curlew":
   local_name: Curlew
   min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 75, oct: 75, nov: 50, dec: 50}
@@ -234,8 +232,6 @@
 "Red Phalarope":
   local_name: Grey Phalarope
   rarity: high
-
-"Common Sandpiper":
 
 "Green Sandpiper":
   rarity: medium
@@ -320,8 +316,6 @@
 "Common Murre":
   local_name: Guillemot
   min_count: {jan: 1, feb: 1, mar: 5, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 5, dec: 5}
-
-"Little Gull":
 
 "Black-legged Kittiwake":
   local_name: Kittiwake
