@@ -1,12 +1,13 @@
 # ── Standard library imports ───────────────────────────────────────────────
 import datetime
 import html
+import pandas as pd
 
 
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     # --- Stats (using checklist/location/user level, not obs level) ---
     num_checklists = obs_df["subId"].nunique()
-    unique_locations = obs_df["locId"].nunique()
+    unique_locations = obs_df["locName"].nunique()
     unique_birders = obs_df["userDisplayName"].nunique()
     num_observations = len(obs_df)
 
@@ -40,15 +41,13 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         group_sorted = group.sort_values("obsDt", ascending=False)
         rows = "\n".join(
             f"""<li>
-                <strong>{html.escape(str(row.howManyStr))}</strong>
-                — {html.escape(row.userDisplayName)}
-                — {row.obsDt.strftime('%d %b %Y %H:%M')}
+                {row.obsDt.strftime('%d/%m/%y %H:%M')} - <strong>{html.escape(str(row.howManyStr))}</strong>, {html.escape(row.locName)} ({html.escape(row.userDisplayName)}){', ' + html.escape(row.comments) if pd.notna(row.comments) and row.comments else ''}
             </li>"""
             for row in group_sorted.itertuples()
         )
         species_sections.append(f"""
             <div class="species-block">
-                <h3>{html.escape(species_code)}</h3>
+                <h4 class="species-name">{html.escape(species_code)}</h4>
                 <ul class="checklist">{rows}</ul>
             </div>
         """)
@@ -114,6 +113,14 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             list-style: disc;
             padding-left: 20px;
             margin: 0;
+        }}
+        .species-name {{
+            font-size: 15px;
+            font-weight: 600;
+            color: #4FA8D8;
+            margin: 16px 0 8px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F4F8;
         }}
         .checklist li {{
             padding: 6px 0;

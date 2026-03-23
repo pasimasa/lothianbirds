@@ -125,7 +125,11 @@ def get_checklists_obs(checklist_list):
     Returns observations dataframe
     """
     obs = []
+    i = 0
     for checklist_item in checklist_list:
+        i += 1
+        if i > 10: # limit to 10 for testing, remove for production
+            break
         try:
             checklist_id = checklist_item[0]
             url = f'https://api.ebird.org/v2/product/checklist/view/{checklist_id}'
@@ -141,6 +145,7 @@ def get_checklists_obs(checklist_list):
                 obs_df['subId'] = checklist_id
                 obs_df['locName'] = checklist_item[2]
                 obs_df['obsDt'] = obsDate
+                obs_df['userDisplayName'] = checklist_item[3]
                 obs.append(obs_df)
         except (requests.RequestException, ValueError) as e:
             print(f"Error with checklist {checklist_id}")
