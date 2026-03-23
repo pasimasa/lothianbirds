@@ -12,8 +12,9 @@ import requests
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-import yaml
 from zoneinfo import ZoneInfo
+
+import yaml
 
 # ── Local imports ──────────────────────────────────────────────────────────
 from html_generator import build_html
@@ -101,11 +102,11 @@ def write_report(html: str, output_file: str) -> None:
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
-def get_species_config(yaml_file):
+def get_species_config(yaml_file: str) -> dict:
     """
     Read species configuration details from yaml config file, return that as dictionary
     """
-    with open(os.path.join(yaml_file), 'r', encoding='utf-8') as file:
+    with open(yaml_file, 'r', encoding='utf-8') as file:
         bird_config = yaml.safe_load(file) 
 
     return bird_config
@@ -118,17 +119,19 @@ def get_taxon_config(taxon_file):
     return pd.read_csv(taxon_file)
 
 
-def get_checklist_obs(checlists_list):
+def get_checklists_obs(checlist_list):
     """
     Query eBird API to get bird records for each checklist.
     Returns observations dataframe
     """
-    for checklist_item in checklists_list:
+    obs = []
+    for checklist_item in checklist_list:
         try:
-            checklist = checklist_item[0]
-            url = f'https://api.ebird.org/v2/product/checklist/view/{checklist}'
-            sub = requests.get(url, headers=HEADERS).json()
-            locId = sub.get('locId')
+            checklist_id = checklist_item[0]
+            url = f'https://api.ebird.org/v2/product/checklist/view/{checklist_id}'
+            response = requests.get(url, headers=HEADERS)
+            response.raise_for_status()
+            sub = response.json()
             
             userName = sub.get('userDisplayName')
             obsDate = sub.get('obsDt')
@@ -141,7 +144,7 @@ def get_checklist_obs(checlists_list):
                 obs_df['obsDt'] = obsDate
                 obs_df['userName'] = userName
                 obs.append(obs_df)
-        except:
+        except (requests.RequestException, ValueError) as e::
             print(f"Error with checklist {checklist}")
 
     if len(obs) > 0:
@@ -151,12 +154,12 @@ def get_checklist_obs(checlists_list):
         return []
 
 
-def update_obs_taxon(obsservations, taxon):
+def update_obs_taxon(observations, taxon):
     """
     Add taxon order, common and scientific names, convert sub-species to species
     """
     # TODO
-    return 0
+    return observations
     
 
 # ── Main ──────────────────────────────────────────────────────────────────
@@ -178,11 +181,12 @@ def main() -> None:
     checklists_start = time.time()
 
     # Read configs
+    # TODO - loading species config and taxon to be used later
     species_config = get_species_config(CONFIG_YAML_FILE_NAME)
     taxon = get_taxon_config(TAXON_FILE_NAME)
     
     checklists = get_recent_checklists()
-    obs = get_cheklists_obs(checklists)
+    obs = get_checklists_obs(checklists)
 
     obs = update_obs_taxon(obs, taxon)
     
