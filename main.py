@@ -133,19 +133,17 @@ def get_checklists_obs(checlist_list):
             response.raise_for_status()
             sub = response.json()
             
-            userName = sub.get('userDisplayName')
             obsDate = sub.get('obsDt')
             
             obs_df = pd.DataFrame.from_records(sub.get('obs'))
             
             if not obs_df.empty: # ignore checklists with no species
-                obs_df['subId'] = checklist
+                obs_df['subId'] = checklist_id
                 obs_df['locName'] = checklist_item[2]
                 obs_df['obsDt'] = obsDate
-                obs_df['userName'] = userName
                 obs.append(obs_df)
-        except (requests.RequestException, ValueError) as e::
-            print(f"Error with checklist {checklist}")
+        except (requests.RequestException, ValueError) as e:
+            print(f"Error with checklist {checklist_id}")
 
     if len(obs) > 0:
         observations = pd.concat(obs)
