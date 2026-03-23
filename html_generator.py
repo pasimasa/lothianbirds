@@ -19,7 +19,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         </div>
         <div class="stat-box">
             <div class="stat-number">{num_observations}</div>
-            <div class="stat-label">Observations</div>
+            <div class="stat-label">Total records</div>
         </div>
         <div class="stat-box">
             <div class="stat-number">{unique_locations}</div>
@@ -48,7 +48,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         species_sections.append(f"""
             <div class="species-block">
                 <h4 class="species-name">{html.escape(species_code)}</h4>
-                <ul class="checklist">{rows}</ul>
+                <ul class="observation">{rows}</ul>
             </div>
         """)
 
@@ -109,7 +109,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             color: #666;
         }}
         .timestamp {{ font-size: 14px; color: #666; }}
-        .checklist {{
+        .observation {{
             list-style: disc;
             padding-left: 20px;
             margin: 0;
@@ -117,12 +117,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         .species-name {{
             font-size: 15px;
             font-weight: 600;
-            color: #4FA8D8;
             margin: 16px 0 8px 0;
             padding-bottom: 8px;
-            border-bottom: 2px solid #E8F4F8;
         }}
-        .checklist li {{
+        .observation li {{
             padding: 6px 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
@@ -132,7 +130,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             font-size: 14px;
             color: #888;
         }}
-        .checklist li:last-child {{ border-bottom: none; }}
+        .observation li:last-child {{ border-bottom: none; }}
         footer {{
             text-align: center;
             font-size: 12px;
