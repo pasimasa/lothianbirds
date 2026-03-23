@@ -40,11 +40,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         group_sorted = group.sort_values("obsDt", ascending=False)
         rows = "\n".join(
             f"""<li>
-                <strong>{html.escape(str(row['howManyStr']))}</strong>
-                — {html.escape(row['userDisplayName'])}
-                — {row['obsDt'].strftime('%d %b %Y %H:%M')}
+                <strong>{html.escape(str(row.howManyStr))}</strong>
+                — {html.escape(row.userDisplayName)}
+                — {row.obsDt.strftime('%d %b %Y %H:%M')}
             </li>"""
-            for _, row in group_sorted.iterrows()
+            for row in group_sorted.itertuples()
         )
         species_sections.append(f"""
             <div class="species-block">
