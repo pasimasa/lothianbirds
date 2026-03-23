@@ -3,25 +3,22 @@ import datetime
 import html
 
 
-def build_html(timestamp: str, checklists: list, duration: float) -> str:
-    # Build checklist bullet points
-    checklist_items = "\n".join(
-        f"<li><strong>{html.escape(loc_name)}</strong> — {html.escape(user)} — {obs_date}</li>"
-        for _, _, loc_name, user, obs_date in checklists # ignore first two values
-    )
-    checklist_html = f"<ul class='checklist'>{checklist_items}</ul>"
-    
-    # Calculate summary statistics
-    num_checklists = len(checklists)
-    unique_birders = len(set(user for _, _, _, user, _ in checklists))
-    unique_locations = len(set(loc_id for _, loc_id, _, _, _ in checklists))
-    
-    # Build summary stats HTML
+def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
+    # --- Stats (using checklist/location/user level, not obs level) ---
+    num_checklists = obs_df["subId"].nunique()
+    unique_locations = obs_df["locId"].nunique()
+    unique_birders = obs_df["userDisplayName"].nunique()
+    num_observations = len(obs_df)
+
     summary_html = f"""
     <div class="stats-container">
         <div class="stat-box">
             <div class="stat-number">{num_checklists}</div>
             <div class="stat-label">Checklists</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">{num_observations}</div>
+            <div class="stat-label">Observations</div>
         </div>
         <div class="stat-box">
             <div class="stat-number">{unique_locations}</div>
@@ -33,6 +30,30 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         </div>
     </div>
     """
+
+    # --- Observations grouped by species, sorted by date within each ---
+    obs_df = obs_df.copy()
+    obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
+
+    species_sections = []
+    for species_code, group in obs_df.groupby("speciesCode"):
+        group_sorted = group.sort_values("obsDt", ascending=False)
+        rows = "\n".join(
+            f"""<li>
+                <strong>{html.escape(str(row['howManyStr']))}</strong>
+                — {html.escape(row['userDisplayName'])}
+                — {row['obsDt'].strftime('%d %b %Y %H:%M')}
+            </li>"""
+            for _, row in group_sorted.iterrows()
+        )
+        species_sections.append(f"""
+            <div class="species-block">
+                <h3>{html.escape(species_code)}</h3>
+                <ul class="checklist">{rows}</ul>
+            </div>
+        """)
+
+    observations_html = "\n".join(species_sections)
     accessed_date = datetime.date.today().strftime("%B %d, %Y")
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -125,8 +146,8 @@ def build_html(timestamp: str, checklists: list, duration: float) -> str:
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
     <div class="card">
-        <h2>Recent Checklists</h2>
-        {checklist_html}
+        <h2>Recent Sightings</h2>
+        {observations_html}
     </div>
     <footer>
         eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: {accessed_date}).<br><br>
