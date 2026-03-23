@@ -119,7 +119,7 @@ def get_taxon_config(taxon_file):
     return pd.read_csv(taxon_file)
 
 
-def get_checklists_obs(checlist_list):
+def get_checklists_obs(checklist_list):
     """
     Query eBird API to get bird records for each checklist.
     Returns observations dataframe
@@ -149,10 +149,10 @@ def get_checklists_obs(checlist_list):
         observations = pd.concat(obs)
         return observations
     else:
-        return []
+        return pd.DataFrame()
 
 
-def update_obs_taxon(observations, taxon):
+def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.DataFrame:
     """
     Add taxon order, common and scientific names, convert sub-species to species
     """
