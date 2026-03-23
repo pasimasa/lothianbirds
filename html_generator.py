@@ -118,7 +118,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             font-size: 15px;
             font-weight: 600;
             margin: 16px 0 8px 0;
-            padding-bottom: 8px;
+            padding-bottom: 0px;
         }}
         .observation li {{
             padding: 6px 0;
