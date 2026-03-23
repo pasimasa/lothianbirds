@@ -120,7 +120,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             margin: 16px 0 8px 0;
             padding-bottom: 8px;
         }}
-        .checklist li {{
+        .observation li {{
             padding: 6px 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
@@ -130,7 +130,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             font-size: 14px;
             color: #888;
         }}
-        .checklist li:last-child {{ border-bottom: none; }}
+        .observation li:last-child {{ border-bottom: none; }}
         footer {{
             text-align: center;
             font-size: 12px;
