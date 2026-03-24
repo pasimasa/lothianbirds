@@ -60,7 +60,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
 
         rows = "\n".join(
             f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} - {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)})</li>"""
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)})</li>"""
             for row in group_sorted.itertuples()
         )
         species_sections.append(f"""
