@@ -196,8 +196,12 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
     observations["rarity"] = observations["comName"].map(rare_map).fillna("normal")
 
     # Update species names using the yaml config
-    # TODO - handle if local_name is not specified
-    #for original_name, config in bird_config.items():
+    name_map = {
+        original_name: config["local_name"]
+        for original_name, config in bird_config.items()
+        if "local_name" in config
+    }
+    observations['comName'] = observations['comName'].replace(name_map)
     #    observations['comName'] = observations['comName'].replace(original_name, config['local_name'])
     return observations
 
