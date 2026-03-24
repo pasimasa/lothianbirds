@@ -63,10 +63,10 @@ def get_recent_checklists():
             df = pd.DataFrame.from_records(checklists) 
             checklist_list.append(df)
 
-    # Combine all checklists to one data frame
     if not checklist_list:
         return []
-    
+        
+    # Combine all checklists to one data frame
     df = pd.concat(checklist_list, ignore_index=True)
 
     # Convert isoObsDate to timezone-aware UTC datetime
@@ -119,19 +119,19 @@ def get_taxon_config(taxon_file: str) -> pd.DataFrame:
     return pd.read_csv(taxon_file)
 
 
-def get_checklists_obs(checklist_list):
+def get_checklists_obs(checklists):
     """
     Query eBird API to get bird records for each checklist.
     Returns observations dataframe
     """
     obs = []
     i = 0
-    for checklist_item in checklist_list:
+    for checklist in checklists:
         i += 1
         if i > 10: # limit to 10 for testing, remove for production
             break
         try:
-            checklist_id = checklist_item[0]
+            checklist_id = checklist[0]
             url = f'https://api.ebird.org/v2/product/checklist/view/{checklist_id}'
             response = requests.get(url, headers=HEADERS)
             response.raise_for_status()
@@ -143,9 +143,9 @@ def get_checklists_obs(checklist_list):
             
             if not obs_df.empty: # ignore checklists with no species
                 obs_df['subId'] = checklist_id
-                obs_df['locName'] = checklist_item[2]
+                obs_df['locName'] = checklist[2]
                 obs_df['obsDt'] = obsDate
-                obs_df['userDisplayName'] = checklist_item[3]
+                obs_df['userDisplayName'] = checklist[3]
                 obs.append(obs_df)
         except (requests.RequestException, ValueError) as e:
             print(f"Error with checklist {checklist_id}")
@@ -162,6 +162,18 @@ def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.Data
     Add taxon order, common and scientific names, convert sub-species to species
     """
     # TODO
+    # Convert sub-species codes to species code
+    observations = observations.merge(taxon[['SPECIES_CODE', 'REPORT_AS']], left_on='speciesCode', right_on='SPECIES_CODE', how='left')
+    observations['speciesCode'] = observations['REPORT_AS'].where(
+        observations['REPORT_AS'].notna() & observations['REPORT_AS'].ne(''), observations['speciesCode'])
+    observations = observations.drop(columns=['REPORT_AS'])
+
+    # Add taxon order, common and scientific name and category (species or not), using taxon csv
+    observations['taxon_order'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['TAXON_ORDER'])
+    observations['comName'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['COMMON_NAME'])
+    observations['sciName'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['SCIENTIFIC_NAME'])
+    observations['category'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['CATEGORY'])
+
     return observations
     
 
@@ -190,7 +202,6 @@ def main() -> None:
     
     checklists = get_recent_checklists()
     obs = get_checklists_obs(checklists)
-
     obs = update_obs_taxon(obs, taxon)
     
     duration = time.time() - checklists_start
