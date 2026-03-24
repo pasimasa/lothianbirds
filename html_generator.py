@@ -38,15 +38,16 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
 
     species_sections = []
     # Sort species by taxon_order (take the first value per species as it's constant)
+    grouped_by_species = obs_df.groupby("speciesCode")
     species_order = (
-        obs_df.groupby("speciesCode")["taxon_order"]
+        grouped_by_species["taxon_order"]
         .first()
         .sort_values()
         .index
     )
 
     for species_code in species_order:
-        group = obs_df[obs_df["speciesCode"] == species_code]
+        group = grouped_by_species.get_group(species_code)
         group_sorted = group.sort_values("obsDt", ascending=False)
 
         # Get display names from first row (same for all rows in group)
