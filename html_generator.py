@@ -32,13 +32,28 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     </div>
     """
 
-    # --- Observations grouped by species, sorted by date within each ---
+    # --- Observations grouped by species, sorted by taxon_order then date ---
     obs_df = obs_df.copy()
     obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
 
     species_sections = []
-    for species_code, group in obs_df.groupby("speciesCode"):
+    # Sort species by taxon_order (take the first value per species as it's constant)
+    species_order = (
+        obs_df.groupby("speciesCode")["taxon_order"]
+        .first()
+        .sort_values()
+        .index
+    )
+
+    for species_code in species_order:
+        group = obs_df[obs_df["speciesCode"] == species_code]
         group_sorted = group.sort_values("obsDt", ascending=False)
+
+        # Get display names from first row (same for all rows in group)
+        first = group_sorted.iloc[0]
+        com_name = html.escape(first["comName"])
+        sci_name = html.escape(first["sciName"])
+
         rows = "\n".join(
             f"""<li>
                 {row.obsDt.strftime('%d/%m/%y')} - {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)})</li>"""
@@ -46,7 +61,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         )
         species_sections.append(f"""
             <div class="species-block">
-                <h4 class="species-name">{html.escape(species_code)}</h4>
+                <h4 class="species-name">{com_name} <span class="sci-name">({sci_name})</span></h4>
                 <ul class="observation">{rows}</ul>
             </div>
         """)
@@ -118,6 +133,12 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             font-weight: 600;
             margin: 16px 0 8px 0;
             padding-bottom: 0px;
+        }}
+        .sci-name {{
+            font-style: italic;
+            font-weight: normal;
+            color: #666;
+            font-size: 13px;
         }}
         .observation li {{
             padding: 6px 0;
