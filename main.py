@@ -160,6 +160,7 @@ def get_checklists_obs(checklists):
 def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.DataFrame:
     """
     Add taxon order, common and scientific names, convert sub-species to species
+    and remove non-species records
     """
     # TODO
     # Convert sub-species codes to species code
@@ -174,8 +175,31 @@ def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.Data
     observations['sciName'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['SCIENTIFIC_NAME'])
     observations['category'] = observations['speciesCode'].map(taxon.set_index('SPECIES_CODE')['CATEGORY'])
 
-    return observations
+    # Keep only species records
+    observations = observations[observations['category'] == 'species']
     
+    # Drop category as not needed anymore
+    observations = observations.drop('category', axis=1)
+    
+    return observations
+
+
+def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
+    """
+    Populate new rarity field in obs
+    Add minimum count for each
+    """
+    rare_map = {
+        species: attrs.get("rarity", "common")
+        for species, attrs in bird_config.items()
+    }
+    observations["rarity"] = observations["comName"].map(rare_map).fillna("normal")
+
+    # Update species names using the yaml config
+    for original_name, config in bird_config.items():
+        observations['comName'] = observations['comName'].replace(original_name, config['local_name'])
+    return observations
+
 
 # ── Main ──────────────────────────────────────────────────────────────────
 
@@ -203,6 +227,7 @@ def main() -> None:
     checklists = get_recent_checklists()
     obs = get_checklists_obs(checklists)
     obs = update_obs_taxon(obs, taxon)
+    obs = update_species_config(obs, species_config)
     
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
