@@ -130,9 +130,9 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             margin: 0;
         }}
         .species-name {{
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            margin: 16px 0 8px 0;
+            margin: 16px 0 2px 0;
             padding-bottom: 0px;
         }}
         .sci-name {{
