@@ -58,11 +58,16 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         com_name = html.escape(first["comName"])
         sci_name = html.escape(first["sciName"])
 
-        rows = "\n".join(
-            f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)})</li>"""
-            for row in group_sorted.itertuples()
-        )
+        row_html_parts = []
+        for row in group_sorted.itertuples():
+            comment_html = ""
+            if pd.notna(row.comments) and str(row.comments).strip():
+                escaped_comment = html.escape(str(row.comments))
+                comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
+            row_html_parts.append(f"""<li>
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}</li>""")
+        rows = "\n".join(row_html_parts)
+        
         species_sections.append(f"""
             <div class="species-block">
                 <h4 class="species-name">{com_name} <span class="sci-name">({sci_name})</span></h4>
@@ -153,6 +158,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             margin: -8px 0 16px;
             font-size: 14px;
             color: #888;
+        }}
+        .obs-comment {{
+            color: #999;
+            font-style: italic;
+            font-size: 13px;
         }}
         .observation li:last-child {{ border-bottom: none; }}
         footer {{
