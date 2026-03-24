@@ -60,9 +60,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
 
         rows = "\n".join(
             f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)})</li>"""
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){f' <span class="obs-comment">"{html.escape(str(row.comments))}"</span>' if pd.notna(row.comments) and str(row.comments).strip() else ''}</li>"""
             for row in group_sorted.itertuples()
         )
+        
         species_sections.append(f"""
             <div class="species-block">
                 <h4 class="species-name">{com_name} <span class="sci-name">({sci_name})</span></h4>
@@ -153,6 +154,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             margin: -8px 0 16px;
             font-size: 14px;
             color: #888;
+        }}
+        .obs-comment {{
+            color: #999;
+            font-style: italic;
+            font-size: 13px;
         }}
         .observation li:last-child {{ border-bottom: none; }}
         footer {{
