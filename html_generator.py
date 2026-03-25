@@ -7,7 +7,8 @@ import pandas as pd
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     """
     Write bird records from data frame into html report
-    IF filter = true, only include notable records. Otherwise include all
+
+    Return html string that can be written to file
     """
     # --- Stats (using checklist/location/user level, not obs level) ---
     num_checklists = obs_df["subId"].nunique()
