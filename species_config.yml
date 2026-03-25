@@ -4,6 +4,10 @@
 # Min_count is used to filter out records of common birds and only showing them if count is above the limit set here
 # -- min count can be just one number that applies all year around, or separate ones for each month
 #
+# If a species is not listed here, all records for that species are included and names as they come from eBird API
+#
+# -------------------------------------------------------------------------------------------------------------------
+
 "Snow Goose":
   rarity: high
 
