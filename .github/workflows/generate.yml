@@ -41,8 +41,8 @@ jobs:
       run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html
-          git add docs/birds_all.html
+          git add docs/index.html -f
+          git add docs/birds_all.html -f
           git diff --cached --quiet || git commit -m "Updated index.html by GitHub scheduled Action"
           git push
         
