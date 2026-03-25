@@ -245,10 +245,10 @@ def main() -> None:
     # Filter for notable obs only and generate main report
     #
     # Drop records without count (record as X)
-    obs = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
+    obs_notable = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
 
     # Generate main report
-    html = build_html(timestamp, obs, duration)
+    html = build_html(timestamp, obs_notable, duration)
     write_report(html, OUTPUT_FILE_NOTABLE)
 
     print("Report generation complete.")
