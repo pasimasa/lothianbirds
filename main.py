@@ -251,7 +251,7 @@ def main() -> None:
     # Generate main report
     html = build_html(timestamp, obs_notable, duration)
     write_report(html, OUTPUT_FILE_NOTABLE)
-    print(f"  Output (all): {OUTPUT_FILE_NOTABLE}")
+    print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
     print("Report generation complete.")
 
 
