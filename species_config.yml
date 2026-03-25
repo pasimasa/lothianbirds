@@ -1,3 +1,9 @@
+# Species configuration for the bird report. 
+# Local Name is used to change display name
+# Rarity (medium or high) is used to highlight rare species
+# Min_count is used to filter out records of common birds and only showing them if count is above the limit set here
+# -- min count can be just one number that applies all year around, or separate ones for each month
+#
 "Snow Goose":
   rarity: high
 
