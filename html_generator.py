@@ -6,7 +6,7 @@ import pandas as pd
 
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     """
-    Write bird records from data frame into html report
+    Generate html report using data in input data frame
 
     Return html string that can be written to file
     """
