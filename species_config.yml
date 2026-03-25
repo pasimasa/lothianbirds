@@ -1,11 +1,12 @@
-# Species configuration for the bird report. 
+# --- Species configuration for the bird report --- 
+#
 # Local Name is used to change display name, this is optional and if not set the eBird name is used
-# Rarity (medium or high) is used to highlight rare species
+# Rarity (medium or high, optional) is used to highlight rare species
 # Min_count is used to filter out records of common birds and only showing them if count is above the limit set here
 # -- min count can be just one number that applies all year around, or separate ones for each month
 # -- if minimum count is not set then all records for that species are included
 #
-# If a species is not listed here, all records for that species are included and names are as they come from eBird API
+# If a species is not listed here, all records for that species are included and species is not highlighted as rare
 #
 # -------------------------------------------------------------------------------------------------------------------
 
