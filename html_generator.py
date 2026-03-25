@@ -5,14 +5,16 @@ import pandas as pd
 
 
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
+    """
+    Generate html report using data in input data frame
+
+    Return html string that can be written to file
+    """
     # --- Stats (using checklist/location/user level, not obs level) ---
     num_checklists = obs_df["subId"].nunique()
     unique_locations = obs_df["locName"].nunique()
     unique_birders = obs_df["userDisplayName"].nunique()
     num_observations = len(obs_df)
-
-    # Drop records without count (record as X)
-    obs_df = obs_df[pd.to_numeric(obs_df["howManyStr"], errors="coerce") > 0]
 
     summary_html = f"""
     <div class="stats-container">

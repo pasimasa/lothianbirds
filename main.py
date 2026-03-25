@@ -20,7 +20,8 @@ import yaml
 from html_generator import build_html
 
 # ── Constants ─────────────────────────────────────────────────────────────
-OUTPUT_FILE = "docs/index.html"
+OUTPUT_FILE_ALL = "docs/birds_all.html"
+OUTPUT_FILE_NOTABLE = "docs/index.html"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -236,11 +237,21 @@ def main() -> None:
     
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
-    
-    html = build_html(timestamp, obs, duration)
-    write_report(html, OUTPUT_FILE)
-    print(f"  Output    : {OUTPUT_FILE}")
 
+    # Generate all obs report
+    html = build_html(timestamp, obs, duration)
+    write_report(html, OUTPUT_FILE_ALL)
+    print(f"  Output (all): {OUTPUT_FILE_ALL}")
+
+    # Filter for notable obs only and generate main report
+    #
+    # Drop records without count (record as X)
+    obs_notable = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
+
+    # Generate main report
+    html = build_html(timestamp, obs_notable, duration)
+    write_report(html, OUTPUT_FILE_NOTABLE)
+    print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
     print("Report generation complete.")
 
 
