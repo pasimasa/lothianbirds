@@ -41,6 +41,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     obs_df = obs_df.copy()
     obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
 
+    has_comments = "comments" in obs_df.columns
+    if not has_comments:
+        print("Warning: 'comments' column not found in data — observation comments will be omitted from the report.")
+
     species_sections = []
     # Sort species by taxon_order (take the first value per species as it's constant)
     grouped_by_species = obs_df.groupby("speciesCode")
@@ -63,9 +67,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         row_html_parts = []
         for row in group_sorted.itertuples():
             comment_html = ""
-            if pd.notna(row.comments) and str(row.comments).strip():
-                escaped_comment = html.escape(str(row.comments))
-                comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
+            if has_comments:
+                val = getattr(row, "comments", None)
+                if pd.notna(val) and str(val).strip():
+                    escaped_comment = html.escape(str(val))
+                    comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
             row_html_parts.append(f"""<li>
                 {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}</li>""")
         rows = "\n".join(row_html_parts)
