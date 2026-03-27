@@ -28,7 +28,7 @@ jobs:
     - name: Restore obs cache
       uses: actions/cache@v4
       with:
-        path: docs/obs_cache.parquet
+        path: docs/obs_cache.csv
         key: obs-cache-${{ runner.os }}-${{ github.run_id }}
         restore-keys: |
           obs-cache-${{ runner.os }}-
