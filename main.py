@@ -330,7 +330,7 @@ def main() -> None:
 
     html = build_html(timestamp, obs, duration)
     write_report(html, OUTPUT_FILE_ALL)
-    print(f"  Output (all): {OUTPUT_FILE_ALL}"
+    print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
     full_stats = compute_stats(obs)  # before filtering
     
