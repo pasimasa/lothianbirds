@@ -232,8 +232,19 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
         for species, attrs in bird_config.items()
     }
     observations["rarity"] = observations["comName"].map(rare_map).fillna("normal")
+    current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
+    min_count_lookup = {}
+    for species, attrs in bird_config.items():
+        min_count = attrs.get('min_count')
+        if min_count is None:
+            min_count_lookup[species] = 0
+        elif isinstance(min_count, dict):
+            min_count_lookup[species] = min_count.get(current_month, 0)
+        else:
+            min_count_lookup[species] = float(min_count)
+    observations['min_count'] = observations['comName'].map(min_count_lookup).fillna(0)
 
-    # Update species names using the yaml config
+    # Update species names using the yaml config - do this last so earlier updates can use the original eBird name as key
     name_map = {
         original_name: config["local_name"]
         for original_name, config in bird_config.items()
