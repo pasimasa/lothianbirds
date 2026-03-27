@@ -22,6 +22,7 @@ from html_generator import build_html
 # ── Constants ─────────────────────────────────────────────────────────────
 OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
+OBS_CACHE_FILE = "docs/obs_cache.parquet"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -46,6 +47,20 @@ def get_last_n_days(n=6):
         date = today - timedelta(days=i)
         dates.append(date.strftime("%Y/%m/%d"))
     return dates
+
+def load_cached_obs(cache_file: str) -> pd.DataFrame:
+    """Load previously cached observations from disk, or return empty DataFrame."""
+    path = Path(cache_file)
+    if path.exists():
+        return pd.read_parquet(path)
+    return pd.DataFrame()
+
+
+def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
+    """Persist observations to disk for reuse on next run."""
+    Path(cache_file).parent.mkdir(parents=True, exist_ok=True)
+    obs.to_parquet(cache_file, index=False)
+
 
 def get_recent_checklists():
     """ Query eBird API to get list of recent checklists """
@@ -120,42 +135,50 @@ def get_taxon_config(taxon_file: str) -> pd.DataFrame:
     return pd.read_csv(taxon_file)
 
 
-def get_checklists_obs(checklists):
+def get_checklists_obs(checklists, cached_obs: pd.DataFrame) -> pd.DataFrame:
     """
-    Query eBird API to get bird records for each checklist.
-    Returns observations dataframe
+    Query eBird API for checklist observations, skipping any subIds
+    already present in cached_obs. Returns combined new + cached observations.
     """
-    obs = []
-    i = 0
+    cached_ids = set(cached_obs['subId'].unique()) if not cached_obs.empty else set()
+
+    new_obs = []
     for checklist in checklists:
-        i += 1
-        if i > 10: # limit to 10 for testing, remove for production
-            break
+        checklist_id = checklist[0]
+        if checklist_id in cached_ids:
+            continue  # already have this one
+
         try:
-            checklist_id = checklist[0]
             url = f'https://api.ebird.org/v2/product/checklist/view/{checklist_id}'
             response = requests.get(url, headers=HEADERS)
             response.raise_for_status()
             sub = response.json()
-            
-            obsDate = sub.get('obsDt')
-            
+
             obs_df = pd.DataFrame.from_records(sub.get('obs'))
-            
-            if not obs_df.empty: # ignore checklists with no species
+            if not obs_df.empty:
                 obs_df['subId'] = checklist_id
                 obs_df['locName'] = checklist[2]
-                obs_df['obsDt'] = obsDate
+                obs_df['obsDt'] = sub.get('obsDt')
                 obs_df['userDisplayName'] = checklist[3]
-                obs.append(obs_df)
+                new_obs.append(obs_df)
         except (requests.RequestException, ValueError) as e:
-            print(f"Error with checklist {checklist_id}")
+            print(f"Error with checklist {checklist_id}: {e}")
 
-    if len(obs) > 0:
-        observations = pd.concat(obs)
-        return observations
+    print(f"  Checklists: {len(checklists)} total, "
+          f"{len(checklists) - len(new_obs)} cached, {len(new_obs)} fetched from API")
+
+    if new_obs:
+        new_df = pd.concat(new_obs, ignore_index=True)
+        combined = pd.concat([cached_obs, new_df], ignore_index=True) if not cached_obs.empty else new_df
     else:
-        return pd.DataFrame()
+        combined = cached_obs.copy() if not cached_obs.empty else pd.DataFrame()
+
+    # Keep only subIds still present in the current checklist window (prunes old data)
+    current_ids = {c[0] for c in checklists}
+    if not combined.empty:
+        combined = combined[combined['subId'].isin(current_ids)]
+
+    return combined
 
 
 def update_obs_taxon(observations: pd.DataFrame, taxon: pd.DataFrame) -> pd.DataFrame:
@@ -212,43 +235,38 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
 def main() -> None:
     """Entry point — orchestrates report generation."""
     print("Starting report generation...")
-    
-    # Validate API key is available
+
     if not EBIRD_API_KEY:
         print(f"Error: {EBIRD_API_KEY_NAME} environment variable not set")
         return
 
-    start_time = time.time() # Record start time
-    
+    start_time = time.time()
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
     checklists_start = time.time()
 
-    # Read configs
-    # TODO - loading species config and taxon to be used later
     species_config = get_species_config(CONFIG_YAML_FILE_NAME)
     taxon = get_taxon_config(TAXON_FILE_NAME)
-    
+
     checklists = get_recent_checklists()
-    obs = get_checklists_obs(checklists)
+
+    # Load cache, fetch only new checklists, save updated cache
+    cached_obs = load_cached_obs(OBS_CACHE_FILE)
+    obs = get_checklists_obs(checklists, cached_obs)
+    save_cached_obs(obs, OBS_CACHE_FILE)  # save before any filtering/processing
+
     obs = update_obs_taxon(obs, taxon)
     obs = update_species_config(obs, species_config)
-    
+
     duration = time.time() - checklists_start
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
-    # Generate all obs report
     html = build_html(timestamp, obs, duration)
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
-    # Filter for notable obs only and generate main report
-    #
-    # Drop records without count (record as X)
     obs_notable = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
-
-    # Generate main report
     html = build_html(timestamp, obs_notable, duration)
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
