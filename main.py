@@ -49,15 +49,24 @@ def get_last_n_days(n=6):
     return dates
 
 def load_cached_obs(cache_file: str) -> pd.DataFrame:
-    """Load previously cached observations from disk, or return empty DataFrame."""
+    """Load cached observations, or return empty DataFrame if cache is stale or missing."""
     path = Path(cache_file)
-    if path.exists():
-        try:
-            return pd.read_parquet(path)
-        except Exception as e:
-            print(f"Warning: Could not read cache file '{cache_file}': {e}. Ignoring cache.")
-            return pd.DataFrame()
-    return pd.DataFrame()
+    if not path.exists():
+        return pd.DataFrame()
+    
+    cached = pd.read_parquet(path)
+    
+    if cached.empty:
+        return pd.DataFrame()
+
+    # If no observations from today, treat as fresh day
+    today = datetime.now(ZoneInfo(TIMEZONE)).date()
+    obs_dates = pd.to_datetime(cached['obsDt']).dt.date
+    if not (obs_dates == today).any():
+        print("  Cache is from previous day, starting fresh.")
+        return pd.DataFrame()
+
+    return cached
 
 
 def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
