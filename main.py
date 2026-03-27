@@ -254,29 +254,23 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     # Convert count to numeric, coerce X and other non-numeric to NaN
     obs = obs.copy()
     obs['count_numeric'] = pd.to_numeric(obs['howManyStr'], errors='coerce')
-
-    # Drop records with no numeric count (i.e. recorded as X)
     obs = obs[obs['count_numeric'].notna()]
 
-    # Get current month abbreviation (jan, feb, etc.)
     current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
 
-    def get_min_count(com_name: str) -> float:
-        """Return the min count threshold for a species this month, or 0 if not configured."""
-        # Look up by display name — config may have been renamed via local_name
-        # so we need to check both original and renamed versions
-        for species, attrs in bird_config.items():
-            display_name = attrs.get('local_name', species)
-            if display_name == com_name or species == com_name:
-                min_count = attrs.get('min_count')
-                if min_count is None:
-                    return 0  # no threshold, keep all
-                if isinstance(min_count, dict):
-                    return min_count.get(current_month, 0)
-                return float(min_count)
-        return 0  # species not in config, keep all
+    # Pre-build lookup: display name -> min count for this month
+    min_count_lookup = {}
+    for species, attrs in bird_config.items():
+        display_name = attrs.get('local_name', species)
+        min_count = attrs.get('min_count')
+        if min_count is None:
+            min_count_lookup[display_name] = 0
+        elif isinstance(min_count, dict):
+            min_count_lookup[display_name] = min_count.get(current_month, 0)
+        else:
+            min_count_lookup[display_name] = float(min_count)
 
-    min_counts = obs['comName'].map(get_min_count)
+    min_counts = obs['comName'].map(lambda name: min_count_lookup.get(name, 0))
     obs = obs[obs['count_numeric'] >= min_counts]
 
     return obs
