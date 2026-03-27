@@ -70,8 +70,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         com_name = html.escape(first["comName"])
         sci_name = html.escape(first["sciName"])
         rarity = first.get("rarity", "normal")
+        threshold = first.get("min_count", 0)
         name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
-
+        
+        threshold_html = f' <sup class="min-count">{int(threshold)}+</sup>' if threshold > 0 else ""
+        
         row_html_parts = []
         for row in group_sorted.itertuples():
             comment_html = ""
@@ -86,7 +89,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         
         species_sections.append(f"""
             <div class="species-block">
-                <h4 class="species-name" style="color: {name_colour};">{com_name} <span class="sci-name">({sci_name})</span></h4>
+                <h4 class="species-name" style="color: {name_colour};">{com_name} <span class="sci-name">({sci_name}){threshold_html}</span></h4>
                 <ul class="observation">{rows}</ul>
             </div>
         """)
