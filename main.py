@@ -296,9 +296,9 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     obs = obs[obs['count_numeric'] >= min_counts]
 
     # Deduplicate: where species, date, count and location match, keep one record
-    obs['obs_date_only'] = pd.to_datetime(obs['obsDt']).dt.date
-    obs = obs.drop_duplicates(subset=['speciesCode', 'obs_date_only', 'howManyStr', 'locName'])
-    obs = obs.drop(columns=['obs_date_only'])
+    obs = (obs.assign(obs_date_only=pd.to_datetime(obs['obsDt']).dt.date)
+         .drop_duplicates(subset=['speciesCode', 'obs_date_only', 'howManyStr', 'locName'])
+         .drop(columns=['obs_date_only']))
     
     return obs
     
