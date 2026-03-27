@@ -4,7 +4,7 @@ import html
 import pandas as pd
 
 RARITY_COLOURS = {
-    "rare":   "#cc0000",
+    "high":   "#cc0000",
     "medium": "#cc6600",
     "normal": "#000000",
 }
