@@ -25,13 +25,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Restore obs cache
-      uses: actions/cache@v4
+    
+    - name: Download obs cache
+      uses: actions/download-artifact@v4
       with:
-        path: docs/obs_cache.csv
-        key: obs-cache-${{ runner.os }}-${{ github.run_id }}
-        restore-keys: |
-          obs-cache-${{ runner.os }}-
+        name: obs-cache
+        path: docs/
           
     - name: Set up Python
       uses: actions/setup-python@v6
@@ -44,6 +43,12 @@ jobs:
     
     - name: Run GenerateReport
       run: python main.py
+
+    - name: Save obs cache
+      uses: actions/upload-artifact@v4
+      with:
+        name: obs-cache
+        path: docs/obs_cache.csv
 
     - name: Commit index.html
       run: |
