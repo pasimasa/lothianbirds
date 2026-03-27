@@ -244,6 +244,44 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
     return observations
 
 
+def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
+    """
+    Filter observations to notable ones only:
+    - Remove records where count is 'X' (not counted)
+    - Remove records where count is below the species min_count for the current month
+    - Keep all records for species with no min_count in config
+    """
+    # Convert count to numeric, coerce X and other non-numeric to NaN
+    obs = obs.copy()
+    obs['count_numeric'] = pd.to_numeric(obs['howManyStr'], errors='coerce')
+
+    # Drop records with no numeric count (i.e. recorded as X)
+    obs = obs[obs['count_numeric'].notna()]
+
+    # Get current month abbreviation (jan, feb, etc.)
+    current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
+
+    def get_min_count(com_name: str) -> float:
+        """Return the min count threshold for a species this month, or 0 if not configured."""
+        # Look up by display name — config may have been renamed via local_name
+        # so we need to check both original and renamed versions
+        for species, attrs in bird_config.items():
+            display_name = attrs.get('local_name', species)
+            if display_name == com_name or species == com_name:
+                min_count = attrs.get('min_count')
+                if min_count is None:
+                    return 0  # no threshold, keep all
+                if isinstance(min_count, dict):
+                    return min_count.get(current_month, 0)
+                return float(min_count)
+        return 0  # species not in config, keep all
+
+    min_counts = obs['comName'].map(get_min_count)
+    obs = obs[obs['count_numeric'] >= min_counts]
+
+    return obs
+    
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -278,7 +316,9 @@ def main() -> None:
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
-    obs_notable = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
+    # Filter only for notable records
+    obs_notable = filter_notable_obs(obs, species_config)
+    
     html = build_html(timestamp, obs_notable, duration)
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
