@@ -70,7 +70,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
         com_name = html.escape(first["comName"])
         sci_name = html.escape(first["sciName"])
         rarity = first.get("rarity", "normal")
-        name_colour = RARITY_COLOURS.get(rarity, "#000000")
+        name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
 
         row_html_parts = []
         for row in group_sorted.itertuples():
