@@ -270,7 +270,7 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
         else:
             min_count_lookup[display_name] = float(min_count)
 
-    min_counts = obs['comName'].map(lambda name: min_count_lookup.get(name, 0))
+    min_counts = obs['comName'].map(min_count_lookup).fillna(0)
     obs = obs[obs['count_numeric'] >= min_counts]
 
     return obs
