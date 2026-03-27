@@ -130,6 +130,17 @@ def write_report(html: str, output_file: str) -> None:
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
+
+def compute_stats(obs: pd.DataFrame) -> dict:
+    return {
+        "num_observations": len(obs),
+        "num_species": obs["speciesCode"].nunique(),
+        "num_locations": obs["locName"].nunique(),
+        "num_checklists": obs["subId"].nunique(),
+        "num_birders": obs["userDisplayName"].nunique(),
+    }
+
+
 def get_species_config(yaml_file: str) -> dict:
     """
     Read species configuration details from yaml config file, return that as dictionary
@@ -321,10 +332,12 @@ def main() -> None:
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
+    full_stats = compute_stats(obs)  # before filtering
+    
     # Filter only for notable records
     obs_notable = filter_notable_obs(obs, species_config)
     
-    html = build_html(timestamp, obs_notable, duration)
+    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats)
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
     print("Report generation complete.")
