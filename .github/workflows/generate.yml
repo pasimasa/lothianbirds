@@ -24,7 +24,15 @@ jobs:
       
     - name: Checkout repo
       uses: actions/checkout@v4
-    
+
+    - name: Restore obs cache
+      uses: actions/cache@v4
+      with:
+        path: docs/obs_cache.parquet
+        key: obs-cache-${{ runner.os }}-${{ github.run_id }}
+        restore-keys: |
+          obs-cache-${{ runner.os }}-
+          
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
