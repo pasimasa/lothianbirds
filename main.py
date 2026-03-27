@@ -232,8 +232,9 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
         for species, attrs in bird_config.items()
     }
     observations["rarity"] = observations["comName"].map(rare_map).fillna("normal")
+    obs['min_count'] = obs['comName'].map(lambda name: min_count_lookup.get(name, 0))
 
-    # Update species names using the yaml config
+    # Update species names using the yaml config - do this last so earlier updates can use the original eBird name as key
     name_map = {
         original_name: config["local_name"]
         for original_name, config in bird_config.items()
