@@ -28,7 +28,7 @@ EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
-DAYS_TO_SHOW = 1 # using 1 for debugging, revert to 5 for production
+DAYS_TO_SHOW = 2 # using 2 for debugging, revert to 5 for production
 CONFIG_YAML_FILE_NAME = "species_config.yml"
 TAXON_FILE_NAME = "ebird_taxon.csv"
 
@@ -295,6 +295,11 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     min_counts = obs['comName'].map(min_count_lookup).fillna(0)
     obs = obs[obs['count_numeric'] >= min_counts]
 
+    # Deduplicate: where species, date, count and location match, keep one record
+    obs = (obs.assign(obs_date_only=pd.to_datetime(obs['obsDt']).dt.date)
+         .drop_duplicates(subset=['speciesCode', 'obs_date_only', 'howManyStr', 'locName'])
+         .drop(columns=['obs_date_only']))
+    
     return obs
     
 
