@@ -235,15 +235,14 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
     current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
     min_count_lookup = {}
     for species, attrs in bird_config.items():
-        display_name = attrs.get('local_name', species)
         min_count = attrs.get('min_count')
         if min_count is None:
-            min_count_lookup[display_name] = 0
+            min_count_lookup[species] = 0
         elif isinstance(min_count, dict):
-            min_count_lookup[display_name] = min_count.get(current_month, 0)
+            min_count_lookup[species] = min_count.get(current_month, 0)
         else:
-            min_count_lookup[display_name] = float(min_count)
-    observations['min_count'] = observations['comName'].map(lambda name: min_count_lookup.get(name, 0))
+            min_count_lookup[species] = float(min_count)
+    observations['min_count'] = observations['comName'].map(min_count_lookup).fillna(0)
 
     # Update species names using the yaml config - do this last so earlier updates can use the original eBird name as key
     name_map = {
