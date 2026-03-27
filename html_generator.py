@@ -10,39 +10,61 @@ RARITY_COLOURS = {
 }
 
 
-def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
+def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stats: dict = None) -> str:
     """
     Generate html report using data in input data frame
 
     Return html string that can be written to file
     """
-    # --- Stats (using checklist/location/user level, not obs level) ---
-    num_checklists = obs_df["subId"].nunique()
-    unique_locations = obs_df["locName"].nunique()
-    unique_birders = obs_df["userDisplayName"].nunique()
+
+    is_notable = full_stats is not None
+
     num_observations = len(obs_df)
+    num_species = obs_df["speciesCode"].nunique()
 
-    summary_html = f"""
-    <div class="stats-container">
-        <div class="stat-box">
-            <div class="stat-number">{num_checklists}</div>
-            <div class="stat-label">Checklists</div>
+    if is_notable:
+        s = full_stats  # shorthand
+        summary_html = f"""
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">{num_observations}</div>
+                <div class="stat-label">Notable records</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{num_species}</div>
+                <div class="stat-label">Notable species</div>
+            </div>
         </div>
-        <div class="stat-box">
-            <div class="stat-number">{num_observations}</div>
-            <div class="stat-label">Total records</div>
+        <p class="full-stats-prose">In total {s['num_observations']:,} observations of {s['num_species']} species 
+        were recorded across {s['num_locations']} locations, based on {s['num_checklists']} checklists 
+        submitted by {s['num_birders']} birders.</p>
+        """
+    else:
+        summary_html = f"""
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">{obs_df["subId"].nunique()}</div>
+                <div class="stat-label">Checklists</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{num_observations}</div>
+                <div class="stat-label">Total records</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{num_species}</div>
+                <div class="stat-label">Species</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{obs_df["locName"].nunique()}</div>
+                <div class="stat-label">Locations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{obs_df["userDisplayName"].nunique()}</div>
+                <div class="stat-label">Birders</div>
+            </div>
         </div>
-        <div class="stat-box">
-            <div class="stat-number">{unique_locations}</div>
-            <div class="stat-label">Locations</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">{unique_birders}</div>
-            <div class="stat-label">Birders</div>
-        </div>
-    </div>
-    """
-
+        """
+        
     # --- Observations grouped by species, sorted by taxon_order then date ---
     obs_df = obs_df.copy()
     obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
@@ -168,6 +190,12 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
             color: #666;
             font-size: 13px;
         }}
+        .full-stats-prose {{ 
+            font-size: 14px;
+            color: #555;
+            margin: 4px 0 16px;
+            line-height: 1.5;
+        }}     
         .observation li {{
             padding: 6px 0;
             border-bottom: 1px solid #f0f0f0;
