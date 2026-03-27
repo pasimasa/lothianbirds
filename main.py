@@ -52,7 +52,11 @@ def load_cached_obs(cache_file: str) -> pd.DataFrame:
     """Load previously cached observations from disk, or return empty DataFrame."""
     path = Path(cache_file)
     if path.exists():
-        return pd.read_parquet(path)
+        try:
+            return pd.read_parquet(path)
+        except Exception as e:
+            print(f"Warning: Could not read cache file '{cache_file}': {e}. Ignoring cache.")
+            return pd.DataFrame()
     return pd.DataFrame()
 
 
