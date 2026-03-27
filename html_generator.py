@@ -28,16 +28,16 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         <div class="stats-container">
             <div class="stat-box">
                 <div class="stat-number">{num_observations}</div>
-                <div class="stat-label">Notable records</div>
+                <div class="stat-label">Records</div>
             </div>
             <div class="stat-box">
                 <div class="stat-number">{num_species}</div>
-                <div class="stat-label">Notable species</div>
+                <div class="stat-label">Species</div>
             </div>
         </div>
-        <p class="full-stats-prose">In total {s['num_observations']:,} observations of {s['num_species']} species 
-        were recorded across {s['num_locations']} locations, based on {s['num_checklists']} checklists 
-        submitted by {s['num_birders']} birders.</p>
+        <p class="full-stats-prose">In total <b>{s['num_observations']}</b> observations of <b>{s['num_species']}</b> species 
+        were recorded across <b>{s['num_locations']}</b> locations, based on <b>{s['num_checklists']}</b> checklists 
+        submitted by <b>{s['num_birders']}</b> birders.</p>
         """
     else:
         summary_html = f"""
