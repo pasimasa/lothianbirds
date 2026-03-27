@@ -199,7 +199,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float) -> str:
     </header>
     <div class="card">
         <h2>Report Summary</h2>
-        <p class="report-summary-subtitle">Notable eBird sightings from the past 5 days, including unverified records.</p>
+        <p class="report-summary-subtitle">Notable eBird sightings from the past 5 days. Includes unverified records.</p>
         {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
