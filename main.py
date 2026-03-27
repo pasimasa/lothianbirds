@@ -22,7 +22,7 @@ from html_generator import build_html
 # ── Constants ─────────────────────────────────────────────────────────────
 OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
-OBS_CACHE_FILE = "docs/obs_cache.parquet"
+OBS_CACHE_FILE = "docs/obs_cache.csv"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -50,16 +50,15 @@ def get_last_n_days(n=6):
 
 def load_cached_obs(cache_file: str) -> pd.DataFrame:
     """Load cached observations, or return empty DataFrame if cache is stale or missing."""
-    path = Path(cache_file)
+        path = Path(cache_file)
     if not path.exists():
         return pd.DataFrame()
     
-    cached = pd.read_parquet(path)
+    cached = pd.read_csv(path)
     
     if cached.empty:
         return pd.DataFrame()
 
-    # If no observations from today, treat as fresh day
     today = datetime.now(ZoneInfo(TIMEZONE)).date()
     obs_dates = pd.to_datetime(cached['obsDt']).dt.date
     if not (obs_dates == today).any():
@@ -72,7 +71,7 @@ def load_cached_obs(cache_file: str) -> pd.DataFrame:
 def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
     """Persist observations to disk for reuse on next run."""
     Path(cache_file).parent.mkdir(parents=True, exist_ok=True)
-    obs.to_parquet(cache_file, index=False)
+    obs.to_csv(cache_file, index=False)
 
 
 def get_recent_checklists():
