@@ -24,12 +24,6 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
 
     if is_notable:
         s = full_stats  # shorthand
-        num_checklists = s['num_checklists']
-        num_locations = s['num_locations']
-        num_birders = s['num_birders']
-        num_total_obs = s['num_observations']
-        num_total_spis = s['num_species']
-        
         summary_html = f"""
         <div class="stats-container">
             <div class="stat-box">
@@ -41,9 +35,9 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 <div class="stat-label">Notable species</div>
             </div>
         </div>
-        <p class="full-stats-prose">In total {num_total_obs} observations of {num_total_spis} species 
-        were recorded across {num_locations} locations, based on {num_checklists} checklists 
-        submitted by {num_birders} birders.</p>
+        <p class="full-stats-prose">In total {s['num_observations']:,} observations of {s['num_species']} species 
+        were recorded across {s['num_locations']} locations, based on {s['num_checklists']} checklists 
+        submitted by {s['num_birders']} birders.</p>
         """
     else:
         summary_html = f"""
