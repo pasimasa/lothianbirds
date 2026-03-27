@@ -244,6 +244,38 @@ def update_species_config(observations: pd.DataFrame, bird_config: dict) -> pd.D
     return observations
 
 
+def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
+    """
+    Filter observations to notable ones only:
+    - Remove records where count is 'X' (not counted)
+    - Remove records where count is below the species min_count for the current month
+    - Keep all records for species with no min_count in config
+    """
+    # Convert count to numeric, coerce X and other non-numeric to NaN
+    obs = obs.copy()
+    obs['count_numeric'] = pd.to_numeric(obs['howManyStr'], errors='coerce')
+    obs = obs[obs['count_numeric'].notna()]
+
+    current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
+
+    # Pre-build lookup: display name -> min count for this month
+    min_count_lookup = {}
+    for species, attrs in bird_config.items():
+        display_name = attrs.get('local_name', species)
+        min_count = attrs.get('min_count')
+        if min_count is None:
+            min_count_lookup[display_name] = 0
+        elif isinstance(min_count, dict):
+            min_count_lookup[display_name] = min_count.get(current_month, 0)
+        else:
+            min_count_lookup[display_name] = float(min_count)
+
+    min_counts = obs['comName'].map(min_count_lookup).fillna(0)
+    obs = obs[obs['count_numeric'] >= min_counts]
+
+    return obs
+    
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -278,7 +310,9 @@ def main() -> None:
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
-    obs_notable = obs[pd.to_numeric(obs["howManyStr"], errors="coerce") > 0]
+    # Filter only for notable records
+    obs_notable = filter_notable_obs(obs, species_config)
+    
     html = build_html(timestamp, obs_notable, duration)
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
