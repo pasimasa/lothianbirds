@@ -257,8 +257,6 @@ def main() -> None:
     timestamp = get_timestamp()
     print(f"  Timestamp : {timestamp}")
 
-    checklists_start = time.time()
-
     species_config = get_species_config(CONFIG_YAML_FILE_NAME)
     taxon = get_taxon_config(TAXON_FILE_NAME)
 
@@ -272,7 +270,7 @@ def main() -> None:
     obs = update_obs_taxon(obs, taxon)
     obs = update_species_config(obs, species_config)
 
-    duration = time.time() - checklists_start
+    duration = time.time() - start_time
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
     html = build_html(timestamp, obs, duration)
