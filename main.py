@@ -153,7 +153,7 @@ def get_checklists_obs(checklists, cached_obs: pd.DataFrame) -> pd.DataFrame:
     Query eBird API for checklist observations, skipping any subIds
     already present in cached_obs. Returns combined new + cached observations.
     """
-    cached_ids = set(cached_obs['subId'].unique()) if not cached_obs.empty else set()
+    cached_ids = set(cached_obs['subId'].unique()) if not cached_obs.empty and 'subId' in cached_obs.columns else set()
 
     new_obs = []
     for checklist in checklists:
