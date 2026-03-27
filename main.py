@@ -50,7 +50,7 @@ def get_last_n_days(n=6):
 
 def load_cached_obs(cache_file: str) -> pd.DataFrame:
     """Load cached observations, or return empty DataFrame if cache is stale or missing."""
-        path = Path(cache_file)
+    path = Path(cache_file)
     if not path.exists():
         return pd.DataFrame()
     
