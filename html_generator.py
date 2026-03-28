@@ -129,7 +129,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
         rows = "\n".join(row_html_parts)
         
-        species_url = f"{EBIRD_SPECIES_BASE_URL}{html.escape(species_code)}"
+        species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
         species_links_html = f"""
                 <div class="species-dropdown">
                 <div class="species-dropdown-label">More info</div>
