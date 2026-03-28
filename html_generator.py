@@ -349,4 +349,3 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     </footer>
 </body>
 </html>"""
-</html>"""
