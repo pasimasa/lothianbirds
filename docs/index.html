@@ -85,10 +85,18 @@
             margin: 4px 0 16px;
             line-height: 1.5;
         }     
-        .observation li {
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
+        .observation {
+            list-style: none;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .observation li::before {
+            content: "•";
+            color: #ccc;
+            font-size: 12px;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         .report-summary-subtitle {
             margin: -8px 0 16px;
@@ -193,11 +201,11 @@
                 <div class="stat-label">Species</div>
             </div>
         </div>
-        <p class="full-stats-prose">In total <b>1682</b> observations of <b>113</b> species 
-        were recorded across <b>63</b> locations, based on <b>91</b> checklists 
-        submitted by <b>35</b> birders.</p>
+        <p class="full-stats-prose">In total <b>1691</b> observations of <b>113</b> species 
+        were recorded across <b>63</b> locations, based on <b>92</b> checklists 
+        submitted by <b>36</b> birders.</p>
         
-        <p class="timestamp">Last updated: <strong>28/03/2026 19:33</strong></p>
+        <p class="timestamp">Last updated: <strong>28/03/2026 19:37</strong></p>
     </div>
     <div class="card">
         <h2>Recent Sightings</h2>
@@ -1181,7 +1189,7 @@
     <footer>
         eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: March 28, 2026).<br><br>
         Generated automatically by GitHub Actions<br>
-        Data fetching took 8 seconds
+        Data fetching took 6 seconds
     </footer>
 </body>
 </html>
