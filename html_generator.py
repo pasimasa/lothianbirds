@@ -3,6 +3,8 @@ import datetime
 import html
 import pandas as pd
 
+EBIRD_CHECKLIST_BASE_URL = "https://ebird.org/checklist/"
+
 RARITY_COLOURS = {
     "high":   "#cc0000",
     "medium": "#cc6600",
@@ -105,9 +107,21 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 if pd.notna(val) and str(val).strip():
                     escaped_comment = html.escape(str(val))
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
-            row_html_parts.append(f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}</li>""")
-        rows = "\n".join(row_html_parts)
+            checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{html.escape(row.subId)}"
+        
+        checklist_icon = (
+            f'<a class="checklist-link" href="{checklist_url}" '
+            f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" '
+            f'fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'
+            f'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'
+            f'<polyline points="15 3 21 3 21 9"/>'
+            f'<line x1="10" y1="14" x2="21" y2="3"/>'
+            f'</svg></a>'
+        )
+        row_html_parts.append(f"""<li>
+            {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
+                rows = "\n".join(row_html_parts)
         
         species_sections.append(f"""
             <div class="species-block">
@@ -210,6 +224,22 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             color: #999;
             font-style: italic;
             font-size: 13px;
+        }}
+        .checklist-link {{
+            color: #4FA8D8;
+            text-decoration: none;
+            font-size: 13px;
+            margin-left: 4px;
+            opacity: 0.7;
+            transition: opacity 0.15s;
+        }}
+        .checklist-link:hover {{
+            opacity: 1;
+        }}
+        .checklist-link svg {{
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
         }}
         .observation li:last-child {{ border-bottom: none; }}
         footer {{
