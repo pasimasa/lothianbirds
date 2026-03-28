@@ -303,12 +303,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             z-index: 100;
             min-width: 180px;
             padding: 4px 0;
-            margin-top: 0px;
-        }}
-        .species-link-wrapper::after {{
-            content: "";
-            display: block;
-            height: 8px;
+            margin-top: 4px;
         }}
         .species-link-wrapper:hover .species-dropdown {{
             display: block;
