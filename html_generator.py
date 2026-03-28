@@ -118,14 +118,14 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
             checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
         
-        checklist_icon = (
-            f'<a class="checklist-link" href="{checklist_url}" '
-            f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
-            f'{CHECKLIST_ICON_SVG}</a>'
-        )
+            checklist_icon = (
+                f'<a class="checklist-link" href="{checklist_url}" '
+                f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
+                f'{CHECKLIST_ICON_SVG}</a>'
+            )
         
-        row_html_parts.append(f"""<li>
-            {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
+            row_html_parts.append(f"""<li>
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
         rows = "\n".join(row_html_parts)
         
         species_sections.append(f"""
