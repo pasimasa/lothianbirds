@@ -116,6 +116,55 @@
             position: relative;
             top: -1px;
         }
+        .species-link-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .species-name-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dashed transparent;
+            transition: border-color 0.15s;
+            cursor: pointer;
+        }
+        .species-name-link:hover {
+            border-bottom-color: currentColor;
+        }
+        .species-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            z-index: 100;
+            min-width: 180px;
+            padding: 4px 0;
+            margin-top: 4px;
+        }
+        .species-link-wrapper:hover .species-dropdown {
+            display: block;
+        }
+        .species-dropdown a {
+            display: block;
+            padding: 7px 14px;
+            font-size: 13px;
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .species-dropdown a:hover {
+            background: #f0f0f0;
+        }
+        .species-dropdown-label {
+            font-size: 11px;
+            color: #999;
+            padding: 5px 14px 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
         .observation li:last-child { border-bottom: none; }
         footer {
             text-align: center;
@@ -157,13 +206,24 @@
             </div>
         </div>
         
-        <p class="timestamp">Last updated: <strong>28/03/2026 19:14</strong></p>
+        <p class="timestamp">Last updated: <strong>28/03/2026 19:33</strong></p>
     </div>
     <div class="card">
         <h2>Recent Sightings</h2>
         
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Greylag Goose <span class="sci-name">(Anser anser) <sup class="min-count">100+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Greylag Goose</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/gragoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anser anser) <sup class="min-count">100+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Harlaw Reservoir <strong>X</strong> (Jimmy Hair)<a class="checklist-link" href="https://ebird.org/checklist/S313923128" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -186,7 +246,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Pink-footed Goose <span class="sci-name">(Anser brachyrhynchus) <sup class="min-count">150+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Pink-footed Goose</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/pifgoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anser brachyrhynchus) <sup class="min-count">150+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>100</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -203,14 +274,36 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #cc6600;">Barnacle Goose <span class="sci-name">(Branta leucopsis)</span></h4>
+                <h4 class="species-name" style="color: #cc8800;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Barnacle Goose</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/bargoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Branta leucopsis)</span>
+                </h4>
                 <ul class="observation"><li>
                 26/03/26 Dunbar Harbours <strong>5</strong> (William Hartshorne)<a class="checklist-link" href="https://ebird.org/checklist/S313400419" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Canada Goose <span class="sci-name">(Branta canadensis) <sup class="min-count">40+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Canada Goose</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/cangoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Branta canadensis) <sup class="min-count">40+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Inverleith Park <strong>2</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313975374" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -239,7 +332,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Mute Swan <span class="sci-name">(Cygnus olor) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Mute Swan</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/mutswa" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Cygnus olor) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>8</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -292,7 +396,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Whooper Swan <span class="sci-name">(Cygnus cygnus)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Whooper Swan</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/whoswa" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Cygnus cygnus)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Gosford Bay <strong>40</strong> (Richard Littauer)<a class="checklist-link" href="https://ebird.org/checklist/S313982068" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -301,7 +416,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Shelduck <span class="sci-name">(Tadorna tadorna) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Shelduck</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comshe" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Tadorna tadorna) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Gosford Bay <strong>5</strong> (Richard Littauer)<a class="checklist-link" href="https://ebird.org/checklist/S313982068" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -344,7 +470,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Gadwall <span class="sci-name">(Mareca strepera) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Gadwall</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/gadwal" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Mareca strepera) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Levenhall Links (General) <strong>20</strong> (Sasha Bertasius) <span class="obs-comment">"Est."</span><a class="checklist-link" href="https://ebird.org/checklist/S314002384" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -361,7 +498,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Wigeon <span class="sci-name">(Mareca penelope) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Wigeon</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurwig" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Mareca penelope) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>24</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -408,7 +556,18 @@
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Mallard <span class="sci-name">(Anas platyrhynchos) <sup class="min-count">40+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Mallard</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/mallar3" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anas platyrhynchos) <sup class="min-count">40+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>3</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -496,7 +655,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Teal <span class="sci-name">(Anas crecca) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Teal</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/gnwtea" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anas crecca) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>2</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -529,7 +699,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Tufted Duck <span class="sci-name">(Aythya fuligula) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Tufted Duck</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/tufduc" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Aythya fuligula) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>8</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -550,7 +731,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Eider <span class="sci-name">(Somateria mollissima) <sup class="min-count">200+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Eider</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comeid" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Somateria mollissima) <sup class="min-count">200+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>12</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -601,7 +793,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Velvet Scoter <span class="sci-name">(Melanitta fusca) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Velvet Scoter</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/whwsco3" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Melanitta fusca) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>25</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313914070" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -614,7 +817,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Common Scoter <span class="sci-name">(Melanitta nigra) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Common Scoter</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/blksco1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Melanitta nigra) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>15</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313914070" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -629,7 +843,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Long-tailed Duck <span class="sci-name">(Clangula hyemalis) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Long-tailed Duck</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/lotduc" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Clangula hyemalis) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Sea Wall <strong>2</strong> (Conor  Ryan)<a class="checklist-link" href="https://ebird.org/checklist/S313867537" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -642,7 +867,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Goldeneye <span class="sci-name">(Bucephala clangula) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Goldeneye</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comgol" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Bucephala clangula) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Inverleith Park <strong>9</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313975374" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -687,7 +923,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Goosander <span class="sci-name">(Mergus merganser) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Goosander</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/commer" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Mergus merganser) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 St Bernard&#x27;s Well <strong>2</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313993477" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -722,7 +969,18 @@ Female 9"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Red-breasted Merganser <span class="sci-name">(Mergus serrator) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Red-breasted Merganser</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rebmer" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Mergus serrator) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>2</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -748,7 +1006,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Red Grouse <span class="sci-name">(Lagopus lagopus) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Red Grouse</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/wilpta" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Lagopus lagopus) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Pentland Hills Regional Park <strong>4</strong> (Gary Collins)<a class="checklist-link" href="https://ebird.org/checklist/S313587612" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -757,7 +1026,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Grey Partridge <span class="sci-name">(Perdix perdix) <sup class="min-count">2+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Grey Partridge</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/grypar" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Perdix perdix) <sup class="min-count">2+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 12 Whitecraig Road, Whitecraig, Scotland, GB (55.922, -3.036) <strong>2</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313964597" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -766,7 +1046,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Pheasant <span class="sci-name">(Phasianus colchicus) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Pheasant</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rinphe1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Phasianus colchicus) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>4</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -807,7 +1098,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Feral Pigeon <span class="sci-name">(Columba livia) <sup class="min-count">200+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Feral Pigeon</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rocpig" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Columba livia) <sup class="min-count">200+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -896,7 +1198,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Stock Dove <span class="sci-name">(Columba oenas) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Stock Dove</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/stodov1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Columba oenas) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -925,7 +1238,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Wood Pigeon <span class="sci-name">(Columba palumbus) <sup class="min-count">100+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Wood Pigeon</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/cowpig1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Columba palumbus) <sup class="min-count">100+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1048,7 +1372,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Collared Dove <span class="sci-name">(Streptopelia decaocto) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Collared Dove</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eucdov" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Streptopelia decaocto) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Gosford Bay <strong>1</strong> (Richard Littauer)<a class="checklist-link" href="https://ebird.org/checklist/S313982068" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1065,7 +1400,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Moorhen <span class="sci-name">(Gallinula chloropus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Moorhen</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/commoo3" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Gallinula chloropus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 St Bernard&#x27;s Well <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313993477" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1114,7 +1460,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Coot <span class="sci-name">(Fulica atra) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Coot</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurcoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Fulica atra) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>1</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1133,7 +1490,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Oystercatcher <span class="sci-name">(Haematopus ostralegus) <sup class="min-count">200+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Oystercatcher</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/euroys1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Haematopus ostralegus) <sup class="min-count">200+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>3</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1192,7 +1560,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Grey Plover <span class="sci-name">(Pluvialis squatarola) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Grey Plover</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/bkbplo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Pluvialis squatarola) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Levenhall Links (General) <strong>11</strong> (Sasha Bertasius)<a class="checklist-link" href="https://ebird.org/checklist/S314002384" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1207,7 +1586,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Golden Plover <span class="sci-name">(Pluvialis apricaria)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Golden Plover</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eugplo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Pluvialis apricaria)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>65</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1218,7 +1608,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Ringed Plover <span class="sci-name">(Charadrius hiaticula) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Ringed Plover</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/corplo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Charadrius hiaticula) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>1</strong> (Conor  Ryan)<a class="checklist-link" href="https://ebird.org/checklist/S313880690" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1233,7 +1634,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Lapwing <span class="sci-name">(Vanellus vanellus) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Lapwing</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/norlap" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Vanellus vanellus) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>21</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1246,7 +1658,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Curlew <span class="sci-name">(Numenius arquata) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Curlew</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurcur" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Numenius arquata) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>11</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1315,7 +1738,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Bar-tailed Godwit <span class="sci-name">(Limosa lapponica) <sup class="min-count">40+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Bar-tailed Godwit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/batgod" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Limosa lapponica) <sup class="min-count">40+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Levenhall Links (General) <strong>40</strong> (Sasha Bertasius) <span class="obs-comment">"Est."</span><a class="checklist-link" href="https://ebird.org/checklist/S314002384" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1342,14 +1776,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #cc6600;">Jack Snipe <span class="sci-name">(Lymnocryptes minimus)</span></h4>
+                <h4 class="species-name" style="color: #cc8800;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Jack Snipe</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/jacsni" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Lymnocryptes minimus)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>1</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Snipe <span class="sci-name">(Gallinago gallinago) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Snipe</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comsni" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Gallinago gallinago) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>1</strong> (Conor  Ryan)<a class="checklist-link" href="https://ebird.org/checklist/S313880690" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1370,7 +1826,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Redshank <span class="sci-name">(Tringa totanus) <sup class="min-count">75+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Redshank</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comred1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Tringa totanus) <sup class="min-count">75+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1427,14 +1894,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Greenshank <span class="sci-name">(Tringa nebularia)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Greenshank</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comgre" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Tringa nebularia)</span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Dalmeny Estate <strong>11</strong> (Jarrod Hadfield) <span class="obs-comment">"Standard count"</span><a class="checklist-link" href="https://ebird.org/checklist/S313814228" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Turnstone <span class="sci-name">(Arenaria interpres) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Turnstone</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rudtur" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Arenaria interpres) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1469,14 +1958,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Knot <span class="sci-name">(Calidris canutus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Knot</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/redkno" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Calidris canutus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>13</strong> (Conor  Ryan)<a class="checklist-link" href="https://ebird.org/checklist/S313880690" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Dunlin <span class="sci-name">(Calidris alpina) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Dunlin</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/dunlin" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Calidris alpina) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>16</strong> (Conor  Ryan)<a class="checklist-link" href="https://ebird.org/checklist/S313880690" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1501,7 +2012,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Purple Sandpiper <span class="sci-name">(Calidris maritima)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Purple Sandpiper</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/pursan" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Calidris maritima)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>2</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1518,7 +2040,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Razorbill <span class="sci-name">(Alca torda) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Razorbill</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/razorb" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Alca torda) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1533,7 +2066,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Guillemot <span class="sci-name">(Uria aalge) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Guillemot</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/commur" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Uria aalge) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Tantallon Castle <strong>1</strong> (Oliver Leedham)<a class="checklist-link" href="https://ebird.org/checklist/S313861532" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1542,7 +2086,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Kittiwake <span class="sci-name">(Rissa tridactyla)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Kittiwake</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/bklkit" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Rissa tridactyla)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh Lagoons <strong>6</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313914070" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1563,7 +2118,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Black-headed Gull <span class="sci-name">(Chroicocephalus ridibundus) <sup class="min-count">200+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Black-headed Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/bkhgul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Chroicocephalus ridibundus) <sup class="min-count">200+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>3</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1608,7 +2174,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Common Gull <span class="sci-name">(Larus canus) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Common Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/mewgul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Larus canus) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1647,7 +2224,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Herring Gull <span class="sci-name">(Larus argentatus) <sup class="min-count">150+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Herring Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/euhgul1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Larus argentatus) <sup class="min-count">150+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>10</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1748,7 +2336,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Great Black-backed Gull <span class="sci-name">(Larus marinus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Great Black-backed Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/gbbgul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Larus marinus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Inverleith Park <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313975374" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1789,7 +2388,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #cc0000;">Glaucous Gull <span class="sci-name">(Larus hyperboreus)</span></h4>
+                <h4 class="species-name" style="color: #e60000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Glaucous Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/glagul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Larus hyperboreus)</span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Yellowcraig NR <strong>1</strong> (Lou Flowers) <span class="obs-comment">"Long staying juvenile - larger than Herring gulls with thick pink bill with black tip and no black on wings. On rocks on east side of Fidra island"</span><a class="checklist-link" href="https://ebird.org/checklist/S313687796" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1798,7 +2408,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Lesser Black-backed Gull <span class="sci-name">(Larus fuscus) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Lesser Black-backed Gull</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/lbbgul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Larus fuscus) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>70</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1899,7 +2520,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Little Grebe <span class="sci-name">(Tachybaptus ruficollis) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Little Grebe</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/litgre1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Tachybaptus ruficollis) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Harlaw Reservoir <strong>2</strong> (Jimmy Hair) <span class="obs-comment">"Near Black Springs"</span><a class="checklist-link" href="https://ebird.org/checklist/S313923128" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1914,7 +2546,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Great Crested Grebe <span class="sci-name">(Podiceps cristatus) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Great Crested Grebe</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/grcgre1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Podiceps cristatus) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Levenhall Links (General) <strong>1</strong> (Sasha Bertasius)<a class="checklist-link" href="https://ebird.org/checklist/S314002384" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1923,7 +2566,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Red-throated Diver <span class="sci-name">(Gavia stellata) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Red-throated Diver</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/retloo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Gavia stellata) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Yellowcraig NR <strong>3</strong> (Lou Flowers)<a class="checklist-link" href="https://ebird.org/checklist/S313687796" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1932,7 +2586,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Fulmar <span class="sci-name">(Fulmarus glacialis) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Fulmar</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/norful" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Fulmarus glacialis) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Tantallon Castle <strong>1</strong> (Oliver Leedham)<a class="checklist-link" href="https://ebird.org/checklist/S313861532" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1943,7 +2608,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Gannet <span class="sci-name">(Morus bassanus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Gannet</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/norgan" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Morus bassanus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>3</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -1968,7 +2644,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Cormorant <span class="sci-name">(Phalacrocorax carbo) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Cormorant</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/grecor" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Phalacrocorax carbo) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>1</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2027,7 +2714,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Shag <span class="sci-name">(Gulosus aristotelis) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Shag</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eursha1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Gulosus aristotelis) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 East Beach, Dunbar <strong>2</strong> (Jon Curson)<a class="checklist-link" href="https://ebird.org/checklist/S313849866" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2056,7 +2754,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Little Egret <span class="sci-name">(Egretta garzetta)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Little Egret</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/litegr" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Egretta garzetta)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Harlaw Reservoir <strong>1</strong> (Jimmy Hair) <span class="obs-comment">"Still present around edges of small reservoir beside Harlaw info centre / portaloos"</span><a class="checklist-link" href="https://ebird.org/checklist/S313923128" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2067,7 +2776,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Grey Heron <span class="sci-name">(Ardea cinerea) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Grey Heron</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/graher1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Ardea cinerea) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>2</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2100,7 +2820,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Sparrowhawk <span class="sci-name">(Accipiter nisus) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Sparrowhawk</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurspa1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Accipiter nisus) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Lasswade <strong>1</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313834345" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2115,14 +2846,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #cc6600;">Red Kite <span class="sci-name">(Milvus milvus)</span></h4>
+                <h4 class="species-name" style="color: #cc8800;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Red Kite</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/redkit1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Milvus milvus)</span>
+                </h4>
                 <ul class="observation"><li>
                 26/03/26 Dunbar Harbours <strong>1</strong> (William Hartshorne) <span class="obs-comment">"Adult flying near Gifford"</span><a class="checklist-link" href="https://ebird.org/checklist/S313400419" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Buzzard <span class="sci-name">(Buteo buteo) <sup class="min-count">4+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Buzzard</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/combuz1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Buteo buteo) <sup class="min-count">4+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>1</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2143,14 +2896,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Tawny Owl <span class="sci-name">(Strix aluco) <sup class="min-count">2+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Tawny Owl</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/tawowl1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Strix aluco) <sup class="min-count">2+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Glenkinchie (Village) <strong>1</strong> (Sandy Rae)<a class="checklist-link" href="https://ebird.org/checklist/S313534694" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Kingfisher <span class="sci-name">(Alcedo atthis) <sup class="min-count">2+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Kingfisher</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comkin1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Alcedo atthis) <sup class="min-count">2+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Saughton Public Park <strong>2</strong> (Jack MB)<a class="checklist-link" href="https://ebird.org/checklist/S313988333" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2161,7 +2936,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Great Spotted Woodpecker <span class="sci-name">(Dendrocopos major) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Great Spotted Woodpecker</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/grswoo" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Dendrocopos major) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Musselburgh Lagoons <strong>X</strong> (Lou Flowers)<a class="checklist-link" href="https://ebird.org/checklist/S313687898" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2180,7 +2966,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Kestrel <span class="sci-name">(Falco tinnunculus) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Kestrel</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurkes" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Falco tinnunculus) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Harlaw Reservoir <strong>2</strong> (Jimmy Hair)<a class="checklist-link" href="https://ebird.org/checklist/S313923128" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2203,14 +3000,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #cc6600;">Merlin <span class="sci-name">(Falco columbarius)</span></h4>
+                <h4 class="species-name" style="color: #cc8800;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Merlin</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/merlin" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Falco columbarius)</span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Fluke Dub <strong>1</strong> (Andrew Frost)<a class="checklist-link" href="https://ebird.org/checklist/S313636540" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Jay <span class="sci-name">(Garrulus glandarius) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Jay</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurjay1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Garrulus glandarius) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Lasswade <strong>2</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313834345" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2219,7 +3038,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Magpie <span class="sci-name">(Pica pica) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Magpie</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurmag1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Pica pica) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2310,7 +3140,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Jackdaw <span class="sci-name">(Coloeus monedula) <sup class="min-count">100+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Jackdaw</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurjac" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Coloeus monedula) <sup class="min-count">100+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2401,7 +3242,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Rook <span class="sci-name">(Corvus frugilegus) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Rook</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rook1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Corvus frugilegus) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Harlaw Reservoir <strong>X</strong> (Jimmy Hair)<a class="checklist-link" href="https://ebird.org/checklist/S313923128" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2432,7 +3284,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Carrion Crow <span class="sci-name">(Corvus corone) <sup class="min-count">75+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Carrion Crow</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/carcro1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Corvus corone) <sup class="min-count">75+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2559,7 +3422,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Raven <span class="sci-name">(Corvus corax) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Raven</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comrav" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Corvus corax) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Travelling in Edinburgh <strong>2</strong> (Sam Shutt)<a class="checklist-link" href="https://ebird.org/checklist/S313903813" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2572,7 +3446,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Coal Tit <span class="sci-name">(Periparus ater) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Coal Tit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/coatit2" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Periparus ater) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>2</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2619,7 +3504,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Blue Tit <span class="sci-name">(Cyanistes caeruleus) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Blue Tit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/blutit" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Cyanistes caeruleus) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2706,7 +3602,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Great Tit <span class="sci-name">(Parus major) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Great Tit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/gretit1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Parus major) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>1</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2777,7 +3684,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Skylark <span class="sci-name">(Alauda arvensis) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Skylark</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/skylar" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Alauda arvensis) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>5</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2828,7 +3746,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Sand Martin <span class="sci-name">(Riparia riparia)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Sand Martin</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/banswa" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Riparia riparia)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Musselburgh--Levenhall Links (General) <strong>4</strong> (Sasha Bertasius) <span class="obs-comment">"At boating pond."</span><a class="checklist-link" href="https://ebird.org/checklist/S314002384" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2847,7 +3776,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Chiffchaff <span class="sci-name">(Phylloscopus collybita) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Chiffchaff</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comchi1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Phylloscopus collybita) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2924,7 +3864,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Long-tailed Tit <span class="sci-name">(Aegithalos caudatus) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Long-tailed Tit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/lottit1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Aegithalos caudatus) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2969,7 +3920,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Blackcap <span class="sci-name">(Sylvia atricapilla)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Blackcap</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/blackc1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Sylvia atricapilla)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>2</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313847088" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -2980,7 +3942,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Goldcrest <span class="sci-name">(Regulus regulus) <sup class="min-count">6+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Goldcrest</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/goldcr1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Regulus regulus) <sup class="min-count">6+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>1</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3015,7 +3988,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Nuthatch <span class="sci-name">(Sitta europaea) <sup class="min-count">4+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Nuthatch</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurnut2" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Sitta europaea) <sup class="min-count">4+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Lasswade <strong>1</strong> (Lukasz Pulawski)<a class="checklist-link" href="https://ebird.org/checklist/S313834345" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3032,7 +4016,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Treecreeper <span class="sci-name">(Certhia familiaris) <sup class="min-count">4+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Treecreeper</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurtre1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Certhia familiaris) <sup class="min-count">4+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Inverleith Park <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313975374" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3051,7 +4046,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Wren <span class="sci-name">(Troglodytes troglodytes) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Wren</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/winwre4" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Troglodytes troglodytes) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3148,7 +4154,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Dipper <span class="sci-name">(Cinclus cinclus) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Dipper</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/whtdip1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Cinclus cinclus) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>1</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3167,7 +4184,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Starling <span class="sci-name">(Sturnus vulgaris) <sup class="min-count">50+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Starling</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eursta" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Sturnus vulgaris) <sup class="min-count">50+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>35</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3212,7 +4240,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Mistle Thrush <span class="sci-name">(Turdus viscivorus) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Mistle Thrush</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/misthr1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Turdus viscivorus) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 27/03/26 Glencorse To Harlaw Reservoir <strong>1</strong> (John Simpson)<a class="checklist-link" href="https://ebird.org/checklist/S313546926" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3227,7 +4266,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Song Thrush <span class="sci-name">(Turdus philomelos) <sup class="min-count">7+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Song Thrush</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/sonthr1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Turdus philomelos) <sup class="min-count">7+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Warriston Cemetery and Puddocky <strong>1</strong> (Scott Reed)<a class="checklist-link" href="https://ebird.org/checklist/S313909839" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3252,7 +4302,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Redwing <span class="sci-name">(Turdus iliacus) <sup class="min-count">30+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Redwing</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/redwin" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Turdus iliacus) <sup class="min-count">30+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>6</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3265,7 +4326,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Blackbird <span class="sci-name">(Turdus merula) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Blackbird</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurbla" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Turdus merula) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>2</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3338,7 +4410,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Fieldfare <span class="sci-name">(Turdus pilaris) <sup class="min-count">40+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Fieldfare</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/fieldf" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Turdus pilaris) <sup class="min-count">40+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>50</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3353,7 +4436,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Robin <span class="sci-name">(Erithacus rubecula) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Robin</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurrob1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Erithacus rubecula) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3448,7 +4542,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Stonechat <span class="sci-name">(Saxicola rubicola) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Stonechat</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/stonec4" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Saxicola rubicola) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>3</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3477,14 +4582,36 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Wheatear <span class="sci-name">(Oenanthe oenanthe)</span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Wheatear</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/norwhe" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Oenanthe oenanthe)</span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li></ul>
             </div>
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Dunnock <span class="sci-name">(Prunella modularis) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Dunnock</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/dunnoc1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Prunella modularis) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 St Bernard&#x27;s Well <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313993477" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3543,7 +4670,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">House Sparrow <span class="sci-name">(Passer domesticus) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">House Sparrow</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/houspa" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Passer domesticus) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 St Bernard&#x27;s Well <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S313993477" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3582,7 +4720,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Tree Sparrow <span class="sci-name">(Passer montanus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Tree Sparrow</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eutspa" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Passer montanus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Crewe Toll to Newhaven Cycle Path <strong>1</strong> (Scott Reed)<a class="checklist-link" href="https://ebird.org/checklist/S313830591" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3593,7 +4742,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Grey Wagtail <span class="sci-name">(Motacilla cinerea) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Grey Wagtail</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/grywag" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Motacilla cinerea) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 47 West Bowling Green Street, Scotland, GB (55.972, -3.185) <strong>2</strong> (Matthew Silk)<a class="checklist-link" href="https://ebird.org/checklist/S313943463" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3624,7 +4784,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Pied/White Wagtail <span class="sci-name">(Motacilla alba) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Pied/White Wagtail</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/whiwag" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Motacilla alba) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>2</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3691,7 +4862,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Meadow Pipit <span class="sci-name">(Anthus pratensis) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Meadow Pipit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/meapip1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anthus pratensis) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>1</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3748,7 +4930,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Rock Pipit <span class="sci-name">(Anthus petrosus) <sup class="min-count">3+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Rock Pipit</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/rocpip1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Anthus petrosus) <sup class="min-count">3+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>3</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3767,7 +4960,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Chaffinch <span class="sci-name">(Fringilla coelebs) <sup class="min-count">30+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Chaffinch</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/comcha" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Fringilla coelebs) <sup class="min-count">30+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith <strong>X</strong> (Anonymous eBirder)<a class="checklist-link" href="https://ebird.org/checklist/S314022404" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3852,7 +5056,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Bullfinch <span class="sci-name">(Pyrrhula pyrrhula) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Bullfinch</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurbul" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Pyrrhula pyrrhula) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith--Warriston to Leith <strong>1</strong> (Matthew Silk)<a class="checklist-link" href="https://ebird.org/checklist/S313949339" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3879,7 +5094,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Greenfinch <span class="sci-name">(Chloris chloris) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Greenfinch</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurgre1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Chloris chloris) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>2</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3902,7 +5128,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Linnet <span class="sci-name">(Linaria cannabina) <sup class="min-count">20+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Linnet</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurlin1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Linaria cannabina) <sup class="min-count">20+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Torness <strong>1</strong> (Rosie Filipiak)<a class="checklist-link" href="https://ebird.org/checklist/S313967725" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3943,7 +5180,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Redpoll <span class="sci-name">(Acanthis flammea) <sup class="min-count">5+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Redpoll</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/redpol1" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Acanthis flammea) <sup class="min-count">5+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Gosford Bay <strong>1</strong> (Richard Littauer)<a class="checklist-link" href="https://ebird.org/checklist/S313982068" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -3958,7 +5206,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Goldfinch <span class="sci-name">(Carduelis carduelis) <sup class="min-count">25+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Goldfinch</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eurgol" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Carduelis carduelis) <sup class="min-count">25+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Water of Leith--Warriston to Leith <strong>2</strong> (Matthew Silk)<a class="checklist-link" href="https://ebird.org/checklist/S313949339" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -4039,7 +5298,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Siskin <span class="sci-name">(Spinus spinus) <sup class="min-count">15+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Siskin</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/eursis" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Spinus spinus) <sup class="min-count">15+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Holyrood Park--St. Margaret&#x27;s Loch <strong>1</strong> (James Moreland)<a class="checklist-link" href="https://ebird.org/checklist/S313990342" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -4062,7 +5332,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Yellowhammer <span class="sci-name">(Emberiza citrinella) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Yellowhammer</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/yellow2" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Emberiza citrinella) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Glenkinchie (Village) <strong>1</strong> (Sandy Rae)<a class="checklist-link" href="https://ebird.org/checklist/S313838480" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -4075,7 +5356,18 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
         
 
             <div class="species-block">
-                <h4 class="species-name" style="color: #000000;">Reed Bunting <span class="sci-name">(Emberiza schoeniclus) <sup class="min-count">10+</sup></span></h4>
+                <h4 class="species-name" style="color: #000000;">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">Reed Bunting</span>
+                        
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="https://ebird.org/species/reebun" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        
+                    </span>
+                    <span class="sci-name">(Emberiza schoeniclus) <sup class="min-count">10+</sup></span>
+                </h4>
                 <ul class="observation"><li>
                 28/03/26 Threipmuir Reservoir <strong>1</strong> (Timothy Akin)<a class="checklist-link" href="https://ebird.org/checklist/S314025666" target="_blank" rel="noopener noreferrer" title="View eBird checklist"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
 <li>
@@ -4096,7 +5388,7 @@ Female 3"</span><a class="checklist-link" href="https://ebird.org/checklist/S313
     <footer>
         eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: March 28, 2026).<br><br>
         Generated automatically by GitHub Actions<br>
-        Data fetching took 6 seconds
+        Data fetching took 8 seconds
     </footer>
 </body>
 </html>
