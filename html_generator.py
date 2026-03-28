@@ -238,10 +238,18 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             margin: 4px 0 16px;
             line-height: 1.5;
         }}     
-        .observation li {{
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
+        .observation {{
+            list-style: none;
+            padding-left: 20px;
+            margin: 0;
+        }}
+        .observation li::before {{
+            content: "•";
+            color: #ccc;
+            font-size: 12px;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }}
         .report-summary-subtitle {{
             margin: -8px 0 16px;
