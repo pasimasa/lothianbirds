@@ -8,8 +8,8 @@ EBIRD_CHECKLIST_BASE_URL = "https://ebird.org/checklist/"
 EBIRD_SPECIES_BASE_URL = "https://ebird.org/species/"
 
 RARITY_COLOURS = {
-    "high":   "#cc0000",
-    "medium": "#cc6600",
+    "high":   "#e60000",
+    "medium": "#cc8800",
     "normal": "#000000",
 }
 
