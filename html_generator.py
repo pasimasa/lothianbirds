@@ -144,7 +144,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QKTPZBJK7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
     
       gtag('config', 'G-8QKTPZBJK7');
