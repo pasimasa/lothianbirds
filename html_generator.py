@@ -269,9 +269,8 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             position: relative;
             top: -1px;
         }}
-        .species-link-wrapper {{
-            position: relative;
-            display: inline-block;
+        .species-dropdown.open {{
+            display: block;
         }}
         .species-name-link {{
             color: inherit;
@@ -295,7 +294,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             z-index: 100;
             min-width: 180px;
             padding: 4px 0;
-            margin-top: 4px;
+            margin-top: 0px;
         }}
         .species-link-wrapper:hover .species-dropdown {{
             display: block;
@@ -347,5 +346,26 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         Generated automatically by GitHub Actions<br>
         Data fetching took {duration:.0f} seconds
     </footer>
+    <script>
+        document.querySelectorAll('.species-name-link').forEach(function(el) {{
+            el.addEventListener('click', function(e) {{
+                e.stopPropagation();
+                var dropdown = el.closest('.species-link-wrapper').querySelector('.species-dropdown');
+                var isOpen = dropdown.classList.contains('open');
+                document.querySelectorAll('.species-dropdown.open').forEach(function(d) {{
+                    d.classList.remove('open');
+                }});
+                if (!isOpen) {{
+                    dropdown.classList.add('open');
+                }}
+            }});
+        }});
+
+        document.addEventListener('click', function() {{
+            document.querySelectorAll('.species-dropdown.open').forEach(function(d) {{
+                d.classList.remove('open');
+            }});
+        }});
+    </script>
 </body>
 </html>"""
