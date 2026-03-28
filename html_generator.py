@@ -5,10 +5,11 @@ import pandas as pd
 import urllib.parse
 
 EBIRD_CHECKLIST_BASE_URL = "https://ebird.org/checklist/"
+EBIRD_SPECIES_BASE_URL = "https://ebird.org/species/"
 
 RARITY_COLOURS = {
-    "high":   "#cc0000",
-    "medium": "#cc6600",
+    "high":   "#e60000",
+    "medium": "#cc8800",
     "normal": "#000000",
 }
 
@@ -128,9 +129,22 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
         rows = "\n".join(row_html_parts)
         
+        species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
+        species_links_html = f"""
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="{species_url}" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        """
         species_sections.append(f"""
             <div class="species-block">
-                <h4 class="species-name" style="color: {name_colour};">{com_name} <span class="sci-name">({sci_name}){threshold_html}</span></h4>
+                <h4 class="species-name" style="color: {name_colour};">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">{com_name}</span>
+                        {species_links_html}
+                    </span>
+                    <span class="sci-name">({sci_name}){threshold_html}</span>
+                </h4>
                 <ul class="observation">{rows}</ul>
             </div>
         """)
@@ -254,6 +268,55 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             vertical-align: middle;
             position: relative;
             top: -1px;
+        }}
+        .species-link-wrapper {{
+            position: relative;
+            display: inline-block;
+        }}
+        .species-name-link {{
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dashed transparent;
+            transition: border-color 0.15s;
+            cursor: pointer;
+        }}
+        .species-name-link:hover {{
+            border-bottom-color: currentColor;
+        }}
+        .species-dropdown {{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            z-index: 100;
+            min-width: 180px;
+            padding: 4px 0;
+            margin-top: 4px;
+        }}
+        .species-link-wrapper:hover .species-dropdown {{
+            display: block;
+        }}
+        .species-dropdown a {{
+            display: block;
+            padding: 7px 14px;
+            font-size: 13px;
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+        }}
+        .species-dropdown a:hover {{
+            background: #f0f0f0;
+        }}
+        .species-dropdown-label {{
+            font-size: 11px;
+            color: #999;
+            padding: 5px 14px 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }}
         .observation li:last-child {{ border-bottom: none; }}
         footer {{
