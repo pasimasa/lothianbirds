@@ -76,7 +76,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             </div>
         </div>
         """
-        
+
     # --- Observations grouped by species, sorted by taxon_order then date ---
     obs_df = obs_df.copy()
     obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
@@ -106,9 +106,9 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         rarity = first.get("rarity", "normal")
         threshold = first.get("min_count", 0)
         name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
-        
+
         threshold_html = f' <sup class="min-count">{int(threshold)}+</sup>' if threshold > 1 else ""
-        
+
         row_html_parts = []
         for row in group_sorted.itertuples():
             comment_html = ""
@@ -118,17 +118,17 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                     escaped_comment = html.escape(str(val))
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
             checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
-        
+
             checklist_icon = (
                 f'<a class="checklist-link" href="{checklist_url}" '
                 f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
                 f'{CHECKLIST_ICON_SVG}</a>'
             )
-        
+
             row_html_parts.append(f"""<li>
                 {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
         rows = "\n".join(row_html_parts)
-        
+
         species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
         species_links_html = f"""
                 <div class="species-dropdown">
@@ -238,18 +238,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             margin: 4px 0 16px;
             line-height: 1.5;
         }}     
-        .observation {{
-            list-style: none;
-            padding-left: 20px;
-            margin: 0;
-        }}
-        .observation li::before {{
-            content: "•";
-            color: #ccc;
-            font-size: 12px;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+        .observation li {{
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
         }}
         .report-summary-subtitle {{
             margin: -8px 0 16px;
@@ -356,4 +348,5 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         Data fetching took {duration:.0f} seconds
     </footer>
 </body>
+</html>"""
 </html>"""
