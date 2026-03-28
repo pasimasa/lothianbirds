@@ -269,7 +269,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             position: relative;
             top: -1px;
         }}
-        species-link-wrapper {{
+        .species-link-wrapper {{
             position: relative;
             display: inline-block;
         }}
