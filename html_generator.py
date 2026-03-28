@@ -216,9 +216,17 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         }}
         .timestamp {{ font-size: 14px; color: #666; }}
         .observation {{
-            list-style: disc;
+            list-style: none;
             padding-left: 20px;
             margin: 0;
+        }}
+        .observation li::before {{
+            content: "•";
+            color: #ccc;
+            font-size: 12px;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }}
         .species-name {{
             font-size: 14px;
