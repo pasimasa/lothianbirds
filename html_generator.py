@@ -290,6 +290,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         .species-name-link:hover {{
             border-bottom-color: currentColor;
         }}
+        .species-link-wrapper {{
+            position: relative;
+            display: inline-block;
+        }}
         .species-dropdown {{
             display: none;
             position: absolute;
@@ -303,9 +307,6 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             min-width: 180px;
             padding: 4px 0;
             margin-top: 0px;
-        }}
-        .species-link-wrapper:hover .species-dropdown {{
-            display: block;
         }}
         .species-dropdown a {{
             display: block;
