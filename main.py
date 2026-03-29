@@ -1,13 +1,14 @@
 """
-GenerateReport.py
+Lothian Birds report generotor
 -----------------
-Generates a formatted HTML report and writes it to report.html.
+Generates a formatted HTML report and writes it to index.html.
 Intended to be run on a schedule via GitHub Actions.
 """
 
 # ── Standard library imports ───────────────────────────────────────────────
 import os
 import pandas as pd
+import re
 import requests
 import time
 from datetime import datetime, timezone, timedelta
