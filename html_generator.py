@@ -22,6 +22,33 @@ CHECKLIST_ICON_SVG = (
     '</svg>'
 )
 
+
+def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
+    """Build a compact highlights block for rare species, or empty string if none."""
+    high = (obs_df[obs_df["rarity"] == "high"]["comName"]
+            .drop_duplicates().sort_values().tolist())
+    medium = (obs_df[obs_df["rarity"] == "medium"]["comName"]
+              .drop_duplicates().sort_values().tolist())
+
+    if not high and not medium:
+        return ""
+
+    parts = []
+    if high:
+        names = html.escape(", ".join(high))
+        parts.append(f'<div class="hl-row high">{names}</div>')
+    if medium:
+        names = html.escape(", ".join(medium))
+        parts.append(f'<div class="hl-row medium">{names}</div>')
+
+    inner = "\n".join(parts)
+    return f'''<div class="highlights">
+      <div class="hl-heading">Highlight species</div>
+      {inner}
+    </div>
+    <hr class="divider">'''
+
+
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stats: dict = None) -> str:
     """
     Generate html report using data in input data frame
@@ -35,6 +62,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     num_species = obs_df["speciesCode"].nunique()
 
     if is_notable:
+        highlights_html = build_highlight_species_html(obs_df)
         s = full_stats  # shorthand
         summary_html = f"""
         <div class="stats-container">
@@ -326,6 +354,22 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }}
+        .highlights {{
+            margin-bottom: 14px;
+        }}
+        .hl-heading {{
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }}
+        .hl-row {{
+            font-size: 13px;
+            line-height: 1.5;
+        }}
+        .high {{ color: #e60000; font-weight: 600; }}
+        .medium {{ color: #cc8800; font-weight: 600; }}
         footer {{
             text-align: center;
             font-size: 12px;
@@ -343,6 +387,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         <h2>Report Summary</h2>
         <p class="report-summary-subtitle">Notable eBird sightings from the past 5 days. Includes unverified records.</p>
         {summary_html}
+        {highlights_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
     <div class="card">
