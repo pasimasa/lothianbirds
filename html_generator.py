@@ -372,6 +372,8 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         }}
         .charts {{
             max-width: 900px;
+            width: 100%;
+            height: auto;
         }}
         .divider {{ border: none; border-top: 1px solid #f0f0f0; margin: 14px 0; }}
         .high {{ color: #e60000; }}
