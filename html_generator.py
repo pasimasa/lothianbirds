@@ -370,6 +370,9 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             line-height: 1.5;
             font-weight: 600;
         }}
+        .charts {{
+            max-width: 900px;
+        }}
         .divider {{ border: none; border-top: 1px solid #f0f0f0; margin: 14px 0; }}
         .high {{ color: #e60000; }}
         .medium {{ color: #cc8800; }}
@@ -396,6 +399,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         <h2>Recent Sightings</h2>
         {observations_html}
     </div>
+<img class="charts" src="docs/monthly_chart.png">
     <footer>
         eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: {accessed_date}).<br><br>
         Generated automatically by GitHub Actions<br>
