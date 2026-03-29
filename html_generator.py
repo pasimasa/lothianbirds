@@ -60,6 +60,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     num_observations = len(obs_df)
     num_species = obs_df["speciesCode"].nunique()
 
+    highlights_html = ""
     if is_notable:
         highlights_html = build_highlight_species_html(obs_df)
         s = full_stats  # shorthand
