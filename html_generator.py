@@ -6,6 +6,8 @@ import urllib.parse
 
 EBIRD_CHECKLIST_BASE_URL = "https://ebird.org/checklist/"
 EBIRD_SPECIES_BASE_URL = "https://ebird.org/species/"
+MAX_COMMENT_LENGTH = 220
+TRUNCATION_ELLIPSIS = "[...]"
 
 RARITY_COLOURS = {
     "high":   "#e60000",
