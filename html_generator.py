@@ -144,7 +144,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             if has_comments:
                 val = getattr(row, "comments", None)
                 if pd.notna(val) and str(val).strip():
-                    escaped_comment = html.escape(str(val))
+                    comment = str(val)
+                    if len(comment) > 220:
+                        comment = comment[:220] + "[...]"
+                    escaped_comment = html.escape(comment)
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
             checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
 
