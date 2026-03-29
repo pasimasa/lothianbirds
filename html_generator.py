@@ -170,8 +170,8 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         body {{
             font-family: Arial, sans-serif;
             max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 10px;
             background: #f5f5f5;
             color: #333;
         }}
@@ -232,7 +232,8 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             font-size: 14px;
             font-weight: 600;
             margin: 16px 0 2px 0;
-            padding-bottom: 0px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e0e0e0;
         }}
         .sci-name {{
             font-style: italic;
@@ -247,8 +248,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             line-height: 1.5;
         }}     
         .observation li {{
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 3px 0;
             font-size: 14px;
         }}
         .report-summary-subtitle {{
@@ -326,7 +326,6 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }}
-        .observation li:last-child {{ border-bottom: none; }}
         footer {{
             text-align: center;
             font-size: 12px;
