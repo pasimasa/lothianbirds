@@ -171,7 +171,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             font-family: Arial, sans-serif;
             max-width: 1400px;
             margin: 20px auto;
-            padding: 0 10px;
+            padding: 0 4px;
             background: #f5f5f5;
             color: #333;
         }}
@@ -187,7 +187,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         .card {{
             background: white;
             border-radius: 8px;
-            padding: 24px 32px;
+            padding: 16px;
             margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }}
