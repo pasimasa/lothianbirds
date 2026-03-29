@@ -363,12 +363,13 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             letter-spacing: 0.04em;
             margin-bottom: 6px;
         }}
-        .hl-row {{
+        .hl-row {
             font-size: 13px;
             line-height: 1.5;
-        }}
-        .high {{ color: #e60000; font-weight: 600; }}
-        .medium {{ color: #cc8800; font-weight: 600; }}
+            font-weight: 600;
+        }
+        .high { color: #e60000; }
+        .medium { color: #cc8800; }
         footer {{
             text-align: center;
             font-size: 12px;
