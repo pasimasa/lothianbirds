@@ -57,17 +57,11 @@ def _read_timestamp_from_html(html_file: str) -> datetime | None:
         return None
     
     content = path.read_text(encoding="utf-8")
-    marker = "Last updated: <strong>"
-    idx = content.find(marker)
-    if idx == -1:
+    match = re.search(r"Last updated: <strong>(.*?)</strong>", content)
+    if not match:
         return None
     
-    start = idx + len(marker)
-    end = content.find("</strong>", start)
-    if end == -1:
-        return None
-    
-    timestamp_str = content[start:end].strip()
+    timestamp_str = match.group(1).strip()
     try:
         return datetime.strptime(timestamp_str, "%d/%m/%Y %H:%M")
     except ValueError:
