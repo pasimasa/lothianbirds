@@ -46,7 +46,7 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
     return f'''<div class="highlights">
       <div class="hl-heading">Highlight species</div>
       {inner}
-    </div>
+    </div>'''
 
 
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stats: dict = None) -> str:
