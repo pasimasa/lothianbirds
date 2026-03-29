@@ -89,8 +89,11 @@ def load_cached_obs(cache_file: str) -> pd.DataFrame:
         print("  Cache is from previous day, starting fresh.")
         return pd.DataFrame()
 
-    cached = pd.read_csv(path)
-    return cached if not cached.empty else pd.DataFrame()
+    try:
+        return pd.read_csv(path)
+    except pd.errors.EmptyDataError:
+        print("  Cache file is empty, starting fresh.")
+        return pd.DataFrame()
 
 
 def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
