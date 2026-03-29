@@ -41,8 +41,7 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
         return ""
 
     inner = "\n".join(parts)
-    return f'''<hr class="divider">
-      <div class="highlights">
+    return f'''<div class="highlights">
       <div class="hl-heading">Highlight species</div>
       {inner}
     </div>
@@ -76,6 +75,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 <div class="stat-label">Species</div>
             </div>
         </div>
+        {highlights_html}
         <p class="full-stats-prose">In total <b>{s['num_observations']}</b> observations of <b>{s['num_species']}</b> species 
         were recorded across <b>{s['num_locations']}</b> locations, based on <b>{s['num_checklists']}</b> checklists 
         submitted by <b>{s['num_birders']}</b> birders.</p>
@@ -390,7 +390,6 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         <h2>Report Summary</h2>
         <p class="report-summary-subtitle">Notable eBird sightings from the past 5 days. Includes unverified records.</p>
         {summary_html}
-        {highlights_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
     <div class="card">
