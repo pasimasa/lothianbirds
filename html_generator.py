@@ -41,7 +41,8 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
         return ""
 
     inner = "\n".join(parts)
-    return f'''<div class="highlights">
+    return f'''<hr class="divider">
+      <div class="highlights">
       <div class="hl-heading">Highlight species</div>
       {inner}
     </div>
