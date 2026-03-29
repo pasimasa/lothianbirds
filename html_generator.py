@@ -25,21 +25,20 @@ CHECKLIST_ICON_SVG = (
 
 def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
     """Build a compact highlights block for rare species, or empty string if none."""
-    high = (obs_df[obs_df["rarity"] == "high"]["comName"]
-            .drop_duplicates().sort_values().tolist())
-    medium = (obs_df[obs_df["rarity"] == "medium"]["comName"]
-              .drop_duplicates().sort_values().tolist())
-
-    if not high and not medium:
-        return ""
-
     parts = []
-    if high:
-        names = html.escape(", ".join(high))
-        parts.append(f'<div class="hl-row high">{names}</div>')
-    if medium:
-        names = html.escape(", ".join(medium))
-        parts.append(f'<div class="hl-row medium">{names}</div>')
+    for rarity in ["high", "medium"]:
+        names_list = (
+            obs_df[obs_df["rarity"] == rarity]["comName"]
+            .drop_duplicates()
+            .sort_values()
+            .tolist()
+        )
+        if names_list:
+            names = html.escape(", ".join(names_list))
+            parts.append(f'<div class="hl-row {rarity}">{names}</div>')
+
+    if not parts:
+        return ""
 
     inner = "\n".join(parts)
     return f'''<div class="highlights">
