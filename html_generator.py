@@ -145,7 +145,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 val = getattr(row, "comments", None)
                 if pd.notna(val) and str(val).strip():
                     comment = str(val)
-                    if len(comment) > 220:
+                    if len(comment) > MAX_COMMENT_LENGTH:
                         comment = comment[:220] + "[...]"
                     escaped_comment = html.escape(comment)
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
