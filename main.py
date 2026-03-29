@@ -48,24 +48,49 @@ def get_last_n_days(n=6):
         dates.append(date.strftime("%Y/%m/%d"))
     return dates
 
+
+def _read_timestamp_from_html(html_file: str) -> datetime | None:
+    """Extract the 'Last updated' timestamp from a previously generated report.
+    Used to figure out of cache should be cleared."""
+    path = Path(html_file)
+    if not path.exists():
+        return None
+    
+    content = path.read_text(encoding="utf-8")
+    marker = "Last updated: <strong>"
+    idx = content.find(marker)
+    if idx == -1:
+        return None
+    
+    start = idx + len(marker)
+    end = content.find("</strong>", start)
+    if end == -1:
+        return None
+    
+    timestamp_str = content[start:end].strip()
+    try:
+        return datetime.strptime(timestamp_str, "%d/%m/%Y %H:%M")
+    except ValueError:
+        return None
+
+
 def load_cached_obs(cache_file: str) -> pd.DataFrame:
     """Load cached observations, or return empty DataFrame if cache is stale or missing."""
     path = Path(cache_file)
     if not path.exists():
         return pd.DataFrame()
-    
-    cached = pd.read_csv(path)
-    
-    if cached.empty:
+
+    last_updated = _read_timestamp_from_html(OUTPUT_FILE_NOTABLE)
+    if last_updated is None:
         return pd.DataFrame()
 
     today = datetime.now(ZoneInfo(TIMEZONE)).date()
-    obs_dates = pd.to_datetime(cached['obsDt']).dt.date
-    if not (obs_dates == today).any():
+    if last_updated.date() != today:
         print("  Cache is from previous day, starting fresh.")
         return pd.DataFrame()
 
-    return cached
+    cached = pd.read_csv(path)
+    return cached if not cached.empty else pd.DataFrame()
 
 
 def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
