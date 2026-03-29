@@ -47,7 +47,6 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
       <div class="hl-heading">Highlight species</div>
       {inner}
     </div>
-    <hr class="divider">'''
 
 
 def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stats: dict = None) -> str:
@@ -361,14 +360,19 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             letter-spacing: 0.05em;
         }}
         .highlights {{
-            margin-bottom: 14px;
+            background: #E8F4F8;
+            border-left: 4px solid #4FA8D8;
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
         }}
         .hl-heading {{
             font-size: 12px;
-            color: #888;
+            color: #4FA8D8;
             text-transform: uppercase;
             letter-spacing: 0.04em;
             margin-bottom: 6px;
+            font-weight: bold;
         }}
         .hl-row {{
             font-size: 13px;
