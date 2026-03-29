@@ -6,6 +6,8 @@ import urllib.parse
 
 EBIRD_CHECKLIST_BASE_URL = "https://ebird.org/checklist/"
 EBIRD_SPECIES_BASE_URL = "https://ebird.org/species/"
+MAX_COMMENT_LENGTH = 220
+TRUNCATION_ELLIPSIS = "[...]"
 
 RARITY_COLOURS = {
     "high":   "#e60000",
@@ -144,7 +146,10 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             if has_comments:
                 val = getattr(row, "comments", None)
                 if pd.notna(val) and str(val).strip():
-                    escaped_comment = html.escape(str(val))
+                    comment = str(val).strip()
+                    if len(comment) > MAX_COMMENT_LENGTH:
+                        comment = comment[:MAX_COMMENT_LENGTH - len(TRUNCATION_ELLIPSIS)] + TRUNCATION_ELLIPSIS
+                    escaped_comment = html.escape(comment)
                     comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
             checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
 
