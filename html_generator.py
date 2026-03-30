@@ -415,6 +415,11 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         .media-link:hover {{
             opacity: 1;
         }}
+        .media-link svg {{
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }}
         footer {{
             text-align: center;
             font-size: 12px;
