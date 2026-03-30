@@ -29,7 +29,7 @@ EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
 HEADERS = {'X-eBirdApiToken': EBIRD_API_KEY}
 REGIONS = ['GB-SCT-ELN', 'GB-SCT-EDH', 'GB-SCT-MLN', 'GB-SCT-WLN']
-DAYS_TO_SHOW = 3 # using 3 for debugging, revert to 5 for production
+DAYS_TO_SHOW = 5
 CONFIG_YAML_FILE_NAME = "species_config.yml"
 TAXON_FILE_NAME = "ebird_taxon.csv"
 
