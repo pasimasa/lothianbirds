@@ -158,8 +158,17 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
                 f'{CHECKLIST_ICON_SVG}</a>'
             )
 
+            media_html = ""
+            media_val = getattr(row, "mediaCounts", None)
+            if media_val is not None and str(media_val).strip() not in ("", "nan"):
+                photos_url = f"{checklist_url}?view=photos"
+                media_html = (
+                    f'<a class="media-link" href="{photos_url}" '
+                    f'target="_blank" rel="noopener noreferrer" title="View media">📷</a>'
+                )
+
             row_html_parts.append(f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{checklist_icon}</li>""")
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{media_html}{checklist_icon}</li>""")
         rows = "\n".join(row_html_parts)
 
         species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
@@ -387,6 +396,17 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         .divider {{ border: none; border-top: 1px solid #f0f0f0; margin: 14px 0; }}
         .high {{ color: #e60000; }}
         .medium {{ color: #cc8800; }}
+        .media-link {{
+            color: #4FA8D8;
+            text-decoration: none;
+            font-size: 13px;
+            margin-left: 4px;
+            opacity: 0.75;
+            transition: opacity 0.15s;
+        }}
+        .media-link:hover {{
+            opacity: 1;
+        }}
         footer {{
             text-align: center;
             font-size: 12px;
