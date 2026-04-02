@@ -299,7 +299,7 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     # Convert count to numeric, coerce X and other non-numeric to NaN
     obs = obs.copy()
     obs['count_numeric'] = pd.to_numeric(obs['howManyStr'], errors='coerce')
-    obs = obs[obs['count_numeric'].notna() & (obs['count_numeric'] > 0)]
+    obs = obs[obs['count_numeric'] > 0]
 
     current_month = datetime.now(ZoneInfo(TIMEZONE)).strftime('%b').lower()
 
