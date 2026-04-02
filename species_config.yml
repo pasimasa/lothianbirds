@@ -6,7 +6,8 @@
 # -- min count can be just one number that applies all year around, or separate ones for each month
 # -- if minimum count is not set then all records for that species are included
 #
-# If a species is not listed here, all records for that species are included and species is not highlighted as rare
+# If a species is not listed here, all records for that species are included (where count > 0) 
+# and species is not highlighted as rare
 #
 # -------------------------------------------------------------------------------------------------------------------
 
