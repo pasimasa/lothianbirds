@@ -24,6 +24,7 @@ from html_generator import build_html
 OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
+DAILY_COUNT_FILE = "docs/daily_obs_counts.csv"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -95,6 +96,60 @@ def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
     """Persist observations to disk for reuse on next run."""
     Path(cache_file).parent.mkdir(parents=True, exist_ok=True)
     obs.to_csv(cache_file, index=False)
+
+
+def load_daily_counts(count_file: str) -> pd.DataFrame:
+    """Load historical daily observation counts from CSV, or return empty DataFrame."""
+    path = Path(count_file)
+    if not path.exists():
+        return pd.DataFrame(columns=["date", "obs_count"])
+    try:
+        df = pd.read_csv(path, parse_dates=["date"])
+        df["date"] = pd.to_datetime(df["date"]).dt.date
+        return df
+    except (pd.errors.EmptyDataError, KeyError):
+        return pd.DataFrame(columns=["date", "obs_count"])
+
+
+def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
+    """
+    Recalculate observation counts for each date in the current obs window and
+    upsert them into the persistent historical count file.
+
+    Counts are based on unique (speciesCode, locName, obsDt) combinations to
+    avoid inflating numbers when the same bird is reported across multiple checklists
+    at the same site on the same day.
+    """
+    if obs.empty:
+        return
+
+    # Count distinct observations per calendar date
+    obs_copy = obs.copy()
+    obs_copy["obs_date"] = pd.to_datetime(obs_copy["obsDt"]).dt.date
+    fresh_counts = (
+        obs_copy
+        .drop_duplicates(subset=["speciesCode", "locName", "obsDt"])
+        .groupby("obs_date")
+        .size()
+        .reset_index(name="obs_count")
+        .rename(columns={"obs_date": "date"})
+    )
+
+    # Load existing history and drop any dates we're about to overwrite
+    history = load_daily_counts(count_file)
+    history = history[~history["date"].isin(fresh_counts["date"])]
+
+    # Merge and sort chronologically
+    updated = (
+        pd.concat([history, fresh_counts], ignore_index=True)
+        .sort_values("date")
+        .reset_index(drop=True)
+    )
+
+    Path(count_file).parent.mkdir(parents=True, exist_ok=True)
+    updated.to_csv(count_file, index=False)
+    print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
+          f"{len(updated)} total dates on record.")
 
 
 def get_recent_checklists():
@@ -353,6 +408,9 @@ def main() -> None:
     obs = update_obs_taxon(obs, taxon)
     obs = update_species_config(obs, species_config)
 
+    # Persist daily obs counts for long-term graphing
+    update_daily_counts(obs, DAILY_COUNT_FILE)
+                        
     duration = time.time() - start_time
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
