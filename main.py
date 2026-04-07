@@ -25,6 +25,7 @@ OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
 DAILY_COUNT_FILE = "docs/daily_obs_counts.csv"
+MONTHLY_COUNT_FILE = "docs/monthly_obs_counts.csv"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -111,10 +112,74 @@ def load_daily_counts(count_file: str) -> pd.DataFrame:
         return pd.DataFrame(columns=["date", "obs_count"])
 
 
+def load_monthly_counts(monthly_file: str) -> pd.DataFrame:
+    """Load the monthly obs counts CSV, or return empty DataFrame if missing."""
+    path = Path(monthly_file)
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(monthly_file, index_col="Month")
+    except (pd.errors.EmptyDataError, KeyError):
+        return pd.DataFrame()
+
+
+def update_monthly_counts(obs: pd.DataFrame, monthly_file: str) -> None:
+    """
+    Sum observations by month from the current obs window and update the
+    monthly counts CSV — only writing a value if it exceeds what's already stored.
+    """
+    if obs.empty:
+        return
+
+    monthly_df = load_monthly_counts(monthly_file)
+    if monthly_df.empty:
+        print("  Monthly counts file not found or empty, skipping monthly update.")
+        return
+
+    obs_copy = obs.copy()
+    obs_copy["obs_dt"] = pd.to_datetime(obs_copy["obsDt"])
+    obs_copy["month_abbr"] = obs_copy["obs_dt"].dt.strftime("%b")
+    obs_copy["year"] = obs_copy["obs_dt"].dt.strftime("%Y")
+
+    fresh_monthly = (
+        obs_copy
+        .groupby(["month_abbr", "year"])
+        .size()
+        .reset_index(name="obs_count")
+    )
+
+    updated_cells = 0
+    for _, row in fresh_monthly.iterrows():
+        month = row["month_abbr"]
+        year = row["year"]
+        count = row["obs_count"]
+
+        if month not in monthly_df.index:
+            print(f"  Skipping {month} — not found in monthly counts index.")
+            continue
+        if year not in monthly_df.columns:
+            print(f"  Skipping {year} — not found in monthly counts columns.")
+            continue
+
+        current_val = monthly_df.at[month, year]
+        try:
+            current_val = int(current_val)
+        except (ValueError, TypeError):
+            current_val = 0
+
+        if count > current_val:
+            monthly_df.at[month, year] = count
+            updated_cells += 1
+
+    monthly_df.to_csv(monthly_file, index=True)
+    print(f"  Monthly counts updated: {updated_cells} cell(s) refreshed.")
+
+
 def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     """
     Recalculate observation counts for each date in the current obs window and
     upsert them into the persistent historical count file.
+    Also updates the monthly counts CSV.
     """
     if obs.empty:
         return
@@ -145,6 +210,9 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     updated.to_csv(count_file, index=False)
     print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
           f"{len(updated)} total dates on record.")
+
+    # Also update monthly counts
+    update_monthly_counts(obs, MONTHLY_COUNT_FILE)
 
 
 def get_recent_checklists():
