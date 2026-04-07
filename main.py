@@ -128,7 +128,6 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     obs_copy["obs_date"] = pd.to_datetime(obs_copy["obsDt"]).dt.date
     fresh_counts = (
         obs_copy
-        .drop_duplicates(subset=["speciesCode", "locName", "obsDt"])
         .groupby("obs_date")
         .size()
         .reset_index(name="obs_count")
