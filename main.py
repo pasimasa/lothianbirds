@@ -243,8 +243,9 @@ def update_monthly_counts(daily_counts: pd.DataFrame, monthly_file: str) -> None
 
     monthly_df = load_monthly_counts(monthly_file)
     if monthly_df.empty:
-        print("  Monthly counts file not found or empty, skipping monthly update.")
-        return
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        monthly_df = pd.DataFrame(index=months)
+        monthly_df.index.name = "Month"
 
     daily = daily_counts.copy()
     daily["date"] = pd.to_datetime(daily["date"])
