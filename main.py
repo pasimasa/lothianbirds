@@ -25,6 +25,7 @@ OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
 DAILY_COUNT_FILE = "docs/daily_obs_counts.csv"
+MONTHLY_COUNT_FILE = "docs/monthly_obs_counts.csv"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -98,6 +99,79 @@ def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
     obs.to_csv(cache_file, index=False)
 
 
+def generate_monthly_chart(monthly_file: str, chart_file: str) -> None:
+    """
+    TODO - not used yet
+    Generate a bar chart of monthly eBird observation counts for the current
+    year and three previous years, and save it as a PNG.
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    monthly_df = load_monthly_counts(monthly_file)
+    if monthly_df.empty:
+        print("  Monthly counts file not found or empty, skipping chart.")
+        return
+
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    # Reindex to ensure correct month order, fill missing with 0
+    monthly_df = monthly_df.reindex(months).fillna(0)
+
+    # Take only the 4 most recent years that have any data
+    current_year = str(datetime.now(ZoneInfo(TIMEZONE)).year)
+    all_years = [col for col in monthly_df.columns if col.isdigit()]
+    all_years_with_data = [y for y in all_years if monthly_df[y].astype(int).sum() > 0]
+    years_to_plot = sorted(all_years_with_data)[-4:]
+
+    if not years_to_plot:
+        print("  No year data to plot in monthly counts.")
+        return
+
+    # Your original colour scheme: greyscale progression, light red for latest year
+    colors = ['#e0dcdc', '#cbbaba', '#a89a9a', '#FF9999']
+    # If fewer than 4 years, take the last n colors so latest year is always red
+    colors = colors[-len(years_to_plot):]
+
+    x = np.arange(len(months))
+    n = len(years_to_plot)
+    bar_width = 0.2
+    offsets = np.linspace(-(n - 1) / 2, (n - 1) / 2, n) * bar_width
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    fig.patch.set_facecolor('white')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    for year, color, offset in zip(years_to_plot, colors, offsets):
+        values = monthly_df[year].astype(int).tolist()
+        ax.bar(x + offset, values, bar_width, label=year, color=color)
+
+    # Y-axis upper bound: ignore placeholder zeros for future months in current year
+    current_year_nonzero = monthly_df[current_year][monthly_df[current_year].astype(int) > 1]
+    comparison_vals = [monthly_df[y].astype(int).max() for y in years_to_plot if y != current_year]
+    if not current_year_nonzero.empty:
+        comparison_vals.append(current_year_nonzero.astype(int).max())
+    max_value = max(comparison_vals) if comparison_vals else 10000
+
+    year_range = f"{years_to_plot[0]}–{years_to_plot[-1]}"
+    ax.set_title(f'Lothian Monthly eBird Records ({year_range})', fontsize=14, pad=10)
+    ax.set_xticks(x)
+    ax.set_xticklabels(months, fontsize=10)
+    ax.tick_params(axis='y', labelsize=10)
+    ax.legend(fontsize=10)
+    ax.grid(True, alpha=0.3, axis='y')
+    ax.set_ylim(0, max_value * 1.05)
+    ax.set_yticks(range(0, int(max_value * 1.05) + 1000, 2500))
+
+    plt.tight_layout()
+    Path(chart_file).parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(chart_file, dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print(f"  Monthly chart saved: {chart_file}")
+
+
 def load_daily_counts(count_file: str) -> pd.DataFrame:
     """Load historical daily observation counts from CSV, or return empty DataFrame."""
     path = Path(count_file)
@@ -111,15 +185,26 @@ def load_daily_counts(count_file: str) -> pd.DataFrame:
         return pd.DataFrame(columns=["date", "obs_count"])
 
 
+def load_monthly_counts(monthly_file: str) -> pd.DataFrame:
+    """Load the monthly obs counts CSV, or return empty DataFrame if missing."""
+    path = Path(monthly_file)
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(monthly_file, index_col="Month")
+    except (pd.errors.EmptyDataError, ValueError):
+        return pd.DataFrame()
+
+
 def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     """
     Recalculate observation counts for each date in the current obs window and
     upsert them into the persistent historical count file.
+    Also updates the monthly counts CSV from the full daily history.
     """
     if obs.empty:
         return
 
-    # Count distinct observations per calendar date
     obs_copy = obs.copy()
     obs_copy["obs_date"] = pd.to_datetime(obs_copy["obsDt"]).dt.date
     fresh_counts = (
@@ -130,11 +215,9 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
         .rename(columns={"obs_date": "date"})
     )
 
-    # Load existing history and drop any dates we're about to overwrite
     history = load_daily_counts(count_file)
     history = history[~history["date"].isin(fresh_counts["date"])]
 
-    # Merge and sort chronologically
     updated = (
         pd.concat([history, fresh_counts], ignore_index=True)
         .sort_values("date")
@@ -146,6 +229,55 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
           f"{len(updated)} total dates on record.")
 
+    # Pass the full daily history to monthly update, not the 5-day obs window
+    update_monthly_counts(updated, MONTHLY_COUNT_FILE)
+
+
+def update_monthly_counts(daily_counts: pd.DataFrame, monthly_file: str) -> None:
+    """
+    Aggregate the full daily counts history by month/year and update the
+    monthly counts CSV — only writing a value if it exceeds what's already stored.
+    """
+    if daily_counts.empty:
+        return
+
+    monthly_df = load_monthly_counts(monthly_file)
+    if monthly_df.empty:
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        monthly_df = pd.DataFrame(index=months)
+        monthly_df.index.name = "Month"
+
+    daily = daily_counts.copy()
+    daily["date"] = pd.to_datetime(daily["date"])
+    daily["month_abbr"] = daily["date"].dt.strftime("%b")
+    daily["year"] = daily["date"].dt.strftime("%Y")
+
+    fresh_monthly = (
+        daily
+        .groupby(["month_abbr", "year"])["obs_count"]
+        .sum()
+        .reset_index()
+    )
+
+    updated_cells = 0
+    for _, row in fresh_monthly.iterrows():
+        month = row["month_abbr"]
+        year = row["year"]
+        count = row["obs_count"]
+
+        if month not in monthly_df.index:
+            print(f"  Skipping {month} — not found in monthly counts index.")
+            continue
+        if year not in monthly_df.columns:
+            monthly_df[year] = 0
+
+        current_val = int(monthly_df.at[month, year]) if pd.notna(monthly_df.at[month, year]) else 0
+        if count > current_val:
+            monthly_df.at[month, year] = count
+            updated_cells += 1
+
+    monthly_df.to_csv(monthly_file, index=True)
+    print(f"  Monthly counts updated: {updated_cells} cell(s) refreshed.")
 
 def get_recent_checklists():
     """ Query eBird API to get list of recent checklists """
