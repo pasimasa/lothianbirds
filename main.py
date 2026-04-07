@@ -99,6 +99,79 @@ def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
     obs.to_csv(cache_file, index=False)
 
 
+def generate_monthly_chart(monthly_file: str, chart_file: str) -> None:
+    """
+    TODO - not used yet
+    Generate a bar chart of monthly eBird observation counts for the current
+    year and three previous years, and save it as a PNG.
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    monthly_df = load_monthly_counts(monthly_file)
+    if monthly_df.empty:
+        print("  Monthly counts file not found or empty, skipping chart.")
+        return
+
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+    # Reindex to ensure correct month order, fill missing with 0
+    monthly_df = monthly_df.reindex(months).fillna(0)
+
+    # Take only the 4 most recent years that have any data
+    current_year = str(datetime.now(ZoneInfo(TIMEZONE)).year)
+    all_years = [col for col in monthly_df.columns if col.isdigit()]
+    all_years_with_data = [y for y in all_years if monthly_df[y].astype(int).sum() > 0]
+    years_to_plot = sorted(all_years_with_data)[-4:]
+
+    if not years_to_plot:
+        print("  No year data to plot in monthly counts.")
+        return
+
+    # Your original colour scheme: greyscale progression, light red for latest year
+    colors = ['#e0dcdc', '#cbbaba', '#a89a9a', '#FF9999']
+    # If fewer than 4 years, take the last n colors so latest year is always red
+    colors = colors[-len(years_to_plot):]
+
+    x = np.arange(len(months))
+    n = len(years_to_plot)
+    bar_width = 0.2
+    offsets = np.linspace(-(n - 1) / 2, (n - 1) / 2, n) * bar_width
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    fig.patch.set_facecolor('white')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    for year, color, offset in zip(years_to_plot, colors, offsets):
+        values = monthly_df[year].astype(int).tolist()
+        ax.bar(x + offset, values, bar_width, label=year, color=color)
+
+    # Y-axis upper bound: ignore placeholder zeros for future months in current year
+    current_year_nonzero = monthly_df[current_year][monthly_df[current_year].astype(int) > 1]
+    comparison_vals = [monthly_df[y].astype(int).max() for y in years_to_plot if y != current_year]
+    if not current_year_nonzero.empty:
+        comparison_vals.append(current_year_nonzero.astype(int).max())
+    max_value = max(comparison_vals) if comparison_vals else 10000
+
+    year_range = f"{years_to_plot[0]}–{years_to_plot[-1]}"
+    ax.set_title(f'Lothian Monthly eBird Records ({year_range})', fontsize=14, pad=10)
+    ax.set_xticks(x)
+    ax.set_xticklabels(months, fontsize=10)
+    ax.tick_params(axis='y', labelsize=10)
+    ax.legend(fontsize=10)
+    ax.grid(True, alpha=0.3, axis='y')
+    ax.set_ylim(0, max_value * 1.05)
+    ax.set_yticks(range(0, int(max_value * 1.05) + 1000, 2500))
+
+    plt.tight_layout()
+    Path(chart_file).parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(chart_file, dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    print(f"  Monthly chart saved: {chart_file}")
+
+
 def load_daily_counts(count_file: str) -> pd.DataFrame:
     """Load historical daily observation counts from CSV, or return empty DataFrame."""
     path = Path(count_file)
