@@ -105,7 +105,7 @@ def load_daily_counts(count_file: str) -> pd.DataFrame:
         return pd.DataFrame(columns=["date", "obs_count"])
     try:
         df = pd.read_csv(path, parse_dates=["date"])
-        df["date"] = pd.to_datetime(df["date"]).dt.date
+        df["date"] = df["date"].dt.date
         return df
     except (pd.errors.EmptyDataError, KeyError):
         return pd.DataFrame(columns=["date", "obs_count"])
