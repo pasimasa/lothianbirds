@@ -115,10 +115,6 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     """
     Recalculate observation counts for each date in the current obs window and
     upsert them into the persistent historical count file.
-
-    Counts are based on unique (speciesCode, locName, obsDt) combinations to
-    avoid inflating numbers when the same bird is reported across multiple checklists
-    at the same site on the same day.
     """
     if obs.empty:
         return
