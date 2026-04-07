@@ -123,12 +123,49 @@ def load_monthly_counts(monthly_file: str) -> pd.DataFrame:
         return pd.DataFrame()
 
 
-def update_monthly_counts(obs: pd.DataFrame, monthly_file: str) -> None:
+def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     """
-    Sum observations by month from the current obs window and update the
-    monthly counts CSV — only writing a value if it exceeds what's already stored.
+    Recalculate observation counts for each date in the current obs window and
+    upsert them into the persistent historical count file.
+    Also updates the monthly counts CSV from the full daily history.
     """
     if obs.empty:
+        return
+
+    obs_copy = obs.copy()
+    obs_copy["obs_date"] = pd.to_datetime(obs_copy["obsDt"]).dt.date
+    fresh_counts = (
+        obs_copy
+        .groupby("obs_date")
+        .size()
+        .reset_index(name="obs_count")
+        .rename(columns={"obs_date": "date"})
+    )
+
+    history = load_daily_counts(count_file)
+    history = history[~history["date"].isin(fresh_counts["date"])]
+
+    updated = (
+        pd.concat([history, fresh_counts], ignore_index=True)
+        .sort_values("date")
+        .reset_index(drop=True)
+    )
+
+    Path(count_file).parent.mkdir(parents=True, exist_ok=True)
+    updated.to_csv(count_file, index=False)
+    print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
+          f"{len(updated)} total dates on record.")
+
+    # Pass the full daily history to monthly update, not the 5-day obs window
+    update_monthly_counts(updated, MONTHLY_COUNT_FILE)
+
+
+def update_monthly_counts(daily_counts: pd.DataFrame, monthly_file: str) -> None:
+    """
+    Aggregate the full daily counts history by month/year and update the
+    monthly counts CSV — only writing a value if it exceeds what's already stored.
+    """
+    if daily_counts.empty:
         return
 
     monthly_df = load_monthly_counts(monthly_file)
@@ -136,16 +173,16 @@ def update_monthly_counts(obs: pd.DataFrame, monthly_file: str) -> None:
         print("  Monthly counts file not found or empty, skipping monthly update.")
         return
 
-    obs_copy = obs.copy()
-    obs_copy["obs_dt"] = pd.to_datetime(obs_copy["obsDt"])
-    obs_copy["month_abbr"] = obs_copy["obs_dt"].dt.strftime("%b")
-    obs_copy["year"] = obs_copy["obs_dt"].dt.strftime("%Y")
+    daily = daily_counts.copy()
+    daily["date"] = pd.to_datetime(daily["date"])
+    daily["month_abbr"] = daily["date"].dt.strftime("%b")
+    daily["year"] = daily["date"].dt.strftime("%Y")
 
     fresh_monthly = (
-        obs_copy
-        .groupby(["month_abbr", "year"])
-        .size()
-        .reset_index(name="obs_count")
+        daily
+        .groupby(["month_abbr", "year"])["obs_count"]
+        .sum()
+        .reset_index()
     )
 
     updated_cells = 0
@@ -161,59 +198,13 @@ def update_monthly_counts(obs: pd.DataFrame, monthly_file: str) -> None:
             print(f"  Skipping {year} — not found in monthly counts columns.")
             continue
 
-        current_val = monthly_df.at[month, year]
-        try:
-            current_val = int(current_val)
-        except (ValueError, TypeError):
-            current_val = 0
-
+        current_val = int(monthly_df.at[month, year]) if pd.notna(monthly_df.at[month, year]) else 0
         if count > current_val:
             monthly_df.at[month, year] = count
             updated_cells += 1
 
     monthly_df.to_csv(monthly_file, index=True)
     print(f"  Monthly counts updated: {updated_cells} cell(s) refreshed.")
-
-
-def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
-    """
-    Recalculate observation counts for each date in the current obs window and
-    upsert them into the persistent historical count file.
-    Also updates the monthly counts CSV.
-    """
-    if obs.empty:
-        return
-
-    # Count distinct observations per calendar date
-    obs_copy = obs.copy()
-    obs_copy["obs_date"] = pd.to_datetime(obs_copy["obsDt"]).dt.date
-    fresh_counts = (
-        obs_copy
-        .groupby("obs_date")
-        .size()
-        .reset_index(name="obs_count")
-        .rename(columns={"obs_date": "date"})
-    )
-
-    # Load existing history and drop any dates we're about to overwrite
-    history = load_daily_counts(count_file)
-    history = history[~history["date"].isin(fresh_counts["date"])]
-
-    # Merge and sort chronologically
-    updated = (
-        pd.concat([history, fresh_counts], ignore_index=True)
-        .sort_values("date")
-        .reset_index(drop=True)
-    )
-
-    Path(count_file).parent.mkdir(parents=True, exist_ok=True)
-    updated.to_csv(count_file, index=False)
-    print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
-          f"{len(updated)} total dates on record.")
-
-    # Also update monthly counts
-    update_monthly_counts(obs, MONTHLY_COUNT_FILE)
-
 
 def get_recent_checklists():
     """ Query eBird API to get list of recent checklists """
