@@ -192,7 +192,7 @@ def load_monthly_counts(monthly_file: str) -> pd.DataFrame:
         return pd.DataFrame()
     try:
         return pd.read_csv(monthly_file, index_col="Month")
-    except (pd.errors.EmptyDataError, KeyError):
+    except (pd.errors.EmptyDataError, ValueError):
         return pd.DataFrame()
 
 
