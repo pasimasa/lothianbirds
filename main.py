@@ -269,8 +269,7 @@ def update_monthly_counts(daily_counts: pd.DataFrame, monthly_file: str) -> None
             print(f"  Skipping {month} — not found in monthly counts index.")
             continue
         if year not in monthly_df.columns:
-            print(f"  Skipping {year} — not found in monthly counts columns.")
-            continue
+            monthly_df[year] = 0
 
         current_val = int(monthly_df.at[month, year]) if pd.notna(monthly_df.at[month, year]) else 0
         if count > current_val:
