@@ -555,7 +555,7 @@ def main() -> None:
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
 
-    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, "date")
+    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, group_by="date")
     write_report(html, OUTPUT_FILE_NOTABLE_DATE)
     
     print("Report generation complete.")
