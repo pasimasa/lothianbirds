@@ -56,12 +56,183 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
     </div>'''
 
 
-def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stats: dict = None) -> str:
-    """
-    Generate html report using data in input data frame
+def _build_observation_row_html(row, has_comments: bool) -> str:
+    """Build a single <li> for an observation row. Used by both grouping modes."""
+    comment_html = ""
+    if has_comments:
+        val = getattr(row, "comments", None)
+        if pd.notna(val) and str(val).strip():
+            comment = str(val).strip()
+            if len(comment) > MAX_COMMENT_LENGTH:
+                comment = comment[:MAX_COMMENT_LENGTH - len(TRUNCATION_ELLIPSIS)] + TRUNCATION_ELLIPSIS
+            escaped_comment = html.escape(comment)
+            comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
 
-    Return html string that can be written to file
+    checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
+    checklist_icon = (
+        f'<a class="checklist-link" href="{checklist_url}" '
+        f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
+        f'{CHECKLIST_ICON_SVG}</a>'
+    )
+
+    media_html = ""
+    media_val = getattr(row, "mediaCounts", None)
+    if media_val is not None and str(media_val).strip() not in ("", "nan"):
+        photos_url = f"{checklist_url}?view=photos"
+        media_html = (
+            f'<a class="media-link" href="{photos_url}" '
+            f'target="_blank" rel="noopener noreferrer" title="View media">'
+            f'{CAMERA_ICON_SVG}</a>'
+        )
+
+    return checklist_icon, media_html, comment_html
+
+
+def _build_observations_by_species(obs_df: pd.DataFrame, has_comments: bool) -> str:
+    """Build the observations HTML grouped by species (original behaviour)."""
+    species_sections = []
+    grouped_by_species = obs_df.groupby("speciesCode")
+    species_order = (
+        grouped_by_species["taxon_order"]
+        .first()
+        .sort_values()
+        .index
+    )
+
+    for species_code in species_order:
+        group = grouped_by_species.get_group(species_code)
+        group_sorted = group.sort_values("obsDt", ascending=False)
+
+        first = group_sorted.iloc[0]
+        com_name = html.escape(first["comName"])
+        sci_name = html.escape(first["sciName"])
+        rarity = first.get("rarity", "normal")
+        threshold = first.get("min_count", 0)
+        name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
+
+        threshold_html = f' <sup class="min-count">{int(threshold)}+</sup>' if threshold > 1 else ""
+
+        row_html_parts = []
+        for row in group_sorted.itertuples():
+            checklist_icon, media_html, comment_html = _build_observation_row_html(row, has_comments)
+            row_html_parts.append(f"""<li>
+                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{media_html}{checklist_icon}</li>""")
+
+        rows = "\n".join(row_html_parts)
+
+        species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
+        species_links_html = f"""
+                <div class="species-dropdown">
+                <div class="species-dropdown-label">More info</div>
+                <a href="{species_url}" target="_blank" rel="noopener noreferrer">eBird</a>
+            </div>
+        """
+        species_sections.append(f"""
+            <div class="species-block">
+                <h4 class="species-name" style="color: {name_colour};">
+                    <span class="species-link-wrapper">
+                        <span class="species-name-link">{com_name}</span>
+                        {species_links_html}
+                    </span>
+                    <span class="sci-name">({sci_name}){threshold_html}</span>
+                </h4>
+                <ul class="observation">{rows}</ul>
+            </div>
+        """)
+
+    return "\n".join(species_sections)
+
+
+def _build_observations_by_date(obs_df: pd.DataFrame, has_comments: bool) -> str:
+    """Build the observations HTML grouped by date (most recent first),
+    with sightings within each date sorted by taxon_order."""
+    date_sections = []
+
+    # Extract just the date part for grouping
+    obs_df = obs_df.copy()
+    obs_df["_obs_date"] = obs_df["obsDt"].dt.date
+
+    # Iterate dates most-recent first
+    for obs_date in sorted(obs_df["_obs_date"].unique(), reverse=True):
+        day_group = obs_df[obs_df["_obs_date"] == obs_date]
+
+        # Sort by taxon_order within the day
+        day_group = day_group.sort_values("taxon_order")
+
+        date_label = obs_date.strftime("%d/%m/%Y")
+
+        row_html_parts = []
+        for row in day_group.itertuples():
+            com_name = html.escape(row.comName)
+            rarity = getattr(row, "rarity", "normal")
+            name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
+
+            checklist_icon, media_html, comment_html = _build_observation_row_html(row, has_comments)
+
+            species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(row.speciesCode)}"
+            species_links_html = f"""
+                <div class="species-dropdown">
+                    <div class="species-dropdown-label">More info</div>
+                    <a href="{species_url}" target="_blank" rel="noopener noreferrer">eBird</a>
+                </div>
+            """
+
+            # Bold only for rare/notable species; normal weight for everyday sightings
+            name_weight = "600" if rarity in ("high", "medium") else "normal"
+
+            row_html_parts.append(f"""<li>
+                <span class="species-link-wrapper">
+                    <span class="species-name-link" style="color: {name_colour}; font-weight: {name_weight};">{com_name}</span>
+                    {species_links_html}
+                </span>
+                &nbsp;<strong>{html.escape(str(row.howManyStr))}</strong>
+                {html.escape(row.locName)}
+                ({html.escape(row.userDisplayName)}){comment_html}{media_html}{checklist_icon}</li>""")
+
+        rows = "\n".join(row_html_parts)
+
+        date_sections.append(f"""
+            <div class="species-block">
+                <h4 class="species-name" style="color: #000;">
+                    {date_label}
+                </h4>
+                <ul class="observation">{rows}</ul>
+            </div>
+        """)
+
+    return "\n".join(date_sections)
+
+
+def build_html(
+    timestamp: str,
+    obs_df: pd.DataFrame,
+    duration: float,
+    full_stats: dict = None,
+    group_by: str = "species",   # "species" | "date"
+) -> str:
     """
+    Generate html report using data in input data frame.
+
+    Parameters
+    ----------
+    timestamp  : str
+        Human-readable timestamp for the report header.
+    obs_df     : pd.DataFrame
+        Observations data frame.
+    duration   : float
+        Time taken to fetch data, shown in footer.
+    full_stats : dict, optional
+        If provided, the report is rendered in "notable" mode with aggregate stats.
+    group_by   : {"species", "date"}
+        Controls how the Recent Sightings section is organised.
+        "species" (default) – one block per species, observations listed under each.
+        "date"              – one block per date (most recent first), observations
+                             sorted by taxon order within each date.
+
+    Return html string that can be written to file.
+    """
+    if group_by not in ("species", "date"):
+        raise ValueError(f"group_by must be 'species' or 'date', got {group_by!r}")
 
     is_notable = full_stats is not None
 
@@ -71,7 +242,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     highlights_html = ""
     if is_notable:
         highlights_html = build_highlight_species_html(obs_df)
-        s = full_stats  # shorthand
+        s = full_stats
         summary_html = f"""
         <div class="stats-container">
             <div class="stat-box">
@@ -114,7 +285,7 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
         </div>
         """
 
-    # --- Observations grouped by species, sorted by taxon_order then date ---
+    # --- Prepare data frame -----------------------------------------------
     obs_df = obs_df.copy()
     obs_df["obsDt"] = pd.to_datetime(obs_df["obsDt"])
 
@@ -122,84 +293,26 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     if not has_comments:
         print("Warning: 'comments' column not found in data — observation comments will be omitted from the report.")
 
-    species_sections = []
-    # Sort species by taxon_order (take the first value per species as it's constant)
-    grouped_by_species = obs_df.groupby("speciesCode")
-    species_order = (
-        grouped_by_species["taxon_order"]
-        .first()
-        .sort_values()
-        .index
-    )
+    # --- Build the observations block based on group_by --------------------
+    if group_by == "date":
+        sightings_subtitle = "Notable eBird sightings from the past 5 days, grouped by date. Includes unverified records."
+        observations_html = _build_observations_by_date(obs_df, has_comments)
+        sort_toggle_html = (
+            'Sort by '
+            '<span class="sort-active">Date</span>'
+            '<span class="sort-divider">|</span>'
+            '<a href="index.html">Species</a>'
+        )
+    else:
+        sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
+        observations_html = _build_observations_by_species(obs_df, has_comments)
+        sort_toggle_html = (
+            'Sort by '
+            '<span class="sort-active">Species</span>'
+            '<span class="sort-divider">|</span>'
+            '<a href="obs_date.html">Date</a>'
+        )
 
-    for species_code in species_order:
-        group = grouped_by_species.get_group(species_code)
-        group_sorted = group.sort_values("obsDt", ascending=False)
-
-        # Get display names from first row (same for all rows in group)
-        first = group_sorted.iloc[0]
-        com_name = html.escape(first["comName"])
-        sci_name = html.escape(first["sciName"])
-        rarity = first.get("rarity", "normal")
-        threshold = first.get("min_count", 0)
-        name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
-
-        threshold_html = f' <sup class="min-count">{int(threshold)}+</sup>' if threshold > 1 else ""
-
-        row_html_parts = []
-        for row in group_sorted.itertuples():
-            comment_html = ""
-            if has_comments:
-                val = getattr(row, "comments", None)
-                if pd.notna(val) and str(val).strip():
-                    comment = str(val).strip()
-                    if len(comment) > MAX_COMMENT_LENGTH:
-                        comment = comment[:MAX_COMMENT_LENGTH - len(TRUNCATION_ELLIPSIS)] + TRUNCATION_ELLIPSIS
-                    escaped_comment = html.escape(comment)
-                    comment_html = f' <span class="obs-comment">"{escaped_comment}"</span>'
-            checklist_url = f"{EBIRD_CHECKLIST_BASE_URL}{urllib.parse.quote(str(row.subId))}"
-
-            checklist_icon = (
-                f'<a class="checklist-link" href="{checklist_url}" '
-                f'target="_blank" rel="noopener noreferrer" title="View eBird checklist">'
-                f'{CHECKLIST_ICON_SVG}</a>'
-            )
-
-            media_html = ""
-            media_val = getattr(row, "mediaCounts", None)
-            if media_val is not None and str(media_val).strip() not in ("", "nan"):
-                photos_url = f"{checklist_url}?view=photos"
-                media_html = (
-                    f'<a class="media-link" href="{photos_url}" '
-                    f'target="_blank" rel="noopener noreferrer" title="View media">'
-                    f'{CAMERA_ICON_SVG}</a>'
-                )
-
-            row_html_parts.append(f"""<li>
-                {row.obsDt.strftime('%d/%m/%y')} {html.escape(row.locName)} <strong>{html.escape(str(row.howManyStr))}</strong> ({html.escape(row.userDisplayName)}){comment_html}{media_html}{checklist_icon}</li>""")
-        rows = "\n".join(row_html_parts)
-
-        species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(species_code)}"
-        species_links_html = f"""
-                <div class="species-dropdown">
-                <div class="species-dropdown-label">More info</div>
-                <a href="{species_url}" target="_blank" rel="noopener noreferrer">eBird</a>
-            </div>
-        """
-        species_sections.append(f"""
-            <div class="species-block">
-                <h4 class="species-name" style="color: {name_colour};">
-                    <span class="species-link-wrapper">
-                        <span class="species-name-link">{com_name}</span>
-                        {species_links_html}
-                    </span>
-                    <span class="sci-name">({sci_name}){threshold_html}</span>
-                </h4>
-                <ul class="observation">{rows}</ul>
-            </div>
-        """)
-
-    observations_html = "\n".join(species_sections)
     accessed_date = datetime.date.today().strftime("%B %d, %Y")
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -426,6 +539,26 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
             color: #999;
             margin-top: 32px;
         }}
+        .sort-toggle {{
+            font-size: 13px;
+            color: #888;
+            margin: 0 0 14px;
+        }}
+        .sort-toggle a {{
+            color: #4FA8D8;
+            text-decoration: none;
+        }}
+        .sort-toggle a:hover {{
+            text-decoration: underline;
+        }}
+        .sort-active {{
+            font-weight: bold;
+            color: #333;
+        }}
+        .sort-divider {{
+            margin: 0 6px;
+            color: #ccc;
+        }}
     </style>
 </head>
 <body>
@@ -435,12 +568,13 @@ def build_html(timestamp: str, obs_df: pd.DataFrame, duration: float,  full_stat
     </header>
     <div class="card">
         <h2>Report Summary</h2>
-        <p class="report-summary-subtitle">Notable eBird sightings from the past 5 days. Includes unverified records.</p>
+        <p class="report-summary-subtitle">{sightings_subtitle}</p>
         {summary_html}
         <p class="timestamp">Last updated: <strong>{timestamp}</strong></p>
     </div>
     <div class="card">
         <h2>Recent Sightings</h2>
+        <p class="sort-toggle">{sort_toggle_html}</p>
         {observations_html}
     </div>
 <img class="charts" src="monthly_chart.png">
