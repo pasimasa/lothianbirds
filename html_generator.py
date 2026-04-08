@@ -295,7 +295,7 @@ def build_html(
 
     # --- Build the observations block based on group_by --------------------
     if group_by == "date":
-        sightings_subtitle = "Notable eBird sightings from the past 5 days, grouped by date. Includes unverified records."
+        sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
         observations_html = _build_observations_by_date(obs_df, has_comments)
         sort_toggle_html = (
             'Sort by '
