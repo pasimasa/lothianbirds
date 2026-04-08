@@ -147,29 +147,28 @@ def _build_observations_by_date(obs_df: pd.DataFrame, has_comments: bool) -> str
     """Build the observations HTML grouped by date (most recent first),
     with sightings within each date sorted by taxon_order."""
     date_sections = []
- 
+
     # Extract just the date part for grouping
     obs_df = obs_df.copy()
     obs_df["_obs_date"] = obs_df["obsDt"].dt.date
- 
+
     # Iterate dates most-recent first
     for obs_date in sorted(obs_df["_obs_date"].unique(), reverse=True):
         day_group = obs_df[obs_df["_obs_date"] == obs_date]
- 
+
         # Sort by taxon_order within the day
         day_group = day_group.sort_values("taxon_order")
- 
+
         date_label = obs_date.strftime("%d/%m/%Y")
- 
+
         row_html_parts = []
         for row in day_group.itertuples():
             com_name = html.escape(row.comName)
-            sci_name = html.escape(row.sciName)
             rarity = getattr(row, "rarity", "normal")
             name_colour = RARITY_COLOURS.get(rarity, RARITY_COLOURS["normal"])
- 
+
             checklist_icon, media_html, comment_html = _build_observation_row_html(row, has_comments)
- 
+
             species_url = f"{EBIRD_SPECIES_BASE_URL}{urllib.parse.quote(row.speciesCode)}"
             species_links_html = f"""
                 <div class="species-dropdown">
@@ -177,19 +176,21 @@ def _build_observations_by_date(obs_df: pd.DataFrame, has_comments: bool) -> str
                     <a href="{species_url}" target="_blank" rel="noopener noreferrer">eBird</a>
                 </div>
             """
- 
+
+            # Bold only for rare/notable species; normal weight for everyday sightings
+            name_weight = "600" if rarity in ("high", "medium") else "normal"
+
             row_html_parts.append(f"""<li>
                 <span class="species-link-wrapper">
-                    <span class="species-name-link" style="color: {name_colour}; font-weight: 600;">{com_name}</span>
+                    <span class="species-name-link" style="color: {name_colour}; font-weight: {name_weight};">{com_name}</span>
                     {species_links_html}
                 </span>
-                <span class="sci-name">({sci_name})</span>
                 &nbsp;<strong>{html.escape(str(row.howManyStr))}</strong>
                 {html.escape(row.locName)}
                 ({html.escape(row.userDisplayName)}){comment_html}{media_html}{checklist_icon}</li>""")
- 
+
         rows = "\n".join(row_html_parts)
- 
+
         date_sections.append(f"""
             <div class="species-block">
                 <h4 class="species-name" style="color: #000;">
@@ -198,7 +199,7 @@ def _build_observations_by_date(obs_df: pd.DataFrame, has_comments: bool) -> str
                 <ul class="observation">{rows}</ul>
             </div>
         """)
- 
+
     return "\n".join(date_sections)
  
  
