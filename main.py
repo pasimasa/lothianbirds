@@ -551,7 +551,7 @@ def main() -> None:
     # Filter only for notable records
     obs_notable = filter_notable_obs(obs, species_config)
     
-    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, "species")
+    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, group_by="species")
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
 
