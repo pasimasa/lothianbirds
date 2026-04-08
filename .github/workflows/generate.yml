@@ -41,6 +41,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/index.html -f
+          git add docs/obs_date.html -f
           git add docs/birds_all.html -f
           git add docs/obs_cache.csv -f
           git add docs/daily_obs_counts.csv -f
