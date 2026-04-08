@@ -23,6 +23,7 @@ from html_generator import build_html
 # ── Constants ─────────────────────────────────────────────────────────────
 OUTPUT_FILE_ALL = "docs/birds_all.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
+OUTPUT_FILE_NOTABLE_DATE = "docs/obs_date.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
 DAILY_COUNT_FILE = "docs/daily_obs_counts.csv"
 MONTHLY_COUNT_FILE = "docs/monthly_obs_counts.csv"
@@ -550,9 +551,13 @@ def main() -> None:
     # Filter only for notable records
     obs_notable = filter_notable_obs(obs, species_config)
     
-    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats)
+    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, group_by="species")
     write_report(html, OUTPUT_FILE_NOTABLE)
     print(f"  Output (notable): {OUTPUT_FILE_NOTABLE}")
+
+    html = build_html(timestamp, obs_notable, duration, full_stats=full_stats, group_by="date")
+    write_report(html, OUTPUT_FILE_NOTABLE_DATE)
+    
     print("Report generation complete.")
 
 
