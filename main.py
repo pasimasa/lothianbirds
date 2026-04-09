@@ -198,11 +198,6 @@ def load_monthly_counts(monthly_file: str) -> pd.DataFrame:
 
 
 def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
-    """
-    Recalculate observation counts for each date in the current obs window and
-    upsert them into the persistent historical count file.
-    Also updates the monthly counts CSV from the full daily history.
-    """
     if obs.empty:
         return
 
@@ -217,20 +212,23 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
     )
 
     history = load_daily_counts(count_file)
-    history = history[~history["date"].isin(fresh_counts["date"])]
 
     updated = (
         pd.concat([history, fresh_counts], ignore_index=True)
+        .groupby("date", as_index=False)["obs_count"]
+        .max()                          # keep higher value for duplicate dates
         .sort_values("date")
         .reset_index(drop=True)
     )
 
     Path(count_file).parent.mkdir(parents=True, exist_ok=True)
     updated.to_csv(count_file, index=False)
-    print(f"  Daily counts updated: {len(fresh_counts)} dates refreshed, "
-          f"{len(updated)} total dates on record.")
 
-    # Pass the full daily history to monthly update, not the 5-day obs window
+    refreshed = fresh_counts["date"].isin(history["date"]).sum()
+    added = len(fresh_counts) - refreshed
+    print(f"  Daily counts updated: {refreshed} dates kept-or-raised, "
+          f"{added} new dates added, {len(updated)} total on record.")
+
     update_monthly_counts(updated, MONTHLY_COUNT_FILE)
 
 
