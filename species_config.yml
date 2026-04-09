@@ -617,7 +617,7 @@
   rarity: high
 
 "Willow Warbler":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 15, jun: 15, jul: 15, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 2, may: 15, jun: 15, jul: 15, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Common Chiffchaff":
   local_name: Chiffchaff
