@@ -226,8 +226,6 @@ def update_daily_counts(obs: pd.DataFrame, count_file: str) -> None:
 
     refreshed = fresh_counts["date"].isin(history["date"]).sum()
     added = len(fresh_counts) - refreshed
-    print(f"  Daily counts updated: {refreshed} dates kept-or-raised, "
-          f"{added} new dates added, {len(updated)} total on record.")
 
     update_monthly_counts(updated, MONTHLY_COUNT_FILE)
 
