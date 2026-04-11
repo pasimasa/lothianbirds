@@ -331,6 +331,8 @@ def build_html(
     <title>Lothian Bird Report</title>
     <style>
         body {{
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
             font-family: Arial, sans-serif;
             max-width: 1400px;
             margin: 20px auto;
