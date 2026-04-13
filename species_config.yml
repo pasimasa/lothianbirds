@@ -384,7 +384,7 @@
   rarity: medium
 
 "Sandwich Tern":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 10, jun: 10, jul: 10, aug: 10, sep: 5, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 10, may: 20, jun: 20, jul: 20, aug: 10, sep: 5, oct: 1, nov: 1, dec: 1}
 
 "Bridled Tern":
   rarity: high
@@ -551,7 +551,7 @@
   min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 100, oct: 150, nov: 150, dec: 100}
 
 "Rook":
-  min_count: {jan: 50, feb: 25, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 50, oct: 75, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 25, mar: 25, apr: 30, may: 25, jun: 25, jul: 25, aug: 25, sep: 50, oct: 75, nov: 50, dec: 50}
 
 "Carrion Crow":
   min_count: {jan: 150, feb: 100, mar: 75, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 75, oct: 100, nov: 150, dec: 150}
@@ -600,15 +600,15 @@
 
 "Bank Swallow":
   local_name: Sand Martin
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 15, may: 50, jun: 50, jul: 50, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 25, may: 50, jun: 50, jul: 50, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Barn Swallow":
   local_name: Swallow
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 2, may: 30, jun: 30, jul: 30, aug: 25, sep: 5, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 5, may: 30, jun: 30, jul: 30, aug: 25, sep: 5, oct: 1, nov: 1, dec: 1}
 
 "Western House-Martin":
   local_name: House Martin
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 20, jun: 20, jul: 20, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 2, may: 20, jun: 20, jul: 20, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Wood Warbler":
   rarity: high
@@ -617,7 +617,7 @@
   rarity: high
 
 "Willow Warbler":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 2, may: 15, jun: 15, jul: 15, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 5, may: 15, jun: 15, jul: 15, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Common Chiffchaff":
   local_name: Chiffchaff
@@ -631,7 +631,7 @@
 
 "Eurasian Blackcap":
   local_name: Blackcap
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 3, may: 10, jun: 10, jul: 10, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 5, may: 10, jun: 10, jul: 10, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Garden Warbler":
   rarity: medium
@@ -698,6 +698,9 @@
 "Ring Ouzel":
   rarity: medium
 
+"Black-throated Thrush":
+  rarity: high
+
 "Common Redstart":
   local_name: Redstart
   rarity: medium
@@ -762,11 +765,11 @@
   rarity: high
 
 "Rock Pipit":
-  min_count: {jan: 3, feb: 3, mar: 3, apr: 3, may: 3, jun: 3, jul: 3, aug: 3, sep: 3, oct: 5, nov: 5, dec: 3}
+  min_count: {jan: 3, feb: 3, mar: 3, apr: 4, may: 3, jun: 3, jul: 3, aug: 3, sep: 3, oct: 5, nov: 5, dec: 3}
 
 "Common Chaffinch":
   local_name: Chaffinch
-  min_count: {jan: 50, feb: 40, mar: 30, apr: 30, may: 30, jun: 30, jul: 30, aug: 30, sep: 30, oct: 50, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 40, mar: 30, apr: 40, may: 30, jun: 30, jul: 30, aug: 30, sep: 30, oct: 50, nov: 50, dec: 50}
 
 "Brambling":
   rarity: medium
@@ -780,14 +783,14 @@
 
 "European Greenfinch":
   local_name: Greenfinch
-  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 15}
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 15, may: 15, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 15}
 
 "Eurasian Linnet":
   local_name: Linnet
-  min_count: {jan: 20, feb: 20, mar: 20, apr: 20, may: 20, jun: 20, jul: 20, aug: 20, sep: 25, oct: 25, nov: 50, dec: 50}
+  min_count: {jan: 20, feb: 20, mar: 20, apr: 30, may: 20, jun: 20, jul: 20, aug: 20, sep: 25, oct: 25, nov: 50, dec: 50}
 
 "Redpoll":
-  min_count: {jan: 10, feb: 5, mar: 5, apr: 3, may: 2, jun: 2, jul: 2, aug: 2, sep: 5, oct: 10, nov: 15, dec: 15}
+  min_count: {jan: 10, feb: 5, mar: 5, apr: 5, may: 2, jun: 2, jul: 2, aug: 2, sep: 5, oct: 10, nov: 15, dec: 15}
 
 "Red Crossbill":
   local_name: Common Crossbill
@@ -795,7 +798,7 @@
 
 "European Goldfinch":
   local_name: Goldfinch
-  min_count: {jan: 50, feb: 40, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 35, oct: 50, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 40, mar: 25, apr: 30, may: 25, jun: 25, jul: 25, aug: 25, sep: 35, oct: 50, nov: 50, dec: 50}
 
 "Eurasian Siskin":
   local_name: Siskin
