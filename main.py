@@ -537,8 +537,11 @@ def main() -> None:
     update_daily_counts(obs, DAILY_COUNT_FILE)
 
     # Update monthly chart
-    generate_monthly_chart(MONTHLY_COUNT_FILE, MONTHLY_CHART)
-    
+    try:
+        generate_monthly_chart(MONTHLY_COUNT_FILE, MONTHLY_CHART)
+    except Exception as e:
+        print(f"  Warning: Failed to generate monthly chart: {e}")
+
     duration = time.time() - start_time
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
