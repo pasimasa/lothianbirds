@@ -27,6 +27,7 @@ OUTPUT_FILE_NOTABLE_DATE = "docs/obs_date.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
 DAILY_COUNT_FILE = "docs/daily_obs_counts.csv"
 MONTHLY_COUNT_FILE = "docs/monthly_obs_counts.csv"
+MONTHLY_CHART = "docs/monthly_chart.png"
 TIMEZONE = "Europe/London"
 EBIRD_API_KEY_NAME = "EBIRD_API_KEY"
 EBIRD_API_KEY = os.environ.get(EBIRD_API_KEY_NAME)
@@ -534,7 +535,10 @@ def main() -> None:
 
     # Persist daily obs counts for long-term graphing
     update_daily_counts(obs, DAILY_COUNT_FILE)
-                        
+
+    # Update monthly chart
+    generate_monthly_chart(MONTHLY_COUNT_FILE, MONTHLY_CHART)
+    
     duration = time.time() - start_time
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
