@@ -46,6 +46,7 @@ jobs:
           git add docs/obs_cache.csv -f
           git add docs/daily_obs_counts.csv -f
           git add docs/monthly_obs_counts.csv -f
+          git add docs/monthly_chart.png -f
           git diff --cached --quiet || git commit -m "Updated files by GitHub scheduled Action"
           git push
         
