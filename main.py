@@ -117,7 +117,7 @@ def filter_excluded_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
         obs = obs[~obs['userDisplayName'].isin(blocked_users)]
 
     # Exclude specific species from specific users
-    user_species = exclusions.get('user_species', {})
+    user_species = exclusions.get('user_species') or {}
     for user, species_list in user_species.items():
         mask = (obs['userDisplayName'] == user) & (obs['comName'].isin(species_list))
         obs = obs[~mask]
