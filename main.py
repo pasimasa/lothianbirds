@@ -107,7 +107,7 @@ def filter_excluded_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     - Remove all records from fully excluded users
     - Remove specific species records from partially excluded users
     """
-    exclusions = bird_config.get('exclusions', {})
+    exclusions = bird_config.get('settings', {}).get('exclusions', {})
     if not exclusions:
         return obs
 
