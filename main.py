@@ -101,6 +101,30 @@ def save_cached_obs(obs: pd.DataFrame, cache_file: str) -> None:
     obs.to_csv(cache_file, index=False)
 
 
+def filter_excluded_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
+    """
+    Remove observations based on exclusion rules in species config:
+    - Remove all records from fully excluded users
+    - Remove specific species records from partially excluded users
+    """
+    exclusions = bird_config.get('settings', {}).get('exclusions', {})
+    if not exclusions:
+        return obs
+
+    # Exclude all records from blocked users
+    blocked_users = exclusions.get('users') or []
+    if blocked_users:
+        obs = obs[~obs['userDisplayName'].isin(blocked_users)]
+
+    # Exclude specific species from specific users
+    user_species = exclusions.get('user_species') or {}
+    for user, species_list in user_species.items():
+        mask = (obs['userDisplayName'] == user) & (obs['comName'].isin(species_list))
+        obs = obs[~mask]
+
+    return obs
+
+
 def generate_monthly_chart(monthly_file: str, chart_file: str) -> None:
     """
     TODO - not used yet
@@ -502,7 +526,10 @@ def filter_notable_obs(obs: pd.DataFrame, bird_config: dict) -> pd.DataFrame:
     obs = (obs.assign(obs_date_only=pd.to_datetime(obs['obsDt']).dt.date)
          .drop_duplicates(subset=['speciesCode', 'obs_date_only', 'howManyStr', 'locName'])
          .drop(columns=['obs_date_only']))
-    
+
+    # Filter out Merlin obs
+    obs = filter_excluded_obs(obs, bird_config)
+
     return obs
     
 

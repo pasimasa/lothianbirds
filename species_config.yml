@@ -812,3 +812,15 @@
 
 "Reed Bunting":
   min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 10}
+
+# --- Exclusions ---
+# Exclude all records from a user, or specific species from a user.
+# User names must match the eBird userDisplayName exactly (case-sensitive).
+
+settings:
+  exclusions:
+    users:
+      - "JohnDoe123"           # exclude ALL records from this user
+    user_species:
+      "Scott Reed":
+        - "Garden Warbler"         # exclude only these species from this user
