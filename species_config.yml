@@ -817,9 +817,10 @@
 # Exclude all records from a user, or specific species from a user.
 # User names must match the eBird userDisplayName exactly (case-sensitive).
 
-exclusions:
-  users:
-    - "JohnDoe123"           # exclude ALL records from this user
-  user_species:
-    "Scott Reed":
-      - "Garden Warbler"         # exclude only these species from this user
+settings:
+  exclusions:
+    users:
+      - "JohnDoe123"           # exclude ALL records from this user
+    user_species:
+      "Scott Reed":
+        - "Garden Warbler"         # exclude only these species from this user
