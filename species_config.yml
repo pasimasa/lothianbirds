@@ -175,6 +175,10 @@
   local_name: Cuckoo
   rarity: medium
 
+"Eurasian Nightjar":
+  local_name: Nightjar
+  rarity: high
+
 "Common Swift":
   local_name: Swift
   min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 1, jun: 20, jul: 20, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
