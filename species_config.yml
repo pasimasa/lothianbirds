@@ -823,8 +823,8 @@
 
 settings:
   exclusions:
-    users:
-      - "JohnDoe123"           # exclude ALL records from this user
+    users: # exclude ALL records from these users
+      - "Scot Reed"           
     user_species:
-      "Scott Reed":
+      "Bob Bob":
         - "Garden Warbler"         # exclude only these species from this user
