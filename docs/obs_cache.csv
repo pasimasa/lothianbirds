@@ -1,16 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,mediaCounts,present,obsId,howManyStr,subId,locName,obsDt,userDisplayName,exoticCategory,obsAux,userDoNotCount,comments
-norgan,1,1,,False,OBS4363063834,1,S329527194,"Gullane Beach, Gullane GB-Scotland (56.0391,-2.8426)",2026-04-29 19:41,Steven Zonfrillo,,,,
-mallar3,5,5,,False,OBS4363356234,5,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-grypar,3,3,,False,OBS4363356237,3,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-rinphe1,1,1,,False,OBS4363356236,1,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,N,,,
-eurmag1,2,2,,False,OBS4363356238,2,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-eurjac,3,3,,False,OBS4363356239,3,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-carcro1,1,1,,False,OBS4363356231,1,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-barswa,3,3,,False,OBS4363356230,3,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-comchi1,1,1,,False,OBS4363356233,1,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-winwre4,1,1,,False,OBS4363356240,1,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-comcha,1,1,,False,OBS4363356232,1,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
-reebun,2,2,,False,OBS4363356235,2,S329556436,"Birnam, Edinburgh Road, Linlithgow GB-Scotland 55.97623, -3.58492",2026-04-29 20:08,Jared Howard,,,,
 eurnig1,1,1,,False,OBS4363453262,1,S329566808,Spott Roundabout,2026-04-29 21:15,Ian Murray,,,,Brief view of unmistakable jizz and silhouette
 tawowl1,1,1,,False,OBS4363595738,1,S329577282,Ravelston Dykes Rd.,2026-04-29 21:44,Stuart Housden,,,,
 sonthr1,1,1,,False,OBS4363595739,1,S329577282,Ravelston Dykes Rd.,2026-04-29 21:44,Stuart Housden,,,,
@@ -4020,3 +4008,104 @@ dunnoc1,1,1,,False,OBS4386941545,1,S332594086,Inverleith Park,2026-05-04 17:32,S
 comcha,4,4,,False,OBS4386941523,4,S332594086,Inverleith Park,2026-05-04 17:32,Sam Shutt,,,,
 eurgre1,1,1,,False,OBS4386941532,1,S332594086,Inverleith Park,2026-05-04 17:32,Sam Shutt,,,,
 eurgol,7,7,,False,OBS4386941541,7,S332594086,Inverleith Park,2026-05-04 17:32,Sam Shutt,,,,
+rinphe1,1,1,,False,OBS4387389331,1,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,N,,,
+cowpig1,2,2,,False,OBS4387389328,2,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,,,
+euhgul1,20,20,,False,OBS4387389329,20,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,,,
+eurmag1,2,2,,False,OBS4387389330,2,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,,,
+eurjac,2,2,,False,OBS4387389332,2,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,,,
+rook1,10,10,,False,OBS4387389326,10,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'ebird_breeding_code', 'auxCode': 'ON', 'value': 'ON'}]",,
+houspa,1,1,,False,OBS4387389327,1,S332649413,Edinburgh Airport,2026-05-04 00:00,Don Morrow,,,,
+gragoo,2,2,,False,OBS4387283108,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+bargoo,1,1,,False,OBS4387283078,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,"An injured individual with some kind of limp, seen at New lagoons."
+cangoo,16,16,,False,OBS4387309077,16,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,N,,,
+mutswa,31,31,,False,OBS4387309078,31,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+comshe,14,14,,False,OBS4387283097,14,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+gadwal,27,27,,False,OBS4387283077,27,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurwig,1,1,,False,OBS4387283082,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Male in Old scrapes.
+mallar3,46,46,,False,OBS4387283069,46,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'FL', 'value': 'FL'}]",,
+comeid,10,10,,False,OBS4387283079,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+scoter,3,3,,False,OBS4387283109,3,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+commer,2,2,,False,OBS4387283093,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'FL', 'value': 'FL'}]",,
+rinphe1,10,10,,False,OBS4387283102,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,N,,,Est.
+rocpig1,30,30,,False,OBS4387283090,30,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,N,,,Est.
+cowpig1,10,10,,False,OBS4387283121,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+eucdov,2,2,,False,OBS4387283124,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+comswi,2,2,,False,OBS4387283114,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,"Very distinct, erratic flight and very dark swallow-like birds seen flying near the boating pond."
+commoo3,1,1,,False,OBS4387283120,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+euroys1,30,30,,False,OBS4387283071,30,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+lirplo,2,2,,False,OBS4387283073,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Seen in Old scrapes and New lagoons.
+plover2,2,2,,False,OBS4387283123,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Either Common or Little ringed.
+eurcur,5,5,,False,OBS4387283088,5,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+batgod,23,23,,False,OBS4387283092,23,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+rudtur,30,30,,False,OBS4387283094,30,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,"Est.
+Seen near sea wall."
+ruff,1,1,,False,OBS4387283105,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Seen in New lagoons.
+shoreb1,10,10,,False,OBS4387283089,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+bklkit,1,1,,False,OBS4387320626,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+bkhgul,9,9,,False,OBS4387283098,9,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+mewgul,200,200,,False,OBS4387283081,200,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+euhgul1,1000,1000,,False,OBS4387283116,1000,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+gbbgul,2,2,,False,OBS4387283096,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+lbbgul,1000,1000,,False,OBS4387283080,1000,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+larus,5,5,,False,OBS4387283107,5,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+santer1,12,12,,False,OBS4387283101,12,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+norgan,10,10,,False,OBS4387283104,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+grecor,10,10,,False,OBS4387283099,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+graher1,6,6,,False,OBS4387283100,6,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+grswoo,1,1,,False,OBS4387283111,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurkes,3,3,,False,OBS4387283074,3,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurmag1,10,10,,False,OBS4387283084,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+eurjac,30,30,,False,OBS4387283113,30,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+rook1,2,2,,False,OBS4387283076,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+carcro1,20,20,,False,OBS4387283083,20,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+gretit1,3,3,,False,OBS4387309079,3,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+skylar,27,27,,False,OBS4387283110,27,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+banswa,10,10,,False,OBS4387283112,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+barswa,30,30,,False,OBS4387283070,30,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+comhom1,2,2,,False,OBS4387283106,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+comchi1,3,3,,False,OBS4387309076,3,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+grewhi1,9,9,,False,OBS4387283075,9,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+winwre4,1,1,,False,OBS4387283087,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+eursta,40,40,,False,OBS4387283125,40,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'ON', 'value': 'ON'}]",,Est.
+sonthr1,1,1,,False,OBS4387283117,1,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurbla,4,4,,False,OBS4387283122,4,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurrob1,2,2,,False,OBS4387283091,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+stonec4,4,4,,False,OBS4387283072,4,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+houspa,2,2,,False,OBS4387283095,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+whiwag3,10,10,,False,OBS4387283119,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+meapip1,2,2,,False,OBS4387283085,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+comcha,2,2,,False,OBS4387283086,2,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurlin1,8,8,,False,OBS4387283118,8,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+eurgol,10,10,,False,OBS4387283115,10,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,Est.
+reebun,9,9,,False,OBS4387283103,9,S332639789,Musselburgh--Levenhall Links (General),2026-05-04 08:22,Sasha Bertasius,,,,
+gragoo,2,2,,False,OBS4387520634,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,
+cangoo,1,1,,False,OBS4387520636,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,N,,,
+mallar3,2,2,,False,OBS4387520623,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,Drakes.
+tufduc,6,6,,False,OBS4387520635,6,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,3 pairs.
+rinphe1,2,2,,False,OBS4387520618,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,N,,,
+cowpig1,4,4,,False,OBS4387520642,4,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+euroys1,2,2,,False,OBS4387520626,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,
+corplo,4,4,,False,OBS4387520643,4,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,2 pairs.
+lirplo,1,1,,False,OBS4387520639,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+eurcur,2,2,,False,OBS4387520619,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'CC', 'value': 'CC'}]",,
+lbbgul,11,11,,False,OBS4387520621,11,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'FO', 'value': 'FO'}]",,
+combuz1,1,1,,False,OBS4387520615,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+grswoo,1,1,,False,OBS4387520641,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+eurjac,2,2,,False,OBS4387520633,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'VS', 'value': 'VS'}]",,
+carcro1,4,4,,False,OBS4387520629,4,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+coatit1,3,3,,False,OBS4387520622,3,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+blutit,3,3,,False,OBS4387520628,3,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+banswa,50,50,,False,OBS4387520632,50,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,Minimum (counted).
+wlwwar,4,4,,False,OBS4387520637,4,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+comchi1,1,1,,False,OBS4387520644,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+eurwre7,5,5,,False,OBS4387520638,5,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+eursta,2,2,,False,OBS4387520640,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'VS', 'value': 'VS'}]",,
+sonthr1,2,2,,False,OBS4387520624,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+eurbla,1,1,,False,OBS4387520620,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+eurrob1,1,1,,False,OBS4387520627,1,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,
+meapip1,2,2,,False,OBS4387520631,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+comcha,8,8,,False,OBS4387520630,8,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+eurgol,2,2,,False,OBS4387520616,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+eursis,4,4,,False,OBS4387520617,4,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,,,
+reebun,2,2,,False,OBS4387520625,2,S332665162,Crosswood Reservoir,2026-05-04 18:32,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,
+mutswa,2,2,,False,OBS4387491209,2,S332664296,Harburn Estate,2026-05-04 20:10,James Porter,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'PO', 'value': 'PO'}]",,
