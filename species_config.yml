@@ -824,7 +824,7 @@
 settings:
   exclusions:
     users: # exclude ALL records from these users
-      - "Scot Reed"           
+      - "Scott Reed"           
     user_species:
       "Bob Bob":
         - "Garden Warbler"         # exclude only these species from this user
