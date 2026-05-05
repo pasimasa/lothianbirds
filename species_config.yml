@@ -797,7 +797,7 @@
   min_count: {jan: 20, feb: 20, mar: 20, apr: 30, may: 20, jun: 20, jul: 20, aug: 20, sep: 25, oct: 25, nov: 50, dec: 50}
 
 "Redpoll":
-  min_count: {jan: 10, feb: 5, mar: 5, apr: 5, may: 5, jun: 2, jul: 2, aug: 2, sep: 5, oct: 10, nov: 15, dec: 15}
+  min_count: {jan: 10, feb: 5, mar: 5, apr: 5, may: 10, jun: 2, jul: 2, aug: 2, sep: 5, oct: 10, nov: 15, dec: 15}
 
 "Red Crossbill":
   local_name: Common Crossbill
