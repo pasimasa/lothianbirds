@@ -1,9 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,present,obsId,howManyStr,subId,locName,obsDt,userDisplayName,exoticCategory,mediaCounts,obsAux,comments,userDoNotCount
-graher1,1,1,False,OBS4377309231,1,S331301302,Western Harbour Waterfront,2026-05-02 20:45,George Lansdown,,,,,
-rinphe1,1,1,False,OBS4377425973,1,S331313627,Polkemmet Country Park,2026-05-02 21:05,Maelyn Dolman,N,,,"Caught a glimpse on the bus, guessing it's a ring necked pheasant as there aren't many other types of pheasant in this area. Seen in a field on a bus coming back from Edinburgh airport",
-cowpig1,3,3,False,OBS4377449436,3,S331317568,Home,2026-05-02 21:17,Grant Donaldson,,,,,
-eurmag1,2,2,False,OBS4377449438,2,S331317568,Home,2026-05-02 21:17,Grant Donaldson,,,,,
-gretit1,1,1,False,OBS4377449437,1,S331317568,Home,2026-05-02 21:17,Grant Donaldson,,,,,
 stodov1,4,4,False,OBS4379447874,4,S331507877,"7 Rope Walk, Edinburgh GB-Scotland 55.94102, -3.21191",2026-05-03 07:11,Jared Howard,,,,,
 euhgul1,1,1,False,OBS4379457326,1,S331507877,"7 Rope Walk, Edinburgh GB-Scotland 55.94102, -3.21191",2026-05-03 07:11,Jared Howard,,,,,
 lbbgul,1,1,False,OBS4379447875,1,S331507877,"7 Rope Walk, Edinburgh GB-Scotland 55.94102, -3.21191",2026-05-03 07:11,Jared Howard,,,,,
@@ -3949,3 +3944,5 @@ euhgul1,7,7,False,OBS4400036642,7,S334125455,Princes Street Gardens,2026-05-07 1
 lbbgul,3,3,False,OBS4400036641,3,S334125455,Princes Street Gardens,2026-05-07 18:58,Jan Allen,,,,,
 eurmag1,2,2,False,OBS4400036638,2,S334125455,Princes Street Gardens,2026-05-07 18:58,Jan Allen,,,,,
 eurbla,2,2,False,OBS4400036640,2,S334125455,Princes Street Gardens,2026-05-07 18:58,Jan Allen,,,,,
+comcuc,1,1,False,OBS4400686834,1,S334198006,"Unnamed Road, Scotland, GB (55.761, -3.079)",2026-05-07 09:16,Jack Whitelegg,,,,,
+merlin,1,1,False,OBS4400686835,1,S334198006,"Unnamed Road, Scotland, GB (55.761, -3.079)",2026-05-07 09:16,Jack Whitelegg,,,,,
