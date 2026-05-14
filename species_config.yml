@@ -57,7 +57,7 @@
 
 "Common Shelduck":
   local_name: Shelduck
-  min_count: {jan: 10, feb: 10, mar: 10, apr: 15, may: 20, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 10, dec: 10}
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 15, may: 25, jun: 10, jul: 10, aug: 10, sep: 10, oct: 10, nov: 10, dec: 10}
 
 "Mandarin Duck":
   rarity: medium
@@ -73,7 +73,7 @@
 
 "Eurasian Wigeon":
   local_name: Wigeon
-  min_count: {jan: 75, feb: 75, mar: 50, apr: 20, may: 1, jun: 1, jul: 1, aug: 1, sep: 10, oct: 50, nov: 75, dec: 75}
+  min_count: {jan: 75, feb: 75, mar: 50, apr: 20, may: 2, jun: 1, jul: 1, aug: 1, sep: 10, oct: 50, nov: 75, dec: 75}
 
 "Mallard":
   min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 40, jul: 40, aug: 40, sep: 50, oct: 75, nov: 75, dec: 75}
@@ -173,7 +173,7 @@
 
 "Common Cuckoo":
   local_name: Cuckoo
-  rarity: medium
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 2, jul: 1, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Eurasian Nightjar":
   local_name: Nightjar
@@ -181,7 +181,7 @@
 
 "Common Swift":
   local_name: Swift
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 20, jul: 20, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 20, jul: 20, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Pallid Swift":
   rarity: high
@@ -596,7 +596,7 @@
   rarity: high
 
 "Sedge Warbler":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 2, jul: 2, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 2, jul: 2, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Common Reed Warbler":
   local_name: Reed Warbler
@@ -697,7 +697,7 @@
 
 "Eurasian Blackbird":
   local_name: Blackbird
-  min_count: {jan: 20, feb: 15, mar: 15, apr: 30, may: 20, jun: 15, jul: 15, aug: 15, sep: 15, oct: 15, nov: 15, dec: 20}
+  min_count: {jan: 20, feb: 15, mar: 15, apr: 30, may: 25, jun: 15, jul: 15, aug: 15, sep: 15, oct: 15, nov: 15, dec: 20}
 
 "Fieldfare":
   min_count: {jan: 50, feb: 50, mar: 40, apr: 10, may: 1, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 50, dec: 50}
@@ -735,6 +735,7 @@
 
 "Northern Wheatear":
   local_name: Wheatear
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Bohemian Waxwing":
   local_name: Waxwing
