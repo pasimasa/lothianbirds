@@ -1,16 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,present,howManyStr,obsId,subId,locName,obsDt,userDisplayName,exoticCategory,mediaCounts,userDoNotCount,comments,obsAux
-mutswa,10,10,False,10,OBS4423795852,S337327039,Almond River Mouth and Parkway,2026-05-11 20:14,Michael Eddleston,,,,,
-mallar3,2,2,False,2,OBS4423795851,S337327039,Almond River Mouth and Parkway,2026-05-11 20:14,Michael Eddleston,,,,,
-commer,1,1,False,1,OBS4423795853,S337327039,Almond River Mouth and Parkway,2026-05-11 20:14,Michael Eddleston,,,,,
-comswi,3,3,False,3,OBS4423842195,S337330346,Northumberland Street North East Lane,2026-05-11 20:20,Noah Patrick Hearne,,,,,
-y00224,1,1,False,1,OBS4424228008,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'FO', 'value': 'FO'}]"
-comwop1,1,999999999,True,X,OBS4424228013,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]"
-euroys2,1,1,False,1,OBS4424228012,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,
-eurjac,1,999999999,True,X,OBS4424228011,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,
-carcro1,2,2,False,2,OBS4424228007,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,
-eurbla,1,999999999,True,X,OBS4424228010,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]"
-eurrob1,1,1,False,1,OBS4424228014,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]"
-dunnoc1,1,1,False,1,OBS4424228009,S337370706,Currie--Riccarton Mains Rd to Pentlands,2026-05-11 20:49,Dan F.,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]"
 skylar,1,1,False,1,OBS4425809130,S337523604,Glenkinchie (Village),2026-05-12 03:45,Sandy Rae,,,,,
 cogwar1,1,1,False,1,OBS4425809131,S337523604,Glenkinchie (Village),2026-05-12 03:45,Sandy Rae,,,,In weedy set-aside just south of no.6,
 mallar3,4,4,False,4,OBS4426366557,S337563396,Burdiehouse Burn Valley Park LNR,2026-05-12 06:33,Lukasz Pulawski,,,,,
@@ -3193,3 +3181,8 @@ eutspa,2,2,False,2,OBS4448218852,S340290968,"Unnamed Road, Scotland, GB (55,96, 
 comcha,7,7,False,7,OBS4448218872,S340290968,"Unnamed Road, Scotland, GB (55,96, -2,476)",2026-05-16 17:54,Jonathan Reher,,,,,
 eurgol,1,1,False,1,OBS4448218868,S340290968,"Unnamed Road, Scotland, GB (55,96, -2,476)",2026-05-16 17:54,Jonathan Reher,,,,,
 eursis,5,5,False,5,OBS4448218846,S340290968,"Unnamed Road, Scotland, GB (55,96, -2,476)",2026-05-16 17:54,Jonathan Reher,,,,,
+cowpig1,1,1,False,1,OBS4448657884,S340350870,Home,2026-05-16 08:44,Grant Donaldson,,,,,
+lbbgul,1,1,False,1,OBS4448657881,S340350870,Home,2026-05-16 08:44,Grant Donaldson,,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'FO', 'value': 'FO'}]"
+eurmag1,2,2,False,2,OBS4448657883,S340350870,Home,2026-05-16 08:44,Grant Donaldson,,,,,
+eurbla,1,1,False,1,OBS4448657882,S340350870,Home,2026-05-16 08:44,Grant Donaldson,,,,,
+dunnoc1,1,1,False,1,OBS4448657880,S340350870,Home,2026-05-16 08:44,Grant Donaldson,,,,,
