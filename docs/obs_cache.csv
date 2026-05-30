@@ -1,14 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,howManyStr,obsId,present,exoticCategory,subId,locName,obsDt,userDisplayName,mediaCounts,userDoNotCount,comments,obsAux
-rocpig,2,2,2,OBS4491195129,False,,S346497655,Dean Village,2026-05-25 14:50,Rollin Whitman,,,,
-comwop1,2,2,2,OBS4491195125,False,,S346497655,Dean Village,2026-05-25 14:50,Rollin Whitman,,,,
-comchi1,2,2,2,OBS4491195127,False,,S346497655,Dean Village,2026-05-25 14:50,Rollin Whitman,,,,
-eurbla,1,1,1,OBS4491195126,False,,S346497655,Dean Village,2026-05-25 14:50,Rollin Whitman,,,,
-comcha,2,2,2,OBS4491195128,False,,S346497655,Dean Village,2026-05-25 14:50,Rollin Whitman,,,,
-comshe,8,8,8,OBS4490892369,False,,S346439908,Port Edgar,2026-05-25 15:43,Brian Minshull,,,,
-euroys1,1,1,1,OBS4490892371,False,,S346439908,Port Edgar,2026-05-25 15:43,Brian Minshull,,,,
-eurcur,2,2,2,OBS4490892373,False,,S346439908,Port Edgar,2026-05-25 15:43,Brian Minshull,,,,
-comter,1,999999999,X,OBS4490892370,True,,S346439908,Port Edgar,2026-05-25 15:43,Brian Minshull,,,Estimate,
-graher1,1,1,1,OBS4490892372,False,,S346439908,Port Edgar,2026-05-25 15:43,Brian Minshull,,,,
 mutswa,1,1,1,OBS4491278634,False,,S346512302,Bavelaw Marsh,2026-05-25 18:29,Kieran Roscoe,,,,
 comcuc,1,999999999,X,OBS4491278636,True,,S346512302,Bavelaw Marsh,2026-05-25 18:29,Kieran Roscoe,,,,
 eurcoo,1,999999999,X,OBS4491278635,True,,S346512302,Bavelaw Marsh,2026-05-25 18:29,Kieran Roscoe,,,,
@@ -3523,3 +3513,19 @@ grswoo,1,1,1,OBS4512461069,False,,S349388698,Hermitage of Braid LNR,2026-05-30 1
 comchi1,2,2,2,OBS4512461072,False,,S349388698,Hermitage of Braid LNR,2026-05-30 14:25,Michael Eddleston,,,,
 blackc1,2,2,2,OBS4512461071,False,,S349388698,Hermitage of Braid LNR,2026-05-30 14:25,Michael Eddleston,,,,
 sonthr1,2,2,2,OBS4512461070,False,,S349388698,Hermitage of Braid LNR,2026-05-30 14:25,Michael Eddleston,,,,
+rocpig1,2,2,2,OBS4512622279,False,N,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'FO', 'value': 'FO'}]"
+comwop1,2,2,2,OBS4512622277,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'S7', 'value': 'S7'}]"
+comswi,1,1,1,OBS4512622271,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'FO', 'value': 'FO'}]"
+eurjac,1,1,1,OBS4512622274,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'OS', 'value': 'OS'}]"
+blutit,1,1,1,OBS4512622272,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'OS', 'value': 'OS'}]"
+gretit3,1,1,1,OBS4512622276,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'OS', 'value': 'OS'}]"
+lottit3,1,1,1,OBS4512622270,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'OS', 'value': 'OS'}]"
+eurbla,1,1,1,OBS4512622275,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'S7', 'value': 'S7'}]"
+eurrob1,1,1,1,OBS4512622273,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'S7', 'value': 'S7'}]"
+dunnoc1,1,1,1,OBS4512622278,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'S7', 'value': 'S7'}]"
+eurgol,1,1,1,OBS4512622280,False,,S349416997,Edinburgh--Eglinton Crescent,2026-05-30 11:57,Dominic Mitchell,,,,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'OS', 'value': 'OS'}]"
+cowpig1,1,1,1,OBS4512843353,False,,S349458344,Holyroodhouse Gardens,2026-05-30 15:24,Therese & Ed Cacek,,,,
+eurmag1,2,2,2,OBS4512843355,False,,S349458344,Holyroodhouse Gardens,2026-05-30 15:24,Therese & Ed Cacek,,,,
+carcro1,1,1,1,OBS4512843354,False,,S349458344,Holyroodhouse Gardens,2026-05-30 15:24,Therese & Ed Cacek,,,,
+eurtre1,1,1,1,OBS4512843356,False,,S349458344,Holyroodhouse Gardens,2026-05-30 15:24,Therese & Ed Cacek,,,,
+eurrob1,1,1,1,OBS4512843352,False,,S349458344,Holyroodhouse Gardens,2026-05-30 15:24,Therese & Ed Cacek,,,,
