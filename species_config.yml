@@ -75,6 +75,9 @@
   local_name: Wigeon
   min_count: {jan: 75, feb: 75, mar: 50, apr: 20, may: 2, jun: 1, jul: 1, aug: 1, sep: 10, oct: 50, nov: 75, dec: 75}
 
+"American Wigeon":
+  rarity: high
+
 "Mallard":
   min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 40, jul: 40, aug: 40, sep: 50, oct: 75, nov: 75, dec: 75}
 
