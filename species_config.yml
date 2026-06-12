@@ -176,7 +176,7 @@
 
 "Common Cuckoo":
   local_name: Cuckoo
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 2, jul: 1, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 2, jun: 1, jul: 1, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Eurasian Nightjar":
   local_name: Nightjar
