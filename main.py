@@ -392,8 +392,8 @@ def get_checklists_obs(checklists, cached_obs: pd.DataFrame) -> pd.DataFrame:
     already present in cached_obs. Returns combined new + cached observations.
     """
     cached_ids = set()
-    if not cached_obs.empty and 'subId' in cached_obs.columns:
-        cached_ids = set(cached_obs['subId'].unique())
+    #if not cached_obs.empty and 'subId' in cached_obs.columns:
+    #    cached_ids = set(cached_obs['subId'].unique())
 
     new_obs = []
     for checklist in checklists:
