@@ -583,7 +583,6 @@ def build_html(
     <footer>
         eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornnithology, Ithaca, New York. Available: http://www.ebird.org. (Accessed: {accessed_date}).<br><br>
         Generated automatically by GitHub Actions<br>
-        Data fetching took {duration:.0f} seconds
     </footer>
     <script>
         document.querySelectorAll('.species-name-link').forEach(function(el) {{
