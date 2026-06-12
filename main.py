@@ -396,6 +396,7 @@ def get_checklists_obs(checklists, cached_obs: pd.DataFrame) -> pd.DataFrame:
 
     new_obs = []
     for checklist in checklists:
+        time.sleep(0.5) # introduce wait because of frequent 'too many requests' errors
         checklist_id = checklist[0]
         if checklist_id in cached_ids:
             continue  # already have this one
@@ -415,6 +416,7 @@ def get_checklists_obs(checklists, cached_obs: pd.DataFrame) -> pd.DataFrame:
                 new_obs.append(obs_df)
         except (requests.RequestException, ValueError) as e:
             print(f"Error with checklist {checklist_id}: {e}")
+            time.sleep(1)
 
     print(f"  Checklists: {len(checklists)} total, "
           f"{len(checklists) - len(new_obs)} cached, {len(new_obs)} fetched from API")
