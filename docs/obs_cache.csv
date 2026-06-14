@@ -1,9 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,obsId,howManyStr,present,subId,locName,obsDt,userDisplayName,exoticCategory,comments,obsAux,mediaCounts,userDoNotCount
-eurjay1,2,2,OBS4553553066,2,False,S354855910,"EH42, Dunbar GB-Scotland 55.95409, -2.57853",2026-06-09 09:42,Shawn Waddoups,,,,,
-euroys1,1,1,OBS4553580186,1,False,S354858197,Malleny Garden (NTS),2026-06-09 09:49,Jimmy Hair,,,,,
-eurjac,1,999999999,OBS4553580187,X,True,S354858197,Malleny Garden (NTS),2026-06-09 09:49,Jimmy Hair,,,,,
-rook1,1,999999999,OBS4553580184,X,True,S354858197,Malleny Garden (NTS),2026-06-09 09:49,Jimmy Hair,,,,,
-winwre4,1,999999999,OBS4553580185,X,True,S354858197,Malleny Garden (NTS),2026-06-09 09:49,Jimmy Hair,,,,,
 comeid,30,30,OBS4553624026,30,False,S354863936,Dunbar Cliffs,2026-06-09 09:58,Iver Stuestøl,,,,,
 stodov1,5,5,OBS4553624035,5,False,S354863936,Dunbar Cliffs,2026-06-09 09:58,Iver Stuestøl,,,,,
 cowpig1,4,4,OBS4553624025,4,False,S354863936,Dunbar Cliffs,2026-06-09 09:58,Iver Stuestøl,,,,,
