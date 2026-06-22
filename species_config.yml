@@ -89,6 +89,9 @@
   local_name: Teal
   min_count: {jan: 40, feb: 30, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 75, oct: 75, nov: 50, dec: 50}
 
+"Red-crested Pochard":
+  rarity: high
+
 "Common Pochard":
   local_name: Pochard
   rarity: medium
