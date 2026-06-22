@@ -209,6 +209,7 @@ def build_html(
     duration: float,
     full_stats: dict = None,
     group_by: str = "species",   # "species" | "date"
+    all_page: bool = False,
 ) -> str:
     """
     Generate html report using data in input data frame.
@@ -295,23 +296,41 @@ def build_html(
 
     # --- Build the observations block based on group_by --------------------
     if group_by == "date":
-        sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
         observations_html = _build_observations_by_date(obs_df, has_comments)
-        sort_toggle_html = (
-            'Sort by '
-            '<span class="sort-active">Date</span>'
-            '<span class="sort-divider">|</span>'
-            '<a href="index.html">Species</a>'
-        )
+        if all_page:
+            sightings_subtitle = "All eBird sightings from the past 5 days. Includes unverified records."
+            sort_toggle_html = (
+                'Sort by '
+                '<span class="sort-active">Date</span>'
+                '<span class="sort-divider">|</span>'
+                '<a href="birds_all.html">Species</a>'
+            )
+        else:
+            sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
+            sort_toggle_html = (
+                'Sort by '
+                '<span class="sort-active">Date</span>'
+                '<span class="sort-divider">|</span>'
+                '<a href="index.html">Species</a>'
+            )
     else:
-        sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
         observations_html = _build_observations_by_species(obs_df, has_comments)
-        sort_toggle_html = (
-            'Sort by '
-            '<span class="sort-active">Species</span>'
-            '<span class="sort-divider">|</span>'
-            '<a href="obs_date.html">Date</a>'
-        )
+        if all_page:
+            sightings_subtitle = "All eBird sightings from the past 5 days. Includes unverified records."
+            sort_toggle_html = (
+                'Sort by '
+                '<span class="sort-active">Species</span>'
+                '<span class="sort-divider">|</span>'
+                '<a href="birds_all_date.html">Date</a>'
+            )
+        else:
+            sightings_subtitle = "Notable eBird sightings from the past 5 days. Includes unverified records."
+            sort_toggle_html = (
+                'Sort by '
+                '<span class="sort-active">Species</span>'
+                '<span class="sort-divider">|</span>'
+                '<a href="obs_date.html">Date</a>'
+            )
 
     accessed_date = datetime.date.today().strftime("%B %d, %Y")
     return f"""<!DOCTYPE html>
