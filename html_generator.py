@@ -37,9 +37,9 @@ def build_highlight_species_html(obs_df: pd.DataFrame) -> str:
     parts = []
     for rarity in ["high", "medium"]:
         names_list = (
-            obs_df[obs_df["rarity"] == rarity]["comName"]
-            .drop_duplicates()
-            .sort_values()
+            obs_df[obs_df["rarity"] == rarity]
+            .drop_duplicates(subset=["comName"])
+            .sort_values(["taxon_order", "comName"])["comName"]
             .tolist()
         )
         if names_list:
