@@ -43,6 +43,7 @@ jobs:
           git add docs/index.html -f
           git add docs/obs_date.html -f
           git add docs/birds_all.html -f
+          git add docs/birds_all_date.html -f
           git add docs/obs_cache.csv -f
           git add docs/daily_obs_counts.csv -f
           git add docs/monthly_obs_counts.csv -f
