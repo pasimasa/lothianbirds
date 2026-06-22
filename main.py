@@ -577,7 +577,7 @@ def main() -> None:
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
     # Generate all obs report sorted by species
-    html = build_html(timestamp, obs, duration)
+    html = build_html(timestamp, obs, duration, all_page=True)
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
