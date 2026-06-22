@@ -22,6 +22,7 @@ from html_generator import build_html
 
 # ── Constants ─────────────────────────────────────────────────────────────
 OUTPUT_FILE_ALL = "docs/birds_all.html"
+OUTPUT_FILE_ALL_DATE = "docs/birds_all_date.html"
 OUTPUT_FILE_NOTABLE = "docs/index.html"
 OUTPUT_FILE_NOTABLE_DATE = "docs/obs_date.html"
 OBS_CACHE_FILE = "docs/obs_cache.csv"
@@ -575,10 +576,16 @@ def main() -> None:
     duration = time.time() - start_time
     print(f"  Checklists fetched in: {duration:.2f} seconds")
 
+    # Generate all obs report sorted by species
     html = build_html(timestamp, obs, duration)
     write_report(html, OUTPUT_FILE_ALL)
     print(f"  Output (all): {OUTPUT_FILE_ALL}")
 
+    # Generate all obs report grouped by date
+    html = build_html(timestamp, obs, duration, group_by="date", all_page=True)
+    write_report(html, OUTPUT_FILE_ALL_DATE)
+    print(f"  Output (all date): {OUTPUT_FILE_ALL_DATE}")
+    
     full_stats = compute_stats(obs)  # before filtering
     
     # Filter only for notable records
