@@ -658,6 +658,9 @@
 "Icterine Warbler":
   rarity: high
 
+"Cetti's Warbler":
+  rarity: high
+
 "Greater Whitethroat":
   local_name: Whitethroat
   min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 10, jun: 10, jul: 7, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
@@ -823,6 +826,9 @@
 
 "Yellowhammer":
   min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 10, dec: 10}
+
+"Corn Bunting":
+  rarity: high
 
 "Reed Bunting":
   min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 15, dec: 10}
