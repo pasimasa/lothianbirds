@@ -16,7 +16,7 @@
 
 "Graylag Goose":
   local_name: Greylag Goose
-  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 200, oct: 200, nov: 200, dec: 100}
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 50, aug: 100, sep: 200, oct: 200, nov: 200, dec: 100}
 
 "Lesser White-fronted Goose":
   rarity: high
@@ -47,7 +47,7 @@
   min_count: 5
 
 "Mute Swan":
-  min_count: {jan: 25, feb: 25, mar: 20, apr: 25, may: 25, jun: 35, jul: 25, aug: 25, sep: 50, oct: 50, nov: 30, dec: 25}
+  min_count: {jan: 25, feb: 25, mar: 20, apr: 25, may: 25, jun: 35, jul: 30, aug: 30, sep: 50, oct: 50, nov: 30, dec: 25}
 
 "Whooper Swan":
   min_count: 1
@@ -69,7 +69,7 @@
   local_name: Shoveler
 
 "Gadwall":
-  min_count: {jan: 5, feb: 5, mar: 5, apr: 5, may: 10, jun: 10, jul: 1, aug: 1, sep: 5, oct: 5, nov: 5, dec: 5}
+  min_count: {jan: 5, feb: 5, mar: 5, apr: 5, may: 10, jun: 10, jul: 5, aug: 5, sep: 5, oct: 5, nov: 5, dec: 5}
 
 "Eurasian Wigeon":
   local_name: Wigeon
@@ -87,7 +87,7 @@
 
 "Green-winged Teal":
   local_name: Teal
-  min_count: {jan: 40, feb: 30, mar: 25, apr: 25, may: 25, jun: 25, jul: 25, aug: 25, sep: 75, oct: 75, nov: 50, dec: 50}
+  min_count: {jan: 40, feb: 30, mar: 25, apr: 25, may: 25, jun: 25, jul: 20, aug: 25, sep: 75, oct: 75, nov: 50, dec: 50}
 
 "Red-crested Pochard":
   rarity: high
@@ -114,7 +114,7 @@
   rarity: high
 
 "Velvet Scoter":
-  min_count: {jan: 10, feb: 10, mar: 25, apr: 50, may: 50, jun: 100, jul: 100, aug: 100, sep: 100, oct: 50, nov: 25, dec: 25}
+  min_count: {jan: 10, feb: 10, mar: 25, apr: 50, may: 50, jun: 75, jul: 100, aug: 100, sep: 100, oct: 50, nov: 25, dec: 25}
 
 "Common Scoter":
   min_count: {jan: 10, feb: 10, mar: 15, apr: 15, may: 10, jun: 20, jul: 20, aug: 20, sep: 10, oct: 10, nov: 20, dec: 20}
@@ -187,7 +187,7 @@
 
 "Common Swift":
   local_name: Swift
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 15, jul: 20, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 15, jul: 15, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Pallid Swift":
   rarity: high
@@ -225,7 +225,7 @@
 
 "Common Ringed Plover":
   local_name: Ringed Plover
-  min_count: {jan: 15, feb: 15, mar: 20, apr: 15, may: 15, jun: 20, jul: 20, aug: 25, sep: 25, oct: 20, nov: 20, dec: 20}
+  min_count: {jan: 15, feb: 15, mar: 20, apr: 15, may: 15, jun: 15, jul: 15, aug: 25, sep: 25, oct: 20, nov: 20, dec: 20}
 
 "Northern Lapwing":
   local_name: Lapwing
