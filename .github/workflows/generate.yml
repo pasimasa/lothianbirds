@@ -1,38 +1,44 @@
 name: RunReport
 env:
   EBIRD_API_KEY: ${{ secrets.EBIRD_API_KEY }}
-  
+
 on:
   schedule:
     - cron: '23 5,9,13,17,20 * * *'
-  workflow_dispatch: 
+  workflow_dispatch:
   #push:
   #  branches: [master]
-    
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   run-report:
-
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write
-    
+
     steps:
     - name: Log UTC time
       run: date -u
-      
+
     - name: Checkout repo
       uses: actions/checkout@v6.0.2
-          
+
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
         python-version: "3.12"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    
+
     - name: Run GenerateReport
       run: python main.py
 
@@ -50,4 +56,22 @@ jobs:
           git add docs/monthly_chart.png -f
           git diff --cached --quiet || git commit -m "Updated files by GitHub scheduled Action"
           git push
-        
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+
+  deploy:
+    needs: run-report
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
