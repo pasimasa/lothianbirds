@@ -842,5 +842,5 @@ settings:
     users: # exclude ALL records from these users
       - "Bob Bob"           
     user_species:
-      "Scott Reed":
+      "Bob Bob":
         - "Spotted Flycatcher"         # exclude only these species from this user
