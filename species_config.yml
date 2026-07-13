@@ -79,7 +79,7 @@
   rarity: high
 
 "Mallard":
-  min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 50, jul: 40, aug: 40, sep: 50, oct: 75, nov: 75, dec: 75}
+  min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 50, jul: 50, aug: 50, sep: 50, oct: 75, nov: 75, dec: 75}
 
 "Northern Pintail":
   local_name: Pintail
@@ -114,7 +114,7 @@
   rarity: high
 
 "Velvet Scoter":
-  min_count: {jan: 10, feb: 10, mar: 25, apr: 50, may: 50, jun: 75, jul: 100, aug: 100, sep: 100, oct: 50, nov: 25, dec: 25}
+  min_count: {jan: 10, feb: 10, mar: 25, apr: 50, may: 50, jun: 75, jul: 75, aug: 100, sep: 100, oct: 50, nov: 25, dec: 25}
 
 "Common Scoter":
   min_count: {jan: 10, feb: 10, mar: 15, apr: 15, may: 10, jun: 20, jul: 20, aug: 20, sep: 10, oct: 10, nov: 20, dec: 20}
@@ -137,7 +137,7 @@
 
 "Common Merganser":
   local_name: Goosander
-  min_count: {jan: 15, feb: 10, mar: 10, apr: 10, may: 10, jun: 20, jul: 50, aug: 50, sep: 25, oct: 20, nov: 20, dec: 20}
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 10, may: 10, jun: 20, jul: 40, aug: 50, sep: 25, oct: 20, nov: 20, dec: 20}
 
 "Red-breasted Merganser":
   min_count: {jan: 20, feb: 15, mar: 10, apr: 10, may: 10, jun: 5, jul: 10, aug: 10, sep: 10, oct: 20, nov: 25, dec: 20}
@@ -213,7 +213,7 @@
 
 "Eurasian Oystercatcher":
   local_name: Oystercatcher
-  min_count: {jan: 150, feb: 150, mar: 200, apr: 150, may: 200, jun: 200, jul: 200, aug: 200, sep: 250, oct: 250, nov: 200, dec: 200}
+  min_count: {jan: 150, feb: 150, mar: 200, apr: 150, may: 200, jun: 200, jul: 150, aug: 200, sep: 250, oct: 250, nov: 200, dec: 200}
 
 "Black-bellied Plover":
   local_name: Grey Plover
@@ -225,7 +225,7 @@
 
 "Common Ringed Plover":
   local_name: Ringed Plover
-  min_count: {jan: 15, feb: 15, mar: 20, apr: 15, may: 15, jun: 15, jul: 15, aug: 25, sep: 25, oct: 20, nov: 20, dec: 20}
+  min_count: {jan: 15, feb: 15, mar: 20, apr: 15, may: 15, jun: 15, jul: 10, aug: 25, sep: 25, oct: 20, nov: 20, dec: 20}
 
 "Northern Lapwing":
   local_name: Lapwing
@@ -278,7 +278,7 @@
 
 "Ruddy Turnstone":
   local_name: Turnstone
-  min_count: {jan: 20, feb: 20, mar: 25, apr: 30, may: 30, jun: 30, jul: 30, aug: 30, sep: 25, oct: 25, nov: 25, dec: 30}
+  min_count: {jan: 20, feb: 20, mar: 25, apr: 30, may: 30, jun: 30, jul: 25, aug: 30, sep: 25, oct: 25, nov: 25, dec: 30}
 
 "Red Knot":
   local_name: Knot
@@ -294,7 +294,7 @@
   min_count: {jan: 10, feb: 10, mar: 10, apr: 1, may: 1, jun: 1, jul: 1, aug: 10, sep: 10, oct: 10, nov: 10, dec: 10}
 
 "Dunlin":
-  min_count: {jan: 50, feb: 50, mar: 50, apr: 20, may: 15, jun: 15, jul: 10, aug: 20, sep: 50, oct: 50, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 20, may: 15, jun: 15, jul: 20, aug: 20, sep: 50, oct: 50, nov: 50, dec: 50}
 
 "Baird's Sandpiper":
   rarity: high
@@ -342,7 +342,7 @@
 
 "Black-legged Kittiwake":
   local_name: Kittiwake
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 20, may: 75, jun: 75, jul: 10, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 20, may: 75, jun: 75, jul: 30, aug: 10, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Black-headed Gull":
   min_count: {jan: 250, feb: 200, mar: 200, apr: 200, may: 200, jun: 200, jul: 200, aug: 250, sep: 250, oct: 250, nov: 250, dec: 250}
@@ -367,7 +367,7 @@
   min_count: {jan: 200, feb: 150, mar: 150, apr: 200, may: 200, jun: 200, jul: 150, aug: 150, sep: 175, oct: 200, nov: 250, dec: 250}
 
 "Great Black-backed Gull":
-  min_count: {jan: 20, feb: 10, mar: 10, apr: 15, may: 15, jun: 15, jul: 10, aug: 10, sep: 25, oct: 25, nov: 25, dec: 25}
+  min_count: {jan: 20, feb: 10, mar: 10, apr: 15, may: 15, jun: 15, jul: 15, aug: 10, sep: 25, oct: 25, nov: 25, dec: 25}
 
 "Glaucous Gull":
   rarity: high
@@ -580,7 +580,7 @@
   min_count: 10
 
 "Coal Tit":
-  min_count: {jan: 15, feb: 10, mar: 10, apr: 15, may: 15, jun: 10, jul: 6, aug: 6, sep: 10, oct: 15, nov: 15, dec: 15}
+  min_count: {jan: 15, feb: 10, mar: 10, apr: 15, may: 15, jun: 10, jul: 10, aug: 6, sep: 10, oct: 15, nov: 15, dec: 15}
 
 "Eurasian Blue Tit":
   local_name: Blue Tit
@@ -602,7 +602,7 @@
   rarity: high
 
 "Sedge Warbler":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 3, jul: 2, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 5, jun: 3, jul: 1, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Common Reed Warbler":
   local_name: Reed Warbler
@@ -613,7 +613,7 @@
 
 "Bank Swallow":
   local_name: Sand Martin
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 25, may: 50, jun: 50, jul: 50, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 25, may: 50, jun: 50, jul: 30, aug: 1, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Barn Swallow":
   local_name: Swallow
@@ -663,7 +663,7 @@
 
 "Greater Whitethroat":
   local_name: Whitethroat
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 10, jun: 10, jul: 7, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 1, may: 10, jun: 10, jul: 5, aug: 5, sep: 1, oct: 1, nov: 1, dec: 1}
 
 "Goldcrest":
   min_count: {jan: 10, feb: 6, mar: 6, apr: 10, may: 10, jun: 10, jul: 6, aug: 6, sep: 6, oct: 10, nov: 10, dec: 10}
@@ -686,7 +686,7 @@
 
 "White-throated Dipper":
   local_name: Dipper
-  min_count: 3
+  min_count: 2
 
 "European Starling":
   local_name: Starling
@@ -825,7 +825,7 @@
   rarity: medium
 
 "Yellowhammer":
-  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 10, aug: 10, sep: 10, oct: 15, nov: 10, dec: 10}
+  min_count: {jan: 10, feb: 10, mar: 10, apr: 10, may: 10, jun: 10, jul: 5, aug: 10, sep: 10, oct: 15, nov: 10, dec: 10}
 
 "Corn Bunting":
   rarity: high
