@@ -1,25 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,present,howManyStr,obsId,subId,locName,obsDt,userDisplayName,obsAux,exoticCategory,comments,mediaCounts
-comeid,2,2,False,2,OBS4718454798,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-commer,1,1,False,1,OBS4718454797,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-euroys1,6,6,False,6,OBS4718454810,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-corplo,15,15,False,15,OBS4718454809,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-eurcur,5,5,False,5,OBS4718454800,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-bkhgul,1,999999999,True,X,OBS4718454804,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-mewgul,2,2,False,2,OBS4718454803,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-euhgul1,1,999999999,True,X,OBS4718454794,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-lbbgul,2,2,False,2,OBS4718454801,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-santer1,2,2,False,2,OBS4718454812,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-norgan,1,999999999,True,X,OBS4718454802,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-grecor,1,1,False,1,OBS4718454807,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-carcro1,1,999999999,True,X,OBS4718454808,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-banswa,1,999999999,True,X,OBS4718454796,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-comhom1,1,999999999,True,X,OBS4718454805,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-houspa,1,999999999,True,X,OBS4718454799,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-eaywag1,2,2,False,2,OBS4718454806,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,2 on beach with Pied Wagtails,
-whiwag,15,15,False,15,OBS4718454811,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-eurgol,1,1,False,1,OBS4718454795,S377428566,Thorntonloch,2026-07-28 18:32,Simon Bourne,,,,
-comswi,5,5,False,5,OBS4718592669,S377449013,"76 The Murrays Brae, Scotland, GB (55.9, -3.146)",2026-07-28 19:21,Lukasz Pulawski,,,,
-comhom1,1,1,False,1,OBS4718592670,S377449013,"76 The Murrays Brae, Scotland, GB (55.9, -3.146)",2026-07-28 19:21,Lukasz Pulawski,,,,
 rocpig1,13,13,False,13,OBS4720052336,S377589682,Burdiehouse Burn Valley Park LNR,2026-07-29 06:16,Lukasz Pulawski,,N,,
 stodov1,2,2,False,2,OBS4720052354,S377589682,Burdiehouse Burn Valley Park LNR,2026-07-29 06:16,Lukasz Pulawski,,,,
 cowpig1,5,5,False,5,OBS4720052342,S377589682,Burdiehouse Burn Valley Park LNR,2026-07-29 06:16,Lukasz Pulawski,,,,
@@ -2432,3 +2411,125 @@ euhgul1,10,10,False,10,OBS4733297801,S379223456,Western Harbour Waterfront,2026-
 carcro1,4,4,False,4,OBS4733297802,S379223456,Western Harbour Waterfront,2026-08-02 16:24,Davis Gilmore,,,,
 comhom1,6,6,False,6,OBS4733297804,S379223456,Western Harbour Waterfront,2026-08-02 16:24,Davis Gilmore,,,,
 grewhi1,3,3,False,3,OBS4733417620,S379242822,Burdiehouse Burn Valley Park LNR,2026-08-02 17:24,Lukasz Pulawski,,,,
+gragoo,1,1,False,1,OBS4733636427,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+brant,1,1,False,1,OBS4733636434,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+comeid,1,1,False,1,OBS4733636432,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+euroys1,1,1,False,1,OBS4733636428,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+bklkit,1,1,False,1,OBS4733636431,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+euhgul1,1,1,False,1,OBS4733636440,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+gbbgul,1,1,False,1,OBS4733636433,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+santer1,1,1,False,1,OBS4733636436,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+norgan,1,1,False,1,OBS4733636435,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+graher1,1,1,False,1,OBS4733636439,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+carcro1,1,1,False,1,OBS4733636438,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+banswa,1,1,False,1,OBS4733636437,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+barswa,1,1,False,1,OBS4733636429,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+whiwag3,1,1,False,1,OBS4733636430,S379273589,"Belhaven Beach, Dunbar GB-Scotland 56.00337, -2.54615",2026-08-02 14:30,James Gibson,,,,
+gragoo,8,8,False,8,OBS4733736152,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+cangoo,120,120,False,120,OBS4733736156,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,N,,{'P': 3}
+mutswa,80,80,False,80,OBS4733736166,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+mallar3,60,60,False,60,OBS4733753876,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+egwtea1,4,4,False,4,OBS4733736157,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+tufduc,1,1,False,1,OBS4733753879,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,Out to sea amongst Velvet Scoter.,{'P': 1}
+comeid,1100,1100,False,1100,OBS4733736138,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+sursco,1,1,False,1,OBS4733736129,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,"[{'fieldName': 'age_sex', 'entryMethodCode': 'ebird_age_sex', 'auxCode': 'adult|m', 'value': '1'}]",,1 of 3 known males.,{'P': 1}
+whwsco3,320,320,False,320,OBS4733736141,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,Not unusual.,{'P': 6}
+whwsco2,1,1,False,1,OBS4733736122,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,"[{'fieldName': 'age_sex', 'entryMethodCode': 'ebird_age_sex', 'auxCode': 'imm|m', 'value': '1'}]",,1 of 3 known birds. Immature in a distant Velvet flock.,{'P': 1}
+blksco1,5,5,False,5,OBS4733736167,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+commer,50,50,False,50,OBS4733736147,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+grypar,1,1,False,1,OBS4733736171,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+rinphe1,2,2,False,2,OBS4733736123,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,N,,{'P': 1}
+rocpig1,35,35,False,35,OBS4733736168,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,N,,
+stodov1,4,4,False,4,OBS4733736130,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+cowpig1,35,35,False,35,OBS4733736145,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+comswi,3,3,False,3,OBS4733736169,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+commoo3,3,3,False,3,OBS4733736153,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+euroys1,215,215,False,215,OBS4733753889,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+corplo,1,1,False,1,OBS4733753888,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+norlap,100,100,False,100,OBS4733736140,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+whimbr5,4,4,False,4,OBS4733736131,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,2 separate pairs at different times flying high above the New Lagoons and calling constantly.,{'P': 2}
+eurcur,41,41,False,41,OBS4733736127,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+batgod,30,30,False,30,OBS4733736163,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+bktgod,16,16,False,16,OBS4733736161,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,"{'P': 1, 'V': 1}"
+comsni,1,1,False,1,OBS4733736159,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+comsan,7,7,False,7,OBS4733736133,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+comred1,100,100,False,100,OBS4733736143,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+rudtur,9,9,False,9,OBS4733736124,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+redkno,1,1,False,1,OBS4733736121,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+ruff,1,1,False,1,OBS4733736137,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+dunlin,100,100,False,100,OBS4733736126,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 4}
+atlpuf,10,10,False,10,OBS4733736154,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+razorb,300,300,False,300,OBS4733736158,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+commur,300,300,False,300,OBS4733753890,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+bklkit,1,1,False,1,OBS4733736170,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+bkhgul,50,50,False,50,OBS4733753886,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+mewgul,2,2,False,2,OBS4733753887,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+euhgul1,350,350,False,350,OBS4733736149,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+gbbgul,20,20,False,20,OBS4733736148,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+lbbgul,150,150,False,150,OBS4733753877,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+santer1,21,21,False,21,OBS4733736142,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+litgre1,1,1,False,1,OBS4733736174,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+grcgre1,1,1,False,1,OBS4733736117,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+retloo,8,8,False,8,OBS4733753881,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+manshe,11,11,False,11,OBS4733753878,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+norgan,80,80,False,80,OBS4733736144,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+grecor,15,15,False,15,OBS4733736172,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+eursha1,10,10,False,10,OBS4733736151,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+litegr,3,3,False,3,OBS4733736135,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+grswoo,1,1,False,1,OBS4733753880,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+eurkes,2,2,False,2,OBS4733736165,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 4}
+eurmag1,12,12,False,12,OBS4733736150,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+eurjac,10,10,False,10,OBS4733736155,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+carcro1,20,20,False,20,OBS4733753882,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+blutit,2,2,False,2,OBS4733736134,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+gretit1,2,2,False,2,OBS4733736139,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+skylar,2,2,False,2,OBS4733736146,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+banswa,12,12,False,12,OBS4733753885,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+barswa,50,50,False,50,OBS4733736173,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+comhom1,6,6,False,6,OBS4733736132,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+comchi1,2,2,False,2,OBS4733736160,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+grewhi1,3,3,False,3,OBS4733736125,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 2}
+winwre4,7,7,False,7,OBS4733736175,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+eursta,35,35,False,35,OBS4733736120,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+eurbla,2,2,False,2,OBS4733753883,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+eurrob1,2,2,False,2,OBS4733753884,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+houspa,1,1,False,1,OBS4733736162,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+grywag,1,1,False,1,OBS4733736128,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+whiwag3,21,21,False,21,OBS4733736136,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+comcha,1,1,False,1,OBS4733829028,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+eurlin1,8,8,False,8,OBS4733736118,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,{'P': 1}
+eurgol,41,41,False,41,OBS4733736164,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+reebun,2,2,False,2,OBS4733736119,S379289427,Musselburgh--Levenhall Links (General),2026-08-02 14:39,Sam Shutt,,,,
+rocpig1,2,2,False,2,OBS4733565708,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,N,,
+comwop1,22,22,False,22,OBS4733565720,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'SM', 'value': 'SM'}]",,,
+eucdov,1,1,False,1,OBS4733565715,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+lbbgul,1,1,False,1,OBS4733565709,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+eurmag4,2,2,False,2,OBS4733565711,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+eurjac,6,6,False,6,OBS4733565717,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+carcro1,4,4,False,4,OBS4733565712,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+gretit3,1,1,False,1,OBS4733565716,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+barswa2,1,1,False,1,OBS4733565713,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+goldcr6,1,1,False,1,OBS4733565719,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+eurwre7,1,1,False,1,OBS4733565721,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'AB', 'value': 'AB'}]",,,
+eurbla,2,2,False,2,OBS4733565710,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding_code', 'auxCode': 'S1', 'value': 'S1'}]",,,
+houspa,1,1,False,1,OBS4733565714,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+comcha,2,2,False,2,OBS4733565718,S379264662,Water of Leith--Colinton to Balerno,2026-08-02 17:51,Dan F.,,,,
+bkhgul,1,1,False,1,OBS4733739558,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+mewgul,1,1,False,1,OBS4733739557,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+euhgul1,1,1,False,1,OBS4733739555,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+lbbgul,1,1,False,1,OBS4733739554,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+eurmag1,2,2,False,2,OBS4733739553,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+rook1,1,1,False,1,OBS4733739556,S379288995,Calton Hill,2026-08-02 18:24,Heiko Genzmer,,,,
+comkin1,1,1,False,1,OBS4733607188,S379269629,Union Canal in Broxburn,2026-08-02 18:29,Jack Cooper,,,,
+comeid,1,1,False,1,OBS4733714461,S379285854,"Haugh Road Beach, North Berwick GB-Scotland 56.06049, -2.69488",2026-08-02 19:10,James Gibson,,,,
+commer,1,1,False,1,OBS4733714457,S379285854,"Haugh Road Beach, North Berwick GB-Scotland 56.06049, -2.69488",2026-08-02 19:10,James Gibson,,,,
+euroys1,1,1,False,1,OBS4733714458,S379285854,"Haugh Road Beach, North Berwick GB-Scotland 56.06049, -2.69488",2026-08-02 19:10,James Gibson,,,,
+euhgul1,1,1,False,1,OBS4733714459,S379285854,"Haugh Road Beach, North Berwick GB-Scotland 56.06049, -2.69488",2026-08-02 19:10,James Gibson,,,,
+grecor,1,1,False,1,OBS4733714460,S379285854,"Haugh Road Beach, North Berwick GB-Scotland 56.06049, -2.69488",2026-08-02 19:10,James Gibson,,,,
+rocpig1,1,1,False,1,OBS4733856929,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,N,,
+cowpig1,2,2,False,2,OBS4733856930,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
+comswi,14,14,False,14,OBS4733856931,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
+euhgul1,3,3,False,3,OBS4733856933,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
+lbbgul,1,1,False,1,OBS4733856928,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
+barswa,1,1,False,1,OBS4733856927,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
+comhom1,1,1,False,1,OBS4733856932,S379304868,Musselburgh (General),2026-08-02 19:56,Oliver Leedham,,,,
