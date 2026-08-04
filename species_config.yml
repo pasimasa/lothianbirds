@@ -14,6 +14,9 @@
 "Snow Goose":
   rarity: high
 
+"Red-footed Falcon":
+  rarity: high
+
 "Graylag Goose":
   local_name: Greylag Goose
   min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 50, aug: 100, sep: 200, oct: 200, nov: 200, dec: 100}
