@@ -82,7 +82,7 @@
   rarity: high
 
 "Mallard":
-  min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 50, jul: 50, aug: 50, sep: 50, oct: 75, nov: 75, dec: 75}
+  min_count: {jan: 50, feb: 40, mar: 40, apr: 40, may: 40, jun: 50, jul: 50, aug: 75, sep: 75, oct: 75, nov: 75, dec: 75}
 
 "Northern Pintail":
   local_name: Pintail
