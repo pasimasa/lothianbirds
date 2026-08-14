@@ -19,7 +19,7 @@
 
 "Graylag Goose":
   local_name: Greylag Goose
-  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 50, aug: 100, sep: 200, oct: 200, nov: 200, dec: 100}
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 50, aug: 150, sep: 200, oct: 200, nov: 200, dec: 100}
 
 "Lesser White-fronted Goose":
   rarity: high
@@ -43,7 +43,7 @@
   rarity: medium
 
 "Canada Goose":
-  min_count: {jan: 50, feb: 50, mar: 40, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 75, dec: 50}
+  min_count: {jan: 50, feb: 50, mar: 40, apr: 50, may: 50, jun: 50, jul: 50, aug: 75, sep: 100, oct: 100, nov: 75, dec: 50}
 
 "Graylag x Canada Goose (hybrid)":
   local_name: Greylag x Canada Goose (hybrid)
@@ -170,7 +170,7 @@
 
 "Common Wood-Pigeon":
   local_name: Wood Pigeon
-  min_count: {jan: 100, feb: 100, mar: 100, apr: 75, may: 75, jun: 75, jul: 50, aug: 50, sep: 100, oct: 100, nov: 100, dec: 100}
+  min_count: {jan: 100, feb: 100, mar: 100, apr: 75, may: 75, jun: 75, jul: 50, aug: 100, sep: 100, oct: 100, nov: 100, dec: 100}
 
 "Eurasian Collared-Dove":
   local_name: Collared Dove
@@ -232,7 +232,7 @@
 
 "Northern Lapwing":
   local_name: Lapwing
-  min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 50, sep: 100, oct: 100, nov: 100, dec: 100}
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 50, may: 50, jun: 50, jul: 50, aug: 75, sep: 100, oct: 100, nov: 100, dec: 100}
 
 "Eurasian Curlew":
   local_name: Curlew
@@ -297,7 +297,7 @@
   min_count: {jan: 10, feb: 10, mar: 10, apr: 1, may: 1, jun: 1, jul: 1, aug: 10, sep: 10, oct: 10, nov: 10, dec: 10}
 
 "Dunlin":
-  min_count: {jan: 50, feb: 50, mar: 50, apr: 20, may: 15, jun: 15, jul: 20, aug: 20, sep: 50, oct: 50, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 50, mar: 50, apr: 20, may: 15, jun: 15, jul: 20, aug: 30, sep: 50, oct: 50, nov: 50, dec: 50}
 
 "Baird's Sandpiper":
   rarity: high
@@ -370,7 +370,7 @@
   min_count: {jan: 200, feb: 150, mar: 150, apr: 200, may: 200, jun: 200, jul: 150, aug: 150, sep: 175, oct: 200, nov: 250, dec: 250}
 
 "Great Black-backed Gull":
-  min_count: {jan: 20, feb: 10, mar: 10, apr: 15, may: 15, jun: 15, jul: 15, aug: 10, sep: 25, oct: 25, nov: 25, dec: 25}
+  min_count: {jan: 20, feb: 10, mar: 10, apr: 15, may: 15, jun: 15, jul: 15, aug: 20, sep: 25, oct: 25, nov: 25, dec: 25}
 
 "Glaucous Gull":
   rarity: high
@@ -397,7 +397,7 @@
   rarity: medium
 
 "Sandwich Tern":
-  min_count: {jan: 1, feb: 1, mar: 1, apr: 10, may: 25, jun: 20, jul: 20, aug: 10, sep: 5, oct: 1, nov: 1, dec: 1}
+  min_count: {jan: 1, feb: 1, mar: 1, apr: 10, may: 25, jun: 20, jul: 20, aug: 15, sep: 5, oct: 1, nov: 1, dec: 1}
 
 "Bridled Tern":
   rarity: high
@@ -567,7 +567,7 @@
   min_count: {jan: 100, feb: 100, mar: 100, apr: 100, may: 100, jun: 100, jul: 100, aug: 100, sep: 100, oct: 150, nov: 150, dec: 100}
 
 "Rook":
-  min_count: {jan: 50, feb: 25, mar: 25, apr: 30, may: 35, jun: 35, jul: 25, aug: 25, sep: 50, oct: 75, nov: 50, dec: 50}
+  min_count: {jan: 50, feb: 25, mar: 25, apr: 30, may: 35, jun: 35, jul: 25, aug: 50, sep: 50, oct: 75, nov: 50, dec: 50}
 
 "Carrion Crow":
   min_count: {jan: 150, feb: 100, mar: 75, apr: 50, may: 75, jun: 75, jul: 50, aug: 50, sep: 75, oct: 100, nov: 150, dec: 150}
@@ -847,3 +847,5 @@ settings:
     user_species:
       "Rosss Burns":
         - "Hawfinch"         # exclude only these species from this user
+      "Scott Reed":
+       - "Spotted Flycatcher"
