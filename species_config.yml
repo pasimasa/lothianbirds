@@ -849,3 +849,5 @@ settings:
         - "Hawfinch"         # exclude only these species from this user
       "Scott Reed":
        - "Spotted Flycatcher"
+      "Kai Ridgway":
+       - "Red-footed Falcon"
