@@ -1,9 +1,4 @@
 speciesCode,howManyAtleast,howManyAtmost,present,howManyStr,obsId,obsAux,subId,locName,obsDt,userDisplayName,comments,exoticCategory,mediaCounts
-cowpig1,18,18,False,18,OBS4802995079,,S386601506,"75 Lauder Rambling, North Berwick GB-Scotland 56.04759, -2.72779",2026-08-24 20:00,Becky B,,,
-eurjac,30,30,False,30,OBS4802995081,,S386601506,"75 Lauder Rambling, North Berwick GB-Scotland 56.04759, -2.72779",2026-08-24 20:00,Becky B,,,
-rook1,20,20,False,20,OBS4802995080,,S386601506,"75 Lauder Rambling, North Berwick GB-Scotland 56.04759, -2.72779",2026-08-24 20:00,Becky B,,,
-sonthr1,1,1,False,1,OBS4802995082,,S386601506,"75 Lauder Rambling, North Berwick GB-Scotland 56.04759, -2.72779",2026-08-24 20:00,Becky B,,,
-barswa,6000,6000,False,6000,OBS4802975580,,S386599674,Blindwells reedbeds,2026-08-24 21:16,Pasi Hyvönen,Very rough estimate,,
 cogwar1,1,1,False,1,OBS4803421859,,S386633747,Seton Sands,2026-08-25 00:27,Helen McCondichie,Seaton sands Edinburgh,,
 tawowl1,1,1,False,1,OBS4803586076,,S386644865,Seton Sands,2026-08-25 01:35,Helen McCondichie,Seaton sands Edinburgh,,
 gragoo,200,200,False,200,OBS4805893626,,S386863548,Dunbar - Tyninghame to Torness,2026-08-25 06:00,Dylan Daunt,,,
@@ -3302,3 +3297,10 @@ whiwag,4,4,False,4,OBS4818638446,,S388026781,Thorntonloch,2026-08-29 12:15,Jon P
 hoocro1,1,1,False,1,OBS4818542898,,S388017107,A Tree On Ford’s Road,2026-08-29 18:46,Rosss Burns,White neck. Flew into Sycamore.,,{'P': 1}
 combuz1,1,1,False,1,OBS4818599209,,S388023862,"12 The Causeway, Edinburgh GB-Scotland 55.94261, -3.14551",2026-08-29 19:33,Martin Stervander,,,
 goldcr1,2,2,False,2,OBS4818599208,,S388023862,"12 The Causeway, Edinburgh GB-Scotland 55.94261, -3.14551",2026-08-29 19:33,Martin Stervander,,,
+cowpig1,1,1,False,1,OBS4818832419,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+eurmag1,1,1,False,1,OBS4818832420,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+eurjac,25,25,False,25,OBS4818832415,"[{'fieldName': 'breeding_code', 'entryMethodCode': 'api_breeding', 'auxCode': 'FO', 'value': 'FO'}]",S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+carcro1,1,1,False,1,OBS4818832416,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+coatit2,1,1,False,1,OBS4818832418,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+blutit,4,4,False,4,OBS4818832417,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
+gretit1,1,1,False,1,OBS4818832414,,S388045730,Home,2026-08-29 09:03,Grant Donaldson,,,
