@@ -490,6 +490,10 @@
   local_name: Goshawk
   rarity: medium
 
+"European Honey-buzzard":
+  local_name: Honey-buzzard
+  rarity: high
+
 "Western Marsh Harrier":
   local_name: Marsh Harrier
   rarity: high
